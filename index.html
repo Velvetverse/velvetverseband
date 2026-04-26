@@ -28,15 +28,23 @@ nav{
   width:100%;
   z-index:1000;
   display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  padding:14px;
-  background:rgba(0,0,0,0.88);
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 30px;
+  background:rgba(0,0,0,0.9);
   border-bottom:1px solid #d4af37;
   box-shadow:0 0 18px rgba(212,175,55,0.35);
 }
 
+ .nav-logo{
+  height:50px;
+}
+
+.nav-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 nav button{
   background:#111;
   color:#f5f0e8;
@@ -188,11 +196,15 @@ footer{
 <body>
 
 <nav>
-  <button class="active-btn" onclick="show('home',this)">Home</button>
-  <button onclick="show('biografia',this)">Biografia</button>
-  <button onclick="show('about',this)">About Us</button>
-  <button onclick="show('discography',this)">Discography</button>
-  <button onclick="show('contact',this)">Contact Us</button>
+  <img src="logo.png" alt="VelvetVerse Band Logo" class="nav-logo">
+
+  <div class="nav-links">
+    <button onclick="show('home',this)">Home</button>
+    <button onclick="show('biografia',this)">Biografia</button>
+    <button onclick="show('about',this)">About Us</button>
+    <button onclick="show('discography',this)">Discography</button>
+    <button onclick="show('contact',this)">Contact Us</button>
+  </div>
 </nav>
 
 <div id="home" class="section active">
