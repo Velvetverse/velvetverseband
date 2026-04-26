@@ -253,6 +253,30 @@ function playSong(title,url){
   document.getElementById("nowPlaying").textContent="Now Playing: " + title;
   document.getElementById("spotifyPlayer").src = url;
 }
+  fetch("songs.json")
+  .then(res => res.json())
+  .then(data => {
+    const grid = document.getElementById("discGrid");
+
+    data.forEach(song => {
+      const card = document.createElement("div");
+      card.className = "disc-card";
+
+      card.onclick = () => {
+        playSong(
+          song.title,
+          "https://open.spotify.com/embed/track/" + song.spotify
+        );
+      };
+
+      card.innerHTML = `
+        <img src="${song.cover}" alt="${song.title}">
+        <strong>${song.title}</strong>
+      `;
+
+      grid.appendChild(card);
+    });
+  });
 </script>
 
 </body>
