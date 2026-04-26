@@ -1,1 +1,295 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VelvetVerse Band | Official Website</title>
+
+<style>
+*{box-sizing:border-box;}
+
+html,body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#090909;
+  color:#f5f0e8;
+  overflow-x:hidden;
+}
+
+body{
+  background:
+    radial-gradient(circle at top,#2a2114 0%,#090909 42%,#000 100%);
+}
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:14px;
+  background:rgba(0,0,0,0.88);
+  border-bottom:1px solid #d4af37;
+  box-shadow:0 0 18px rgba(212,175,55,0.35);
+}
+
+nav button{
+  background:#111;
+  color:#f5f0e8;
+  border:1px solid #d4af37;
+  border-radius:10px;
+  padding:10px 16px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.25s;
+}
+
+nav button:hover,
+nav button.active-btn{
+  background:#d4af37;
+  color:#000;
+  box-shadow:0 0 18px rgba(212,175,55,0.7);
+}
+
+.section{
+  display:none;
+  min-height:100vh;
+  padding:95px 20px 50px;
+}
+
+.section.active{display:block;}
+
+.hero{
+  min-height:calc(100vh - 95px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.75)),
+    url("band-home.jpg") center/cover no-repeat;
+  border-radius:0 0 28px 28px;
+}
+
+.hero-box{
+  max-width:900px;
+  padding:35px;
+}
+
+.hero h1{
+  font-size:52px;
+  margin:0;
+  color:#d4af37;
+  text-shadow:0 0 22px rgba(212,175,55,0.55);
+}
+
+.hero p{
+  font-size:20px;
+  line-height:1.6;
+}
+
+.gold{
+  color:#d4af37;
+}
+
+.panel{
+  max-width:1100px;
+  margin:auto;
+  background:rgba(15,15,15,0.9);
+  border:1px solid rgba(212,175,55,0.65);
+  border-radius:22px;
+  padding:34px;
+  box-shadow:0 0 24px rgba(212,175,55,0.22);
+  line-height:1.7;
+}
+
+.panel h1,
+.panel h2{
+  color:#d4af37;
+}
+
+.music-player{
+  margin:25px 0;
+  padding:22px;
+  border:1px solid #d4af37;
+  border-radius:18px;
+  background:#050505;
+  box-shadow:0 0 18px rgba(212,175,55,0.35);
+}
+
+#nowPlaying{
+  color:#d4af37;
+  font-size:22px;
+  margin-bottom:15px;
+  font-weight:bold;
+}
+
+.disc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:22px;
+  margin-top:25px;
+}
+
+.disc-card{
+  background:#111;
+  border:1px solid rgba(212,175,55,0.7);
+  border-radius:18px;
+  padding:14px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 12px rgba(212,175,55,0.22);
+}
+
+.disc-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 28px rgba(212,175,55,0.65);
+}
+
+.disc-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid #d4af37;
+}
+
+.disc-card strong{
+  display:block;
+  margin-top:12px;
+  color:#f5f0e8;
+}
+
+.contact a{
+  color:#d4af37;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  border-top:1px solid #d4af37;
+  font-size:13px;
+  opacity:0.8;
+}
+
+@media(max-width:700px){
+  .hero h1{font-size:36px;}
+  nav button{font-size:13px;padding:9px 11px;}
+  .panel{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <button class="active-btn" onclick="show('home',this)">Home</button>
+  <button onclick="show('biografia',this)">Biografia</button>
+  <button onclick="show('about',this)">About Us</button>
+  <button onclick="show('discography',this)">Discography</button>
+  <button onclick="show('contact',this)">Contact Us</button>
+</nav>
+
+<div id="home" class="section active">
+  <div class="hero">
+    <div class="hero-box">
+      <h1>VelvetVerse Band</h1>
+      <p><span class="gold">Studio Music Project</span><br>
+      Portuguese soul, cinematic rock, fado feeling and international sound.</p>
+    </div>
+  </div>
+</div>
+
+<div id="biografia" class="section">
+  <div class="panel">
+    <h1>Biografia</h1>
+    <p>A VelvetVerse Band é um projeto musical de estúdio criado por músicos apaixonados pela criação sonora, sem limites de palco ou fronteiras físicas.</p>
+    <p>A nossa identidade passa pelo Hard Rock, Pop/Rock, baladas, fado, música portuguesa e sonoridades internacionais em Português e Inglês.</p>
+    <p>Somos uma banda de estúdio onde cada música é construída com emoção, detalhe e identidade própria.</p>
+  </div>
+</div>
+
+<div id="about" class="section">
+  <div class="panel">
+    <h1>About Us</h1>
+    <p>VelvetVerse Band is a studio-based music project blending Portuguese emotion with cinematic rock energy.</p>
+    <p>Our sound moves from Hard Rock to Fado-inspired melodies, from emotional ballads to powerful international rock songs in Portuguese and English.</p>
+    <p>More than a traditional band, VelvetVerse is a creative studio universe where music is our language and the studio is our stage.</p>
+  </div>
+</div>
+
+<div id="discography" class="section">
+  <div class="panel">
+    <h1>Discography</h1>
+    <p>Click a cover to listen inside this page.</p>
+
+    <div class="music-player">
+      <div id="nowPlaying">Select a song</div>
+      <iframe id="spotifyPlayer"
+        style="border-radius:12px"
+        src=""
+        width="100%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="disc-grid">
+
+      <div class="disc-card" onclick="playSong('High Voltage','https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE')">
+        <img src="high-voltage.png" alt="High Voltage">
+        <strong>High Voltage</strong>
+      </div>
+
+      <div class="disc-card" onclick="playSong('Angel Wings','https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE')">
+        <img src="angel-wings.png" alt="Angel Wings">
+        <strong>Angel Wings</strong>
+      </div>
+
+      <div class="disc-card" onclick="playSong('Static World','https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE')">
+        <img src="static-world.png" alt="Static World">
+        <strong>Static World</strong>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="section">
+  <div class="panel contact">
+    <h1>Contact Us</h1>
+    <p>For music, collaborations or general enquiries:</p>
+    <p><a href="mailto:velvetverseradio@gmail.com">velvetverseradio@gmail.com</a></p>
+  </div>
+</div>
+
+<footer>
+  © 2026 VelvetVerse Band. All rights reserved.
+</footer>
+
+<script>
+function show(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active-btn'));
+  btn.classList.add('active-btn');
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function playSong(title, spotifyUrl){
+  document.getElementById("nowPlaying").textContent = "Now Playing: " + title;
+  document.getElementById("spotifyPlayer").src = spotifyUrl;
+}
+</script>
+
+</body>
+</html>
