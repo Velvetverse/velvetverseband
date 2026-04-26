@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -22,31 +21,34 @@ body{
     radial-gradient(circle at top,#2a2114 0%,#090909 42%,#000 100%);
 }
 
+/* NAV BAR */
 nav{
   position:fixed;
   top:0;
   width:100%;
+  min-height:110px;
   z-index:1000;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:20px 40px;   /* 👈 mais altura */
-  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  gap:30px;
+  padding:15px 30px;
+  background:rgba(0,0,0,0.92);
   border-bottom:1px solid #d4af37;
   box-shadow:0 0 18px rgba(212,175,55,0.35);
 }
 
-.nav-links{
-  display:flex;
-  gap:20px;   /* mais espaço */
-  align-items:center;
+.nav-logo{
+  height:85px;
 }
 
 .nav-links{
   display:flex;
-  gap:12px;
+  gap:15px;
+  align-items:center;
   flex-wrap:wrap;
 }
+
 nav button{
   background:#111;
   color:#f5f0e8;
@@ -65,16 +67,18 @@ nav button.active-btn{
   box-shadow:0 0 18px rgba(212,175,55,0.7);
 }
 
+/* SECTIONS */
 .section{
   display:none;
   min-height:100vh;
-  padding:95px 20px 50px;
+  padding:140px 20px 50px;
 }
 
 .section.active{display:block;}
 
+/* HERO */
 .hero{
-  min-height:calc(100vh - 95px);
+  min-height:calc(100vh - 110px);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -82,7 +86,6 @@ nav button.active-btn{
   background:
     linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.75)),
     url("band-home.jpg") center/cover no-repeat;
-  border-radius:0 0 28px 28px;
 }
 
 .hero-box{
@@ -99,13 +102,13 @@ nav button.active-btn{
 
 .hero p{
   font-size:20px;
-  line-height:1.6;
 }
 
 .gold{
   color:#d4af37;
 }
 
+/* PANELS */
 .panel{
   max-width:1100px;
   margin:auto;
@@ -114,14 +117,9 @@ nav button.active-btn{
   border-radius:22px;
   padding:34px;
   box-shadow:0 0 24px rgba(212,175,55,0.22);
-  line-height:1.7;
 }
 
-.panel h1,
-.panel h2{
-  color:#d4af37;
-}
-
+/* PLAYER */
 .music-player{
   margin:25px 0;
   padding:22px;
@@ -135,14 +133,13 @@ nav button.active-btn{
   color:#d4af37;
   font-size:22px;
   margin-bottom:15px;
-  font-weight:bold;
 }
 
+/* DISC GRID */
 .disc-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
   gap:22px;
-  margin-top:25px;
 }
 
 .disc-card{
@@ -153,7 +150,6 @@ nav button.active-btn{
   text-align:center;
   cursor:pointer;
   transition:0.3s;
-  box-shadow:0 0 12px rgba(212,175,55,0.22);
 }
 
 .disc-card:hover{
@@ -166,17 +162,6 @@ nav button.active-btn{
   aspect-ratio:1/1;
   object-fit:cover;
   border-radius:14px;
-  border:1px solid #d4af37;
-}
-
-.disc-card strong{
-  display:block;
-  margin-top:12px;
-  color:#f5f0e8;
-}
-
-.contact a{
-  color:#d4af37;
 }
 
 footer{
@@ -184,13 +169,6 @@ footer{
   padding:25px;
   border-top:1px solid #d4af37;
   font-size:13px;
-  opacity:0.8;
-}
-
-@media(max-width:700px){
-  .hero h1{font-size:36px;}
-  nav button{font-size:13px;padding:9px 11px;}
-  .panel{padding:22px;}
 }
 </style>
 </head>
@@ -198,14 +176,14 @@ footer{
 <body>
 
 <nav>
-  <img src="logo.png" alt="VelvetVerse Band Logo" class="nav-logo">
+  <img src="logo.png" class="nav-logo">
 
   <div class="nav-links">
-    <button onclick="show('home',this)">Home</button>
+    <button class="active-btn" onclick="show('home',this)">Home</button>
     <button onclick="show('biografia',this)">Biografia</button>
     <button onclick="show('about',this)">About Us</button>
     <button onclick="show('discography',this)">Discography</button>
-    <button onclick="show('contact',this)">Contact Us</button>
+    <button onclick="show('contact',this)">Contact</button>
   </div>
 </nav>
 
@@ -214,7 +192,7 @@ footer{
     <div class="hero-box">
       <h1>VelvetVerse Band</h1>
       <p><span class="gold">Studio Music Project</span><br>
-      Portuguese soul, cinematic rock, fado feeling and international sound.</p>
+      Rock • Fado • International Sound</p>
     </div>
   </div>
 </div>
@@ -222,54 +200,40 @@ footer{
 <div id="biografia" class="section">
   <div class="panel">
     <h1>Biografia</h1>
-    <p>A VelvetVerse Band é um projeto musical de estúdio criado por músicos apaixonados pela criação sonora, sem limites de palco ou fronteiras físicas.</p>
-    <p>A nossa identidade passa pelo Hard Rock, Pop/Rock, baladas, fado, música portuguesa e sonoridades internacionais em Português e Inglês.</p>
-    <p>Somos uma banda de estúdio onde cada música é construída com emoção, detalhe e identidade própria.</p>
+    <p>A VelvetVerse Band é um projeto musical de estúdio criado por músicos apaixonados pela criação sonora.</p>
   </div>
 </div>
 
 <div id="about" class="section">
   <div class="panel">
     <h1>About Us</h1>
-    <p>VelvetVerse Band is a studio-based music project blending Portuguese emotion with cinematic rock energy.</p>
-    <p>Our sound moves from Hard Rock to Fado-inspired melodies, from emotional ballads to powerful international rock songs in Portuguese and English.</p>
-    <p>More than a traditional band, VelvetVerse is a creative studio universe where music is our language and the studio is our stage.</p>
+    <p>VelvetVerse is a studio-based music project blending rock and Portuguese soul.</p>
   </div>
 </div>
 
 <div id="discography" class="section">
   <div class="panel">
     <h1>Discography</h1>
-    <p>Click a cover to listen inside this page.</p>
 
     <div class="music-player">
       <div id="nowPlaying">Select a song</div>
       <iframe id="spotifyPlayer"
-        style="border-radius:12px"
-        src=""
-        width="100%"
-        height="152"
+        width="100%" height="152"
         frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
+        allow="autoplay; encrypted-media">
       </iframe>
     </div>
 
     <div class="disc-grid">
 
-      <div class="disc-card" onclick="playSong('High Voltage','https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE')">
-        <img src="high-voltage.png" alt="High Voltage">
+      <div class="disc-card" onclick="playSong('High Voltage','https://open.spotify.com/embed/track/XXXX')">
+        <img src="high-voltage.png">
         <strong>High Voltage</strong>
       </div>
 
-      <div class="disc-card" onclick="playSong('Angel Wings','https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE')">
-        <img src="angel-wings.png" alt="Angel Wings">
+      <div class="disc-card" onclick="playSong('Angel Wings','https://open.spotify.com/embed/track/XXXX')">
+        <img src="angel-wings.png">
         <strong>Angel Wings</strong>
-      </div>
-
-      <div class="disc-card" onclick="playSong('Static World','https://open.spotify.com/embed/track/PASTE_SPOTIFY_TRACK_ID_HERE')">
-        <img src="static-world.png" alt="Static World">
-        <strong>Static World</strong>
       </div>
 
     </div>
@@ -277,16 +241,13 @@ footer{
 </div>
 
 <div id="contact" class="section">
-  <div class="panel contact">
-    <h1>Contact Us</h1>
-    <p>For music, collaborations or general enquiries:</p>
-    <p><a href="mailto:velvetverseradio@gmail.com">velvetverseradio@gmail.com</a></p>
+  <div class="panel">
+    <h1>Contact</h1>
+    <p>velvetverseradio@gmail.com</p>
   </div>
 </div>
 
-<footer>
-  © 2026 VelvetVerse Band. All rights reserved.
-</footer>
+<footer>© 2026 VelvetVerse Band</footer>
 
 <script>
 function show(id,btn){
@@ -295,13 +256,11 @@ function show(id,btn){
 
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active-btn'));
   btn.classList.add('active-btn');
-
-  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function playSong(title, spotifyUrl){
-  document.getElementById("nowPlaying").textContent = "Now Playing: " + title;
-  document.getElementById("spotifyPlayer").src = spotifyUrl;
+function playSong(title,url){
+  document.getElementById("nowPlaying").textContent="Now Playing: "+title;
+  document.getElementById("spotifyPlayer").src=url;
 }
 </script>
 
