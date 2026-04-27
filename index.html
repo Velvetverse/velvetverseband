@@ -473,6 +473,89 @@ footer{
 .radio-btn:hover {
   box-shadow: 0 0 20px rgba(212,175,55,0.7);
 }
+  .release-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.release-box {
+  position: relative;
+  max-width: 370px;
+  width: 100%;
+  background: #111;
+  border: 1px solid #d4af37;
+  border-radius: 22px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(212,175,55,0.55);
+  animation: popupFade 0.5s ease;
+}
+
+.release-box h2 {
+  color: #d4af37;
+  margin-top: 0;
+}
+
+.release-box img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #d4af37;
+  margin: 15px 0;
+}
+
+.release-box h3 {
+  color: #fff;
+  margin: 10px 0 5px;
+  font-size: 24px;
+}
+
+.release-box p {
+  color: #d4af37;
+  margin: 6px 0;
+}
+
+.release-box a {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 24px;
+  background: #d4af37;
+  color: #000;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.release-box a:hover {
+  box-shadow: 0 0 18px rgba(212,175,55,0.8);
+}
+
+.release-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 </style>
 </head>
 
@@ -850,6 +933,35 @@ document.getElementById("loadMoreBtn").addEventListener("click", function() {
 });
 
 renderComments();
+</script>
+  <div id="releasePopup" class="release-popup">
+  <div class="release-box">
+    <button class="release-close" onclick="closeReleasePopup()">×</button>
+
+    <h2>New Release</h2>
+
+    <img src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/o-galo-do-vizinho.png" alt="O Galo do Vizinho">
+
+    <h3>O Galo do Vizinho</h3>
+    <p>VelvetVerse Band</p>
+    <p><strong>Vocals:</strong> Suzy Mendes</p>
+
+    <a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank">
+      Listen Now
+    </a>
+  </div>
+</div>
+  <script>
+window.addEventListener("load", function() {
+  if (!sessionStorage.getItem("releasePopupClosed")) {
+    document.getElementById("releasePopup").style.display = "flex";
+  }
+});
+
+function closeReleasePopup() {
+  document.getElementById("releasePopup").style.display = "none";
+  sessionStorage.setItem("releasePopupClosed", "true");
+}
 </script>
 </body>
 </html>
