@@ -380,6 +380,21 @@ footer{
   border: 2px solid #d4af37 !important;
   flex: 0 0 55px !important;
 }
+  .load-more-btn {
+  display: block;
+  margin: 25px auto 0;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: #00ffff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  box-shadow: 0 0 20px #00ffff;
+}
 </style>
 </head>
 
@@ -525,54 +540,15 @@ footer{
 
       <p id="commentStatus"></p>
     </form>
-   <div class="approved-comments">
+  <div class="approved-comments">
   <h2>Approved Comments</h2>
 
-  <div class="comment-card">
-   <img class="comment-photo" src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/michael.jpg" alt="Michael Diallo">
+  <div id="commentsList"></div>
 
-    <div class="comment-content">
-      <h3>Michael Diallo</h3>
-      <p>VelvetVerse Band brings a powerful and emotional sound. You can feel the passion, the experience, and the soul behind every song. Truly inspiring music!</p>
-    </div>
-  </div>
-
-  <div class="comment-card">
-    <img class="comment-photo" src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/rute.jpg" alt="Rute Santos">
-
-    <div class="comment-content">
-      <h3>Rute Santos</h3>
-      <p>A VelvetVerse Band tem uma energia muito especial. As músicas transmitem emoção, força e verdade. É bonito ouvir um projeto feito com tanta paixão pela música.</p>
-    </div>
-  </div>
-     
-     <div class="comment-card">
-  <img class="comment-photo" src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/refs/heads/main/patricia.jpg" alt="Nome">
-
-  <div class="comment-content">
-    <h3>Patricia Reis</h3>
-    <p>Simplesmente maravilhosos os vossos temas...</p>
-  </div>
+  <button id="loadMoreBtn" class="load-more-btn">
+    Load more comments
+  </button>
 </div>
-
-     <div class="comment-card">
-  <div class="comment-avatar">J</div>
-
-  <div class="comment-content">
-    <h3>Joao Silva</h3>
-    <p>Grande Banda Abraço a todos...</p>
-  </div>
-</div>
-
-  <div class="comment-card">
-    <div class="comment-avatar">A</div>
-
-    <div class="comment-content">
-      <h3>Ana Martins</h3>
-      <p>Um projeto musical com alma, identidade e muita qualidade. Parabéns à VelvetVerse Band pelo excelente trabalho e por manter viva a paixão pela música.</p>
-    </div>
-  </div>
-
 </div>
 <div id="contact" class="section">
   <div class="panel">
@@ -690,6 +666,83 @@ function playSong(title,url){
   });
 });
 </script>
+<script>
+const comments = [
+  {
+    name: "Michael Diallo",
+    photo: "https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/michael.jpg",
+    message: "VelvetVerse Band brings a powerful and emotional sound. You can feel the passion, the experience, and the soul behind every song. Truly inspiring music!",
+    date: "2026-04-27"
+  },
+  {
+    name: "Rute Santos",
+    photo: "https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/rute.jpg",
+    message: "A VelvetVerse Band tem uma energia muito especial. As músicas transmitem emoção, força e verdade. É bonito ouvir um projeto feito com tanta paixão pela música.",
+    date: "2026-04-26"
+  },
+  {
+    name: "Patricia Reis",
+    photo: "https://raw.githubusercontent.com/Velvetverse/velvetverseband/refs/heads/main/patricia.jpg",
+    message: "Simplesmente maravilhosos os vossos temas...",
+    date: "2026-04-25"
+  },
+  {
+    name: "Joao Silva",
+    photo: "",
+    message: "Grande Banda Abraço a todos...",
+    date: "2026-04-24"
+  },
+  {
+    name: "Ana Martins",
+    photo: "",
+    message: "Um projeto musical com alma, identidade e muita qualidade. Parabéns à VelvetVerse Band pelo excelente trabalho e por manter viva a paixão pela música.",
+    date: "2026-04-23"
+  }
+];
 
+comments.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+let visibleComments = 3;
+
+function getAvatar(name, photo) {
+  if (photo && photo.trim() !== "") return photo;
+
+  return "https://ui-avatars.com/api/?name=" 
+    + encodeURIComponent(name) 
+    + "&background=00ffff&color=000000&bold=true";
+}
+
+function renderComments() {
+  const commentsList = document.getElementById("commentsList");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+  commentsList.innerHTML = "";
+
+  comments.slice(0, visibleComments).forEach(comment => {
+    const card = document.createElement("div");
+    card.className = "comment-card";
+
+    card.innerHTML = `
+      <img class="comment-photo" src="${getAvatar(comment.name, comment.photo)}" alt="${comment.name}">
+      <div class="comment-content">
+        <h3>${comment.name}</h3>
+        <p>${comment.message}</p>
+      </div>
+    `;
+
+    commentsList.appendChild(card);
+  });
+
+  loadMoreBtn.style.display =
+    visibleComments >= comments.length ? "none" : "block";
+}
+
+document.getElementById("loadMoreBtn").addEventListener("click", function() {
+  visibleComments += 3;
+  renderComments();
+});
+
+renderComments();
+</script>
 </body>
 </html>
