@@ -450,6 +450,28 @@ function playSong(title,url){
   document.getElementById("pt").style.display = (lang === "pt") ? "block" : "none";
   document.getElementById("en").style.display = (lang === "en") ? "block" : "none";
 }
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById("formStatus");
+  const data = new FormData(form);
+
+  status.textContent = "Sending message...";
+
+  fetch("https://formsubmit.co/ajax/bandvelvetverse@gmail.com", {
+    method: "POST",
+    body: data
+  })
+  .then(response => response.json())
+  .then(data => {
+    status.textContent = "✅ Message sent successfully!";
+    form.reset();
+  })
+  .catch(error => {
+    status.textContent = "❌ Something went wrong. Please try again.";
+  });
+});
 </script>
 
 </body>
