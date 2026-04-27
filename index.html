@@ -315,6 +315,7 @@ footer{
 .comment-card {
   display: flex;
   gap: 15px;
+  align-items: flex-start;
   background: #111;
   border: 1px solid #d4af37;
   border-radius: 15px;
@@ -360,11 +361,12 @@ footer{
 </div>
 
 .comment-photo {
-  width: 42px;
-  height: 42px;
+  width: 42px !important;
+  height: 42px !important;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid #d4af37;
+  flex-shrink: 0;
 }
   
 </style>
