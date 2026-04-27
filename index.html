@@ -458,6 +458,21 @@ footer{
     text-align: center;
   }
 }
+  .radio-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #d4af37;
+  color: #000;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.radio-btn:hover {
+  box-shadow: 0 0 20px rgba(212,175,55,0.7);
+}
 </style>
 </head>
 
@@ -472,6 +487,9 @@ footer{
   <button onclick="show('comments',this)">Comments</button>
   <button onclick="show('about',this)">About Us</button>
   <button onclick="show('contact',this)">Contact Us</button>
+  <button onclick="window.open('https://velvetverseradio.com','_blank')">
+  📻 Radio
+</button>
 </div>
 </nav>
 
@@ -481,6 +499,9 @@ footer{
       <h1>VelvetVerse Band</h1>
       <p><span class="gold">Studio Music Project</span><br>
       Rock • Fado • International Sound</p>
+      <a href="https://velvetverseradio.com" target="_blank" class="radio-btn">
+  🎧 Listen Live Radio
+</a>
     </div>
   </div>
 </div>
