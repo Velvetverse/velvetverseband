@@ -386,6 +386,24 @@ footer{
 .load-more-btn:hover {
   box-shadow: 0 0 20px #00ffff;
 }
+  .site-footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid #d4af37;
+  font-size: 13px;
+  line-height: 1.6;
+  background: #000;
+}
+
+.site-footer a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 
@@ -565,7 +583,22 @@ footer{
 
   </div>
 </div>
-<footer>© 2026 VelvetVerse Band</footer>
+<footer class="site-footer">
+  <p>© 2026</p>
+
+  <p>
+    <a href="#" target="_blank">VelvetVerse Band</a>
+  </p>
+
+  <p>All rights reserved.</p>
+
+  <p>
+    Use of this Website assumes acceptance of
+    <a href="#" target="_blank">Terms & Conditions</a>
+    and
+    <a href="#" target="_blank">Privacy Policy</a>
+  </p>
+</footer>
 
 <script>
 function show(id,btn){
