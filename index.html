@@ -386,13 +386,33 @@ footer{
 .load-more-btn:hover {
   box-shadow: 0 0 20px #00ffff;
 }
-  .site-footer {
-  text-align: center;
-  padding: 30px 20px;
+  
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 30px;
   border-top: 1px solid #d4af37;
-  font-size: 13px;
-  line-height: 1.6;
   background: #000;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-center p {
+  margin: 3px 0;
+}
+
+.footer-right {
+  text-align: right;
 }
 
 .site-footer a {
@@ -403,6 +423,40 @@ footer{
 
 .site-footer a:hover {
   text-decoration: underline;
+}
+
+.footer-right a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 8px;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #d4af37;
+  transition: 0.3s;
+}
+
+.footer-right a:hover {
+  background: #d4af37;
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(212,175,55,0.7);
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+  }
 }
 </style>
 </head>
@@ -584,20 +638,25 @@ footer{
   </div>
 </div>
 <footer class="site-footer">
-  <p>© 2026</p>
+  <div class="footer-left">
+    <a href="mailto:bandvelvetverse@gmail.com">bandvelvetverse@gmail.com</a>
+  </div>
 
-  <p>
-    <a href="#" target="_blank">VelvetVerse Band</a>
-  </p>
+  <div class="footer-center">
+    <p>© 2026 VelvetVerse Band — All rights reserved.</p>
+    <p>
+      Use of this Website assumes acceptance of
+      <a href="#" target="_blank">Terms & Conditions</a>
+      and
+      <a href="#" target="_blank">Privacy Policy</a>
+    </p>
+  </div>
 
-  <p>All rights reserved.</p>
-
-  <p>
-    Use of this Website assumes acceptance of
-    <a href="#" target="_blank">Terms & Conditions</a>
-    and
-    <a href="#" target="_blank">Privacy Policy</a>
-  </p>
+  <div class="footer-right">
+    <a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank" title="Facebook">f</a>
+    <a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank" title="Spotify">♪</a>
+    <a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank" title="YouTube">▶</a>
+  </div>
 </footer>
 
 <script>
