@@ -6,6 +6,25 @@
 <title>VelvetVerse Band | Official Website</title>
 
 <style>
+  .lang-buttons {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.lang-buttons button {
+  background: #111;
+  border: 1px solid #d4af37;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.lang-buttons button:hover {
+  background: #d4af37;
+  color: #000;
+}
 *{box-sizing:border-box;}
 
 html,body{
@@ -222,7 +241,25 @@ footer{
     <div class="about-image">
   <img src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/band.jpg" alt="VelvetVerse Band">
 </div>
-    <p>VelvetVerse is a studio-based music project blending rock and Portuguese soul.</p>
+   <div id="pt">
+  <h2>VelvetVerse Band</h2>
+     <div class="lang-buttons">
+  <button onclick="setLang('pt')">🇵🇹</button>
+  <button onclick="setLang('en')">🇬🇧</button>
+</div>
+  <p>
+  A VelvetVerse nasceu em 2024, da amizade e de uma paixão intemporal pela música.
+  Quatro amigos reuniram-se para reviver a energia dos estúdios e dos palcos, trazendo décadas de experiência.
+  </p>
+</div>
+
+<div id="en" style="display:none;">
+  <h2>VelvetVerse Band</h2>
+  <p>
+  VelvetVerse was born in 2024 from friendship and a timeless passion for music.
+  Four friends came together to reconnect with the energy of the studio and the stage, bringing decades of experience.
+  </p>
+</div>
   </div>
 </div>
 
@@ -296,6 +333,10 @@ function playSong(title,url){
       grid.appendChild(card);
     });
   });
+  function setLang(lang){
+  document.getElementById("pt").style.display = (lang === "pt") ? "block" : "none";
+  document.getElementById("en").style.display = (lang === "en") ? "block" : "none";
+}
 </script>
 
 </body>
