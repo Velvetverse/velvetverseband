@@ -328,11 +328,27 @@ footer{
 
 <div id="contact" class="section">
   <div class="panel">
-    <h1>Contact</h1>
-    <p>velvetverseradio@gmail.com</p>
+
+    <h1>Contact Us</h1>
+
+    <div class="contact-image">
+      <img src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/band.jpg" alt="VelvetVerse Band">
+    </div>
+
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+      <p id="formStatus"></p>
+    </form>
+
   </div>
 </div>
-
 <footer>© 2026 VelvetVerse Band</footer>
 
 <script>
