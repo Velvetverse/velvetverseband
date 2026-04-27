@@ -378,30 +378,54 @@ footer{
     </div>
   </div>
 </div>
-  <div id="comments" class="section">
-  <div class="panel">
+/* COMMENTS FORM - SAME STYLE AS CONTACT */
 
-    <h1>Comments</h1>
-    <p class="comments-intro">
-      Leave your message for VelvetVerse Band. Comments are reviewed before being published.
-    </p>
+#comments form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: auto;
+}
 
-    <form id="commentForm">
-      <input type="hidden" name="_subject" value="New Comment Submission">
+#comments input,
+#comments textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d4af37;
+  background: #111;
+  color: #fff;
+}
 
-      <input type="text" name="name" placeholder="Your Name" required>
+#comments textarea {
+  min-height: 120px;
+}
 
-      <input type="text" name="photo" placeholder="Photo link (optional)">
+#comments button {
+  padding: 12px;
+  border: none;
+  background: #d4af37;
+  color: #000;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-      <textarea name="message" placeholder="Write your comment here..." required></textarea>
+#comments button:hover {
+  background: #ffd700;
+}
 
-      <button type="submit">Submit Comment</button>
+#commentStatus {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
 
-      <p id="commentStatus"></p>
-    </form>
-
-  </div>
-</div>
+.comments-intro {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d4af37;
+}
 
 <div id="contact" class="section">
   <div class="panel">
