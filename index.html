@@ -541,6 +541,28 @@ function playSong(title,url){
     status.textContent = "❌ Something went wrong. Please try again.";
   });
 });
+  document.getElementById("commentForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById("commentStatus");
+  const data = new FormData(form);
+
+  status.textContent = "Sending comment...";
+
+  fetch("https://formsubmit.co/ajax/bandvelvetverse@gmail.com", {
+    method: "POST",
+    body: data
+  })
+  .then(response => response.json())
+  .then(data => {
+    status.textContent = "✅ Comment submitted! Waiting for approval.";
+    form.reset();
+  })
+  .catch(error => {
+    status.textContent = "❌ Something went wrong. Please try again.";
+  });
+});
 </script>
 
 </body>
