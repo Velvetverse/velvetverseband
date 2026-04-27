@@ -946,21 +946,42 @@ renderComments();
     <p>VelvetVerse Band</p>
     <p><strong>Vocals:</strong> Suzy Mendes</p>
 
-    <a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank">
-      Listen Now
-    </a>
+<a href="javascript:void(0)" onclick="goToDiscography()" class="release-btn">
+  Listen Now
+</a>
   </div>
 </div>
-  <script>
+<script>
 window.addEventListener("load", function() {
-  if (!sessionStorage.getItem("releasePopupClosed")) {
-    document.getElementById("releasePopup").style.display = "flex";
+  const popup = document.getElementById("releasePopup");
+
+  if (popup && !sessionStorage.getItem("releasePopupClosed")) {
+    popup.style.display = "flex";
   }
 });
 
 function closeReleasePopup() {
-  document.getElementById("releasePopup").style.display = "none";
+  const popup = document.getElementById("releasePopup");
+
+  if (popup) {
+    popup.style.display = "none";
+  }
+
   sessionStorage.setItem("releasePopupClosed", "true");
+}
+
+function goToDiscography() {
+  closeReleasePopup();
+
+  document.querySelectorAll(".section").forEach(function(section) {
+    section.classList.remove("active");
+  });
+
+  document.getElementById("discography").classList.add("active");
+
+  document.querySelectorAll("nav button").forEach(function(button) {
+    button.classList.remove("active-btn");
+  });
 }
 </script>
 </body>
