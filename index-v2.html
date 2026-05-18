@@ -1,14 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VelvetVerse Band V2</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>VelvetVerse V2</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 70px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(0,0,0,0.55);
+
+backdrop-filter:blur(18px);
+
+z-index:9999;
+}
+
+.logo{
+
+height:55px;
+
+}
+
+nav{
+
+display:flex;
+
+gap:35px;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+transition:.3s;
+}
+
+nav a:hover{
+
+color:#d4af37;
+
+}
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+display:flex;
+
+align-items:center;
+
+padding:0 7%;
+
+overflow:hidden;
+
+}
+
+.hero img{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+opacity:.55;
+
+}
+
+.overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(0,0,0,.25),
+rgba(0,0,0,.90)
+);
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:700px;
+
+}
+
+.hero-content h1{
+
+font-size:85px;
+
+line-height:.95;
+
+margin-bottom:25px;
+
+}
+
+.hero-content span{
+
+color:#d4af37;
+
+}
+
+.hero-content p{
+
+font-size:22px;
+
+line-height:1.8;
+
+color:#ddd;
+
+margin-bottom:40px;
+
+}
+
+.hero-btn{
+
+display:inline-block;
+
+padding:18px 36px;
+
+background:#d4af37;
+
+color:black;
+
+font-weight:bold;
+
+border-radius:999px;
+
+text-decoration:none;
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>VELVETVERSE V2 BUILD STARTED 😄🔥</h1>
+<header>
+
+<img src="logo.png"
+class="logo">
+
+<nav>
+
+<a href="#">HOME</a>
+
+<a href="#">RELEASES</a>
+
+<a href="#">ABOUT</a>
+
+<a href="#">DISCOGRAPHY</a>
+
+<a href="#">CONTACT</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<img src="band-cinematic.png">
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>
+
+MORE THAN A BAND.<br>
+
+<span>A UNIVERSE.</span>
+
+</h1>
+
+<p>
+
+VelvetVerse isn’t just about music.<br>
+
+It’s about freedom, truth and connection.<br>
+
+Welcome to our world.
+
+</p>
+
+<a href="#"
+class="hero-btn">
+
+ENTER THE UNIVERSE
+
+</a>
+
+</div>
+
+</section>
 
 </body>
+
 </html>
