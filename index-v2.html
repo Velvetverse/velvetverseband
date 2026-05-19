@@ -189,7 +189,68 @@ text-decoration:none;
   ... teu CSS todo ...
 
 }
+.releases-section{
 
+padding:80px 80px 60px;
+
+text-align:center;
+
+}
+
+.releases-section h2{
+
+font-size:42px;
+
+margin-bottom:45px;
+
+font-weight:700;
+
+color:#fff;
+
+}
+
+.releases-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:28px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.release-card{
+
+overflow:hidden;
+
+border-radius:18px;
+
+transition:.3s;
+
+box-shadow:0 0 28px rgba(0,0,0,.35);
+
+}
+
+.release-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 35px rgba(212,175,55,.25);
+
+}
+
+.release-card img{
+
+width:100%;
+
+display:block;
+
+}
+  
 .universe-section{
 
 padding:0px 80px 90px;
@@ -408,6 +469,32 @@ ENTER THE UNIVERSE
 </div>
 
 </section>
+<section class="releases-section">
+
+<h2>LATEST RELEASES</h2>
+
+<div class="releases-grid">
+
+<div class="release-card">
+<img src="release1.png">
+</div>
+
+<div class="release-card">
+<img src="release2.png">
+</div>
+
+<div class="release-card">
+<img src="release3.png">
+</div>
+
+<div class="release-card">
+<img src="release4.png">
+</div>
+
+</div>
+
+</section>
+  
   <section class="universe-section">
 
 <h2>ENTER THE <span>VELVETVERSE</span></h2>
