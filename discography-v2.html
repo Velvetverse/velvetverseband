@@ -24,11 +24,56 @@ a{
 color:#d4af37;
 text-decoration:none;
 }
+    .album-grid{
+display:flex;
+gap:25px;
+margin-top:35px;
+flex-wrap:wrap;
+}
+
+.album-card{
+background:#111;
+border:1px solid #d4af37;
+padding:25px;
+border-radius:14px;
+width:260px;
+box-shadow:0 0 18px rgba(212,175,55,.20);
+transition:.3s;
+}
+
+.album-card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px rgba(212,175,55,.45);
+}
+
+.album-card h3{
+color:#d4af37;
+margin-top:0;
+}
 </style>
 
 <h1>DISCOGRAPHY</h1>
 
-<p>Official VelvetVerse Band releases.</p>
+<p>Explore the official VelvetVerse Band universe.</p>
+
+<div class="album-grid">
+
+<div class="album-card">
+<h3>O Galo do Vizinho</h3>
+<p>2026</p>
+</div>
+
+<div class="album-card">
+<h3>Storm Of Love</h3>
+<p>2026</p>
+</div>
+
+<div class="album-card">
+<h3>Sussurros na Pele</h3>
+<p>2025</p>
+</div>
+
+</div>
 
 <a href="index-v2.html">← Back to Home</a>
 
