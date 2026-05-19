@@ -28,7 +28,6 @@ overflow-x:hidden;
 header{
 
 position:fixed;
-
 top:0;
 left:0;
 
@@ -36,9 +35,9 @@ width:100%;
 
 padding:22px 70px;
 
-display:flex;
+display:grid;
 
-justify-content:space-between;
+grid-template-columns:1fr auto 1fr;
 
 align-items:center;
 
@@ -296,8 +295,39 @@ font-weight:bold;
 letter-spacing:1px;
 
 }
+  .socials{
 
-</style>
+justify-self:end;
+
+display:flex;
+
+gap:18px;
+
+}
+
+.socials a{
+
+color:#fff;
+
+text-decoration:none;
+
+font-size:13px;
+
+letter-spacing:1px;
+
+opacity:.85;
+
+transition:.25s;
+
+}
+
+.socials a:hover{
+
+color:#d4af37;
+
+opacity:1;
+
+}
 
 </style>
 
@@ -323,6 +353,17 @@ class="logo">
 <a href="#">CONTACT</a>
 
 </nav>
+  <div class="socials">
+
+<a href="#" target="_blank">FB</a>
+
+<a href="#" target="_blank">IG</a>
+
+<a href="#" target="_blank">YT</a>
+
+<a href="#" target="_blank">SP</a>
+
+</div>
 
 </header>
 
