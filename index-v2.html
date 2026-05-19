@@ -1,572 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>VelvetVerse V2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VelvetVerse Band</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#050505;
-color:white;
-overflow-x:hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#050505;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
 
 header{
-
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 70px;
-
-display:grid;
-
-grid-template-columns:1fr auto 1fr;
-
-align-items:center;
-
-background:rgba(0,0,0,0.55);
-
-backdrop-filter:blur(18px);
-
-z-index:9999;
+position:fixed;top:0;left:0;width:100%;height:78px;
+display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+padding:0 70px;background:rgba(0,0,0,.72);backdrop-filter:blur(18px);
+z-index:9999
 }
-
-.logo{
-
-height:55px;
-
-}
-
-nav{
-
-display:flex;
-
-gap:35px;
-
-}
-
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:14px;
-
-letter-spacing:2px;
-
-transition:.3s;
-}
-
-nav a:hover{
-
-color:#d4af37;
-
-}
+.logo{height:56px}
+nav{display:flex;gap:32px;justify-content:center}
+nav a{font-size:13px;letter-spacing:2px;color:#fff}
+nav a:hover{color:#d4af37}
+.socials{justify-self:end;display:flex;gap:16px}
+.socials img{width:18px;height:18px;filter:invert(1);opacity:.9}
 
 .hero{
-
-position:relative;
-
-min-height:85vh;
-  
-height:auto;
-
-display:flex;
-
-align-items:center;
-
-padding:0 7%;
-
-overflow:hidden;
-
+height:100vh;position:relative;display:flex;align-items:center;
+padding:0 7%;overflow:hidden;background:#000
 }
-
-.hero img{
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-opacity:.72;
-  display:block;
-
+.hero-bg{
+position:absolute;inset:0;width:100%;height:100%;
+object-fit:cover;opacity:.75
 }
-
-.overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(0,0,0,.12),
-rgba(0,0,0,.68)
-);
-
-z-index:1;
-
-pointer-events:none;
-
+.hero::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,.15),rgba(0,0,0,.85))
 }
-
-.hero-content{
-
-position:relative;
-
-z-index:3;
-
-max-width:700px;
-  padding-left:35px;
-  margin-top:140px;
-
-}
-
-.hero-content h1{
-
-font-size:38px;
-
-line-height:.95;
-
-margin-bottom:25px;
-
-}
-
-.hero-content span{
-
-color:#d4af37;
-
-}
-
-.hero-content p{
-
-font-size:15px;
-
-line-height:1.8;
-
-color:#ddd;
-
-margin-bottom:40px;
-
-}
-
+.hero-content{position:relative;z-index:2;max-width:520px;margin-top:120px}
+.hero h1{font-size:42px;line-height:.95;margin-bottom:22px}
+.hero h1 span{color:#d4af37}
+.hero p{font-size:15px;line-height:1.7;color:#ddd;margin-bottom:28px}
 .hero-btn{
-
-display:inline-block;
-
-padding:12px 26px;
-
-background:#d4af37;
-
-color:black;
-
-font-weight:bold;
-
-border-radius:999px;
-
-text-decoration:none;
-
-}
-  ... teu CSS todo ...
-
-}
-.releases-section{
-
-padding:80px 80px 60px;
-
-text-align:center;
- background:#000;
-
-overflow:hidden; 
-  position:relative;
-z-index:10;
-
+display:inline-block;border:1px solid #d4af37;color:#d4af37;
+padding:14px 30px;font-weight:bold;font-size:13px;letter-spacing:1px
 }
 
-.releases-section h2{
-
-font-size:42px;
-
-margin-bottom:45px;
-
-font-weight:700;
-
-color:#fff;
-  text-align:center;
-
+.releases{
+background:#070707;padding:48px 70px 65px;position:relative
 }
-
-.releases-grid{
-
-display:grid;
-
-grid-template-columns:repeat(6,1fr);
-
-gap:20px;
-
-max-width:1400px;
-
-margin:0 auto;
-
-align-items:start;
-
+.releases-head{
+display:flex;justify-content:space-between;align-items:center;
+max-width:1350px;margin:0 auto 28px
 }
-
-
-
-.release-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 0 35px rgba(212,175,55,.25);
-
+.releases h2{font-size:26px;letter-spacing:1px}
+.view-all{font-size:12px;letter-spacing:1.5px;color:#fff}
+.view-all:hover{color:#d4af37}
+.release-wrap{position:relative;max-width:1350px;margin:auto}
+.release-grid{
+display:grid;grid-template-columns:repeat(6,1fr);gap:28px
 }
-
 .release-card img{
-
-width:100%;
-
-height:260px;
-
-object-fit:cover;
-
-display:block;
-
+width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;
+border:1px solid rgba(212,175,55,.25)
 }
-  
-.universe-section{
-
-padding:115px 80px 70px;
-
-background:#050505;
-
-margin-top:-90px;
-
-position:relative;
-
-z-index:5;
-
-text-align:center;
-
+.release-card h3{font-size:16px;margin-top:13px}
+.release-card p{font-size:15px;color:#aaa;margin-top:5px}
+.arrow{
+position:absolute;top:38%;transform:translateY(-50%);
+width:46px;height:46px;border-radius:50%;
+border:2px solid #d4af37;color:#fff;background:rgba(0,0,0,.45);
+display:flex;align-items:center;justify-content:center;font-size:30px
 }
-
-.universe-section h2{
-
-font-size:42px;
-
-text-align:center;
-
-margin-bottom:35px;
-
-font-weight:700;
-
-color:#fff;
-
+.arrow.left{left:-62px}
+.arrow.right{right:-62px}
+.dots{text-align:center;margin-top:24px}
+.dots span{
+display:inline-block;width:8px;height:8px;border-radius:50%;
+background:#777;margin:0 5px
 }
+.dots span:first-child{background:#d4af37}
 
-.universe-section span{
-
-color:#d4af37;
-
+.universe{
+background:#050505;padding:45px 70px 70px;text-align:center
 }
-
+.universe h2{font-size:32px;margin-bottom:34px}
+.universe h2 span{color:#d4af37}
 .universe-grid{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:35px;
-
-max-width:1200px;
-
-margin:auto;
-
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:22px;max-width:1350px;margin:auto
 }
-
-.universe-card{
-
-background:#0d0d0d;
-
-border:1px solid rgba(212,175,55,.25);
-
-border-radius:22px;
-
-padding:55px;
-
-transition:.3s;
-
-box-shadow:0 0 25px rgba(212,175,55,.08);
-
+.u-card{
+background:#101010;border:1px solid rgba(212,175,55,.25);
+border-radius:10px;overflow:hidden;min-height:230px
 }
+.u-card img{width:100%;height:105px;object-fit:cover;opacity:.85}
+.u-card-content{padding:24px}
+.u-card h3{font-size:18px;margin-bottom:10px}
+.u-card p{font-size:14px;color:#ccc;line-height:1.5;margin-bottom:18px}
+.u-card a{color:#d4af37;font-size:13px;font-weight:bold}
 
-.universe-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 0 40px rgba(212,175,55,.22);
-
+.stats{
+background:url("band-home.png") center bottom/cover no-repeat;
+padding:45px 70px;display:grid;grid-template-columns:repeat(4,1fr);
+text-align:center;position:relative
 }
+.stats::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
+.stat{position:relative;z-index:2}
+.stat .icon{font-size:30px;color:#d4af37;margin-bottom:12px}
+.stat h3{font-size:38px}
+.stat p{font-size:13px;letter-spacing:1px}
 
-.universe-card h3{
-
-font-size:34px;
-
-margin-bottom:18px;
-
-color:#fff;
-
+footer{
+background:#070707;padding:45px 70px 20px;color:#ccc
 }
-
-.universe-card p{
-
-color:#cfcfcf;
-
-margin-bottom:25px;
-
-font-size:18px;
-
+.quote{text-align:center;color:#d4af37;letter-spacing:2px;margin-bottom:35px}
+.footer-grid{
+display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;
+gap:35px;max-width:1350px;margin:auto
 }
-
-.universe-card a{
-
-color:#d4af37;
-
-text-decoration:none;
-
-font-weight:bold;
-
-letter-spacing:1px;
-
+footer img{height:70px;margin-bottom:15px}
+footer h4{color:#fff;margin-bottom:12px;font-size:14px}
+footer a,footer p{display:block;color:#ccc;font-size:13px;line-height:1.8}
+input{
+background:#111;border:1px solid #d4af37;padding:14px;width:100%;
+color:#fff;margin:10px 0
 }
-  .socials{
-
-justify-self:end;
-
-display:flex;
-
-gap:18px;
-
+button{
+width:100%;padding:14px;background:#d4af37;color:#000;
+border:none;font-weight:bold
 }
+.copy{text-align:center;margin-top:35px;font-size:12px;color:#888}
 
-.socials img{
-
-width:18px;
-
-height:18px;
-
-filter:invert(1);
-
-opacity:.85;
-
-transition:.25s;
-
+@media(max-width:900px){
+header{padding:0 20px;grid-template-columns:auto 1fr auto}
+nav{gap:14px;font-size:11px}
+.socials{display:none}
+.hero h1{font-size:34px}
+.release-grid,.universe-grid,.stats,.footer-grid{grid-template-columns:1fr}
+.arrow{display:none}
 }
-
-.socials img:hover{
-
-opacity:1;
-
-filter:invert(79%) sepia(41%) saturate(426%) hue-rotate(5deg);
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-<img src="logo.png"
-class="logo">
+<img src="logo.png" class="logo">
 
 <nav>
-
 <a href="#">HOME</a>
-
-<a href="#">RELEASES</a>
-
-<a href="#">ABOUT</a>
-
-<a href="#">DISCOGRAPHY</a>
-
-<a href="#">CONTACT</a>
-
+<a href="#bio">BIO</a>
+<a href="#discography">DISCOGRAPHY</a>
+<a href="#photos">PHOTOS</a>
+<a href="#videos">VIDEOS</a>
+<a href="#news">NEWS</a>
+<a href="#contact">CONTACT</a>
 </nav>
+
 <div class="socials">
-
-<a href="#" target="_blank">
-<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg">
-</a>
-
-<a href="#" target="_blank">
-<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg">
-</a>
-
-<a href="#" target="_blank">
-<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg">
-</a>
-
-<a href="#" target="_blank">
-<img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg">
-</a>
-
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg"></a>
 </div>
 </header>
 
 <section class="hero">
-
-<img src="band-cinematic.png">
-
-<div class="overlay"></div>
-
+<img src="band-cinematic.png" class="hero-bg">
 <div class="hero-content">
-
-<h1>
-
-MORE THAN A BAND.<br>
-
-<span>A UNIVERSE.</span>
-
-</h1>
-
-<p>
-
-VelvetVerse isn’t just about music.<br>
-
+<h1>MORE THAN A BAND.<br><span>A UNIVERSE.</span></h1>
+<p>VelvetVerse isn’t just about music.<br>
 It’s about freedom, truth and connection.<br>
-
-Welcome to our world.
-
-</p>
-
-<a href="#"
-class="hero-btn">
-
-ENTER THE UNIVERSE
-
-</a>
-
+Welcome to our world.</p>
+<a href="#releases" class="hero-btn">ENTER THE UNIVERSE ›</a>
 </div>
-
 </section>
-<section class="releases-section">
 
+<section class="releases" id="releases">
+<div class="releases-head">
 <h2>LATEST RELEASES</h2>
-
-<div class="releases-grid">
-
-<div class="release-card">
-<img src="release1.png">
-<h3>O Galo do Vizinho</h3>
-<p>2026</p>
+<a href="#discography" class="view-all">VIEW ALL RELEASES ›</a>
 </div>
 
-<div class="release-card">
-<img src="release2.png">
-<h3>Sussurros na Pele</h3>
-<p>2026</p>
+<div class="release-wrap">
+<div class="arrow left">‹</div>
+<div class="arrow right">›</div>
+
+<div class="release-grid">
+<div class="release-card"><img src="release1.png"><h3>O Galo do Vizinho</h3><p>2026</p></div>
+<div class="release-card"><img src="release2.png"><h3>Storm of Love</h3><p>2026</p></div>
+<div class="release-card"><img src="release3.png"><h3>Sussurros na Pele</h3><p>2025</p></div>
+<div class="release-card"><img src="release4.png"><h3>Eterno em Mim</h3><p>2025</p></div>
+<div class="release-card"><img src="release5.png"><h3>Portugal Mou</h3><p>2025</p></div>
+<div class="release-card"><img src="release6.png"><h3>Chamas de Aço</h3><p>2025</p></div>
 </div>
 
-<div class="release-card">
-<img src="release3.png">
-<h3>O Meu Paraíso</h3>
-<p>2026</p>
+<div class="dots"><span></span><span></span><span></span><span></span><span></span></div>
 </div>
-
-<div class="release-card">
-<img src="release4.png">
-<h3>Chama Ancestral</h3>
-<p>2026</p>
-</div>
-
-<div class="release-card">
-<img src="release5.png">
-<h3>Highway 401</h3>
-<p>2025</p>
-</div>
-
-<div class="release-card">
-<img src="release6.png">
-<h3>Teu Olhar de Marfim</h3>
-<p>2025</p>
-</div>
-
-</div>
-
-<div class="release-card">
-
-<img src="release6.png">
-
-<h3>Chamas de Aço</h3>
-
-<p>2025</p>
-
-</div>
-
-</div>
-
 </section>
-  
-  <section class="universe-section">
 
+<section class="universe">
 <h2>ENTER THE <span>VELVETVERSE</span></h2>
 
 <div class="universe-grid">
-
-<div class="universe-card">
-
-<h3>🎸 VelvetVerse Band</h3>
-
-<p>Official music universe.</p>
-
-<a href="#">EXPLORE →</a>
-
+<div class="u-card"><img src="logo.png"><div class="u-card-content"><h3>VELVETVERSE BAND</h3><p>Official site, music, news, and everything about the band.</p><a href="#">EXPLORE ›</a></div></div>
+<div class="u-card"><img src="band-home.png"><div class="u-card-content"><h3>VELVETVERSE RADIO</h3><p>24/7 online radio playing the best music.</p><a href="https://velvetverseradio.com" target="_blank">LISTEN NOW ›</a></div></div>
+<div class="u-card"><img src="band-home.png"><div class="u-card-content"><h3>BACKSTAGE LEGENDS</h3><p>The stories behind the artists. Podcast & conversations.</p><a href="#">DISCOVER ›</a></div></div>
+<div class="u-card"><img src="band-home.png"><div class="u-card-content"><h3>INSIDE VELVETVERSE</h3><p>Exclusive content, behind the scenes and more.</p><a href="#">GO INSIDE ›</a></div></div>
 </div>
-
-<div class="universe-card">
-
-<h3>📻 VelvetVerse Radio</h3>
-
-<p>24/7 online radio station.</p>
-
-<a href="https://velvetverseradio.com" target="_blank">LISTEN NOW →</a>
-
-</div>
-
-</div>
-
 </section>
 
-</body>
+<section class="stats">
+<div class="stat"><div class="icon">♫</div><h3>100+</h3><p>SINGLES RELEASED</p></div>
+<div class="stat"><div class="icon">▣</div><h3>24/7</h3><p>ONLINE RADIO</p></div>
+<div class="stat"><div class="icon">☷</div><h3>5</h3><p>OFFICIAL MEMBERS</p></div>
+<div class="stat"><div class="icon">✦</div><h3>1</h3><p>UNIVERSE</p></div>
+</section>
 
+<footer>
+<div class="quote">"WE DON'T FOLLOW RULES. WE CREATE OUR OWN FREEDOM."<br>– VELVETVERSE BAND –</div>
+
+<div class="footer-grid">
+<div>
+<img src="logo.png">
+<p>Independent. Authentic. Timeless.<br>This is more than music.<br>This is VelvetVerse.</p>
+</div>
+
+<div>
+<h4>NAVIGATION</h4>
+<a>Home</a><a>Bio</a><a>Discography</a><a>Photos</a><a>Videos</a><a>News</a><a>Contact</a>
+</div>
+
+<div>
+<h4>UNIVERSE</h4>
+<a>VelvetVerse Band</a><a>VelvetVerse Radio</a><a>Backstage Legends</a><a>Inside VelvetVerse</a>
+</div>
+
+<div>
+<h4>FOLLOW US</h4>
+<a>Facebook</a><a>Instagram</a><a>YouTube</a><a>Spotify</a>
+</div>
+
+<div>
+<h4>JOIN THE JOURNEY</h4>
+<p>Subscribe to our newsletter and stay updated.</p>
+<input placeholder="Your email address">
+<button>SUBSCRIBE</button>
+</div>
+</div>
+
+<div class="copy">© 2024 VELVETVERSE BAND. ALL RIGHTS RESERVED.</div>
+</footer>
+
+</body>
 </html>
