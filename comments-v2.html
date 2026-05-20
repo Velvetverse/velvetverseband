@@ -383,6 +383,15 @@ margin-top:35px;
 font-size:12px;
 color:#888;
 }
+  .extra-comment{
+display:none;
+}
+
+.load-more-btn{
+max-width:260px;
+margin:18px auto 0;
+display:block;
+}
 
 @media(max-width:950px){
 header{
@@ -467,32 +476,57 @@ Your comment will be sent to VelvetVerse Band for review. Only approved comments
 <div class="approved-panel">
 <h2>APPROVED COMMENTS</h2>
 
+<div class="comments-list">
+
 <div class="comment-card">
-<img class="avatar" src="logo.png" alt="VelvetVerse Fan">
+<img class="avatar" src="michael.jpg" alt="Michael Diallo">
 <div class="comment-content">
-<h3>VelvetVerse Listener</h3>
+<h3>Michael Diallo</h3>
 <div class="comment-location">Toronto, Canada</div>
-<p>A powerful project with soul, emotion and a real band identity. VelvetVerse Band feels authentic and different.</p>
+<p>VelvetVerse Band brings a powerful and emotional sound. You can feel the passion, the experience, and the soul behind every song. Truly inspiring music!</p>
 </div>
 </div>
 
 <div class="comment-card">
-<img class="avatar" src="logo.png" alt="VelvetVerse Fan">
+<img class="avatar" src="rute.jpg" alt="Rute Santos">
 <div class="comment-content">
-<h3>Music Fan</h3>
+<h3>Rute Santos</h3>
+<div class="comment-location">Toronto, Canada</div>
+<p>A VelvetVerse Band tem uma energia muito especial. As músicas transmitem emoção, força e verdade. É bonito ouvir um projeto feito com tanta paixão pela música.</p>
+</div>
+</div>
+
+<div class="comment-card">
+<img class="avatar" src="patricia.jpg" alt="Patricia Reis">
+<div class="comment-content">
+<h3>Patricia Reis</h3>
 <div class="comment-location">Portugal</div>
-<p>The songs have feeling, energy and personality. A beautiful mix of rock, emotion and Portuguese soul.</p>
+<p>Simplesmente maravilhosos os vossos temas...</p>
 </div>
 </div>
 
-<div class="comment-card">
-<img class="avatar" src="logo.png" alt="VelvetVerse Fan">
+<div class="comment-card extra-comment">
+<img class="avatar" src="logo.png" alt="Joao Silva">
 <div class="comment-content">
-<h3>Radio Listener</h3>
-<div class="comment-location">Online</div>
-<p>VelvetVerse is more than music. It feels like a universe made with passion, memories and freedom.</p>
+<h3>Joao Silva</h3>
+<div class="comment-location">Portugal</div>
+<p>Grande Banda. Abraço a todos...</p>
 </div>
 </div>
+
+<div class="comment-card extra-comment">
+<img class="avatar" src="logo.png" alt="Ana Martins">
+<div class="comment-content">
+<h3>Ana Martins</h3>
+<div class="comment-location">Toronto, Canada</div>
+<p>Um projeto musical com alma, identidade e muita qualidade. Parabéns à VelvetVerse Band pelo excelente trabalho e por manter viva a paixão pela música.</p>
+</div>
+</div>
+
+</div>
+  
+
+<button class="load-more-btn" onclick="showMoreComments()">LOAD MORE COMMENTS</button>
 
 </div>
 
@@ -549,6 +583,18 @@ Your comment will be sent to VelvetVerse Band for review. Only approved comments
 
 <div class="copy">© 2026 VELVETVERSE BAND. ALL RIGHTS RESERVED.</div>
 </footer>
+<script>
+function showMoreComments(){
+  const extraComments = document.querySelectorAll('.extra-comment');
+  extraComments.forEach(comment => {
+    comment.style.display = 'flex';
+  });
 
+  const button = document.querySelector('.load-more-btn');
+  if(button){
+    button.style.display = 'none';
+  }
+}
+</script>
 </body>
 </html>
