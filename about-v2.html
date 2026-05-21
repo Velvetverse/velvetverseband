@@ -193,26 +193,153 @@ h1{font-size:36px}
 .footer-grid{grid-template-columns:1fr;text-align:center}
 footer{padding:40px 25px 20px;margin:50px -18px -30px}
 }
+
+footer{...}
+
+}
+
+.about-hero,
+.about-feature{
+display:none;
+}
+
+.about-poster{
+max-width:1600px;
+margin:0 auto 50px;
+display:grid;
+grid-template-columns:1.25fr .75fr;
+gap:0;
+background:#040404;
+border:1px solid rgba(212,175,55,.18);
+box-shadow:0 0 45px rgba(120,0,0,.35);
+}
+
+.poster-image{
+position:relative;
+overflow:hidden;
+min-height:1200px;
+}
+
+.poster-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+filter:contrast(1.1) saturate(1.12) brightness(.88);
+}
+
+.poster-content{
+padding:70px 55px;
+background:#050505;
+text-align:left;
+}
+
+.poster-content h1{
+font-size:76px;
+font-family:Georgia,serif;
+font-weight:400;
+letter-spacing:6px;
+color:#d4af37;
+margin:10px 0 25px;
+}
+
+.poster-lang{
+justify-content:flex-start;
+margin-bottom:35px;
+}
+
+.gold-line{
+height:1px;
+background:linear-gradient(90deg,#d4af37,transparent);
+margin-bottom:45px;
+}
+
+.poster-content .about-section{
+border-bottom:none;
+margin-bottom:40px;
+padding-bottom:0;
+}
+
+.poster-content .about-section h2{
+font-family:Georgia,serif;
+font-size:26px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#d4af37;
+}
+
+.poster-content .about-section p{
+font-size:17px;
+line-height:1.85;
+color:#ddd;
+}
+
+.poster-quote{
+position:absolute;
+bottom:80px;
+left:0;
+right:0;
+z-index:2;
+text-align:center;
+color:#d4af37;
+}
+
+.quote-mark{
+font-size:70px;
+}
+
+.poster-quote p{
+font-size:34px;
+line-height:1.35;
+letter-spacing:2px;
+}
+
+.poster-quote span{
+letter-spacing:5px;
+}
+
+@media(max-width:1100px){
+
+.about-poster{
+grid-template-columns:1fr;
+}
+
+.poster-image{
+min-height:650px;
+}
+
+.poster-content{
+padding:35px 24px;
+}
+
+.poster-content h1{
+font-size:46px;
+}
+
+}
+
 </style>
 
-<section class="about-hero">
-<img src="logo.png" class="hero-logo" alt="VelvetVerse Band Logo">
+<section class="about-poster">
+
+<div class="poster-image">
+<img src="band-homev2.png" alt="VelvetVerse Band">
+<div class="poster-quote">
+<div class="quote-mark">“</div>
+<p>WE DON'T FOLLOW RULES.<br>WE CREATE OUR OWN FREEDOM.</p>
+<span>– VELVETVERSE BAND –</span>
+</div>
+</div>
+
+<div class="poster-content">
+
+<div class="lang-switch poster-lang">
+<button class="active" onclick="showLang('en', this)">🇬🇧 ENGLISH</button>
+<button onclick="showLang('pt', this)">🇵🇹 PORTUGUÊS</button>
+</div>
+
 <h1>ABOUT US</h1>
-<p class="hero-subtitle">Discover the story, identity, passion and musical universe behind VelvetVerse Band.</p>
-
-<div class="lang-switch">
-<button class="active" onclick="showLang('en', this)">🇬🇧 English</button>
-<button onclick="showLang('pt', this)">🇵🇹 Português</button>
-</div>
-</section>
-
-<section class="about-feature">
-
-<div class="band-photo-wrap">
-<img src="band-homev2.png" class="band-photo" alt="VelvetVerse Band">
-</div>
-
-<div class="about-content">
+<div class="gold-line"></div>
 
 <div id="about-en">
 <div class="about-section">
@@ -222,11 +349,12 @@ footer{padding:40px 25px 20px;margin:50px -18px -30px}
 
 <div class="about-section">
 <h2>The Band Members</h2>
-<p><span class="member-name">Carlos Moreira</span> – Drums & Vocals. With nearly 40 years of musical experience, Carlos has been part of several bands, toured extensively across Portugal, and performed internationally. Throughout his career, he has shared the stage with renowned Portuguese artists.</p>
-<p><span class="member-name">Beto</span> – Lead Guitar & Vocals. Also with a long and rich musical journey, Beto has decades of live performance experience, including major concerts and collaborations with well-known artists.</p>
-<p><span class="member-name">Lara Ingrid</span> – Vocals & Keyboards. With a musical background in Brazil, Lara brings sensitivity, freshness, and emotional depth to the band’s sound.</p>
-<p><span class="member-name">Noia</span> – Bass & Vocals. With formal music training and around 19 years of experience, Noia provides the solid rhythmic and melodic foundation of the band.</p>
-<p><span class="member-name">Suzy Mendes</span> – Vocals. The newest member of the group, adding a fresh vocal dimension and strengthening the band’s overall identity.</p>
+<p><b>Carlos Moreira</b> – Drums & Vocals<br>
+<b>Beto</b> – Lead Guitar & Vocals<br>
+<b>Lara Ingrid</b> – Vocals & Keyboards<br>
+<b>Noia</b> – Bass & Vocals<br>
+<b>Suzy Mendes</b> – Vocals</p>
+<p>Five unique voices, different paths, one same passion.</p>
 </div>
 
 <div class="about-section">
@@ -241,13 +369,12 @@ footer{padding:40px 25px 20px;margin:50px -18px -30px}
 
 <div class="about-section">
 <h2>Journey & Highlights</h2>
-<p>Carlos Moreira and Beto, two of the band’s core members, bring extensive international experience, having performed in countries such as France, Belgium, Luxembourg, Germany, the Netherlands, and Spain. Both have shared the stage with established artists, building a strong and respected musical background.</p>
+<p>Carlos Moreira and Beto bring extensive international experience, having performed in France, Belgium, Luxembourg, Germany, the Netherlands, and Spain. Both have shared the stage with established artists, building a strong and respected musical background.</p>
 </div>
 
 <div class="about-section">
 <h2>Present & Future</h2>
-<p>Today, VelvetVerse is a studio-based project dedicated to recording and releasing music for digital platforms. Without physical or geographical limitations, their music reaches listeners all over the world.</p>
-<p>More than a commercial project, VelvetVerse is driven by something simple yet powerful: a true passion for music.</p>
+<p>Today, VelvetVerse is a studio-based project dedicated to recording and releasing music for digital platforms. More than a commercial project, VelvetVerse is driven by something simple yet powerful: a true passion for music.</p>
 </div>
 </div>
 
@@ -259,16 +386,17 @@ footer{padding:40px 25px 20px;margin:50px -18px -30px}
 
 <div class="about-section">
 <h2>Os Músicos</h2>
-<p><span class="member-name">Carlos Moreira</span> – Bateria e Voz. Com quase 40 anos de carreira, integrou várias bandas, percorreu Portugal de norte a sul e atuou internacionalmente. Ao longo do seu percurso, partilhou palco com nomes consagrados da música portuguesa.</p>
-<p><span class="member-name">Beto</span> – Guitarra Solo e Voz. Com uma trajetória igualmente extensa, conta com décadas de experiência em palco e participação em grandes concertos, tendo também tocado ao lado de artistas de referência.</p>
-<p><span class="member-name">Lara Ingrid</span> – Voz e Teclas. Com raízes musicais no Brasil, traz sensibilidade, frescura e uma forte presença emocional ao som da banda.</p>
-<p><span class="member-name">Noia</span> – Baixo e Voz. Com formação musical e cerca de 19 anos de experiência, é a base sólida que sustenta o groove e a identidade sonora do grupo.</p>
-<p><span class="member-name">Suzy Mendes</span> – Voz. A mais recente adição à banda, acrescenta uma nova dimensão vocal e reforça a identidade artística da VelvetVerse.</p>
+<p><b>Carlos Moreira</b> – Bateria e Voz<br>
+<b>Beto</b> – Guitarra Solo e Voz<br>
+<b>Lara Ingrid</b> – Voz e Teclas<br>
+<b>Noia</b> – Baixo e Voz<br>
+<b>Suzy Mendes</b> – Voz</p>
+<p>Cinco vozes únicas, caminhos diferentes, uma só paixão.</p>
 </div>
 
 <div class="about-section">
 <h2>Estilo e Influências</h2>
-<p>A VelvetVerse não se limita a um único género. A sua música percorre várias atmosferas — do Hard Rock ao Fado — criando uma fusão única e autêntica. Entre as principais influências destacam-se bandas icónicas como Scorpions, Def Leppard, Boston, AC/DC e Queen.</p>
+<p>A VelvetVerse não se limita a um único género. A sua música percorre várias atmosferas — do Hard Rock ao Fado — criando uma fusão única e autêntica. Entre as principais influências destacam-se Scorpions, Def Leppard, Boston, AC/DC e Queen.</p>
 </div>
 
 <div class="about-section">
@@ -278,13 +406,12 @@ footer{padding:40px 25px 20px;margin:50px -18px -30px}
 
 <div class="about-section">
 <h2>Percurso e Destaques</h2>
-<p>Carlos Moreira e Beto, pilares da banda, trazem consigo uma vasta experiência internacional, com atuações em países como França, Bélgica, Luxemburgo, Alemanha, Holanda e Espanha. Ambos já dividiram palco com artistas consagrados, consolidando uma carreira marcada pela consistência e paixão.</p>
+<p>Carlos Moreira e Beto trazem uma vasta experiência internacional, com atuações em França, Bélgica, Luxemburgo, Alemanha, Holanda e Espanha. Ambos já dividiram palco com artistas consagrados.</p>
 </div>
 
 <div class="about-section">
 <h2>O Presente e o Futuro</h2>
-<p>Atualmente, a VelvetVerse é um projeto de estúdio, dedicado à criação e produção musical para plataformas digitais. Sem limites físicos ou geográficos, a sua música chega a qualquer parte do mundo.</p>
-<p>Mais do que um projeto comercial, a VelvetVerse é movida por uma força simples e poderosa: o amor pela música.</p>
+<p>Atualmente, a VelvetVerse é um projeto de estúdio dedicado à criação e produção musical para plataformas digitais. Mais do que um projeto comercial, é movida por uma força simples e poderosa: o amor pela música.</p>
 </div>
 </div>
 
