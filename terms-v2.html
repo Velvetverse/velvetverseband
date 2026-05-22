@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions | VelvetVerse Band</title>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+
+<nav>
+<a href="index-v2.html">HOME</a>
+<a href="discography-v2.html">DISCOGRAPHY</a>
+<a href="comments-v2.html">COMMENTS</a>
+<a href="about-v2.html">ABOUT US</a>
+<a href="contact-v2.html">CONTACT US</a>
+<a href="https://velvetverseradio.com" target="_blank">RADIO</a>
+</nav>
+
+<div class="socials">
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"></a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"></a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg"></a>
+</div>
+</header>
+
+<style>
+*{box-sizing:border-box}
+
+header{
+position:fixed;top:0;left:0;width:100%;height:78px;
+display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+padding:0 18px;background:rgba(0,0,0,.78);backdrop-filter:blur(18px);
+z-index:9999;border-bottom:1px solid rgba(212,175,55,.22)
+}
+
+.logo{height:56px}
+nav{display:flex;gap:32px;justify-content:center}
+nav a{font-size:13px;letter-spacing:2px;color:#fff;text-decoration:none}
+nav a:hover{color:#d4af37}
+.socials{justify-self:end;display:flex;gap:16px}
+.socials img{width:18px;height:18px;filter:invert(1);opacity:.9}
+
+body{
+margin:0;color:#fff;font-family:Arial,sans-serif;
+padding:120px 40px 40px;text-align:center;overflow-x:hidden;
+background:
+radial-gradient(circle at 10% 20%, rgba(212,175,55,.22), transparent 28%),
+radial-gradient(circle at 90% 20%, rgba(212,120,20,.18), transparent 28%),
+linear-gradient(180deg,#120b00 0%,#160f02 45%,#030201 100%);
+}
+
+body::before{
+content:"";position:fixed;inset:78px 0 0 0;pointer-events:none;z-index:-1;
+background:
+linear-gradient(115deg,transparent 0 8%,rgba(212,175,55,.13) 18%,transparent 34%),
+linear-gradient(245deg,transparent 0 8%,rgba(212,120,20,.12) 18%,transparent 34%);
+filter:blur(1px)
+}
+
+a{color:#d4af37;text-decoration:none}
+
+.terms-wrapper{
+max-width:1180px;
+margin:0 auto;
+}
+
+.terms-hero{
+background:rgba(0,0,0,.72);
+border:1px solid rgba(212,175,55,.34);
+border-radius:24px;
+padding:48px 32px;
+box-shadow:0 0 42px rgba(212,175,55,.16);
+margin-bottom:30px;
+}
+
+.terms-hero img{
+height:90px;
+margin-bottom:18px;
+filter:drop-shadow(0 0 18px rgba(212,175,55,.25));
+}
+
+h1{
+color:#d4af37;
+font-size:44px;
+letter-spacing:6px;
+margin:0 0 18px;
+}
+
+.gold-line{
+width:65%;
+height:1px;
+background:linear-gradient(90deg,transparent,#d4af37,transparent);
+margin:0 auto 24px;
+}
+
+.hero-subtitle{
+color:#eee;
+font-size:17px;
+line-height:1.7;
+margin:0 auto;
+max-width:720px;
+}
+
+.hero-manifesto{
+margin-top:22px;
+color:#d4af37;
+font-weight:bold;
+letter-spacing:4px;
+line-height:1.7;
+font-size:14px;
+}
+
+.legal-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+text-align:left;
+}
+
+.legal-card{
+background:rgba(8,7,4,.82);
+border:1px solid rgba(212,175,55,.26);
+border-radius:22px;
+padding:32px;
+box-shadow:0 0 26px rgba(212,175,55,.10);
+}
+
+.legal-card h2{
+color:#d4af37;
+font-size:21px;
+letter-spacing:3px;
+margin:0 0 18px;
+}
+
+.legal-card p,
+.legal-card li{
+color:#ddd;
+font-size:15px;
+line-height:1.85;
+}
+
+.legal-card ul{
+padding-left:20px;
+margin:0;
+}
+
+.full-width{
+grid-column:1 / -1;
+}
+
+.back-home{
+margin-top:35px;
+}
+
+footer{
+background:#070707;padding:45px 70px 20px;color:#ccc;margin:50px -40px -40px
+}
+
+.quote{text-align:center;color:#d4af37;letter-spacing:2px;margin-bottom:35px}
+
+.footer-grid{
+display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;
+gap:35px;max-width:1350px;margin:auto;text-align:left
+}
+
+footer img{height:70px;margin-bottom:15px}
+footer h4{color:#fff;margin-bottom:12px;font-size:14px}
+footer a,footer p{display:block;color:#ccc;font-size:13px;line-height:1.8}
+
+.footer-grid input{
+background:#111;border:1px solid #d4af37;padding:14px;width:100%;
+color:#fff;margin:10px 0
+}
+
+.footer-grid button{
+width:100%;padding:14px;background:#d4af37;color:#000;border:none;font-weight:bold
+}
+
+.copy{text-align:center;margin-top:35px;font-size:12px;color:#888}
+
+@media(max-width:950px){
+header{grid-template-columns:1fr;height:auto;padding:12px;gap:12px}
+.logo{margin:auto}
+nav{flex-wrap:wrap;gap:14px}
+.socials{justify-self:center}
+body{padding:175px 18px 30px}
+h1{font-size:34px;letter-spacing:4px}
+.legal-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;text-align:center}
+footer{padding:40px 25px 20px;margin:50px -18px -30px}
+}
+</style>
+
+<main class="terms-wrapper">
+
+<section class="terms-hero">
+<img src="logo.png" alt="VelvetVerse Band Logo">
+<h1>TERMS & CONDITIONS</h1>
+<div class="gold-line"></div>
+<p class="hero-subtitle">
+These Terms & Conditions explain the basic rules for using the official VelvetVerse Band website.
+By accessing this website, you agree to use it respectfully and responsibly.
+</p>
+
+<div class="hero-manifesto">
+CLEAR TERMS.<br>
+REAL MUSIC.<br>
+TRANSPARENT EXPERIENCE.
+</div>
+</section>
+
+<section class="legal-grid">
+
+<div class="legal-card">
+<h2>WEBSITE USE</h2>
+<p>
+This website is provided for information, music promotion, band updates, contact, and general fan engagement related to VelvetVerse Band.
+Visitors agree not to misuse the website, attempt to damage it, copy its structure, or use it for harmful or illegal purposes.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>INTELLECTUAL PROPERTY</h2>
+<p>
+All logos, band names, images, text, graphics, music references, design elements, and original content displayed on this website belong to VelvetVerse Band or are used with permission.
+You may not copy, reproduce, modify, distribute, or reuse website content without prior written permission.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>MUSIC & MEDIA CONTENT</h2>
+<p>
+Any music, artwork, videos, promotional images, or release information shown on this website is provided for promotional and informational purposes.
+Streaming or purchasing music through external platforms is subject to the terms of those platforms.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>THIRD-PARTY LINKS</h2>
+<p>
+This website may include links to external websites such as Spotify, YouTube, Facebook, Instagram, VelvetVerse Radio, or other platforms.
+VelvetVerse Band is not responsible for the content, privacy practices, availability, or policies of third-party websites.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>CONTACT FORMS</h2>
+<p>
+When you use a contact or comment form on this website, you agree to provide accurate information and not submit spam, abusive, harmful, offensive, or misleading messages.
+VelvetVerse Band reserves the right to ignore, delete, or reject inappropriate submissions.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>DISCLAIMER</h2>
+<p>
+VelvetVerse Band makes reasonable efforts to keep website content accurate and updated, but does not guarantee that all information will always be complete, current, or error-free.
+The website is provided “as is” without warranties of any kind.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>LIMITATION OF LIABILITY</h2>
+<p>
+VelvetVerse Band is not responsible for any direct or indirect damages resulting from the use of this website, inability to access it, technical issues, external links, or third-party services.
+</p>
+</div>
+
+<div class="legal-card">
+<h2>CHANGES TO TERMS</h2>
+<p>
+These Terms & Conditions may be updated at any time. Continued use of the website after changes are posted means you accept the updated terms.
+</p>
+</div>
+
+<div class="legal-card full-width">
+<h2>CONTACT INFORMATION</h2>
+<p>
+For questions regarding these Terms & Conditions, please contact VelvetVerse Band at:
+<br><br>
+<a href="mailto:bandvelvetverse@gmail.com">bandvelvetverse@gmail.com</a>
+</p>
+</div>
+
+</section>
+
+<div class="back-home">
+<a href="index-v2.html">← Back to Home</a>
+</div>
+
+</main>
+
+<footer>
+<div class="quote">"WE DON'T FOLLOW RULES. WE CREATE OUR OWN FREEDOM."<br>– VELVETVERSE BAND –</div>
+
+<div class="footer-grid">
+<div>
+<img src="logo.png">
+<p>Independent. Authentic. Timeless.<br>This is more than music.<br>This is VelvetVerse.</p>
+</div>
+
+<div>
+<h4>NAVIGATION</h4>
+<a href="index-v2.html">Home</a>
+<a href="about-v2.html">About Us</a>
+<a href="discography-v2.html">Discography</a>
+<a href="comments-v2.html">Comments</a>
+<a href="contact-v2.html">Contact</a>
+<a href="terms-v2.html">Terms & Conditions</a>
+<a href="privacy-v2.html">Privacy Policy</a>
+</div>
+
+<div>
+<h4>UNIVERSE</h4>
+<a href="index-v2.html">VelvetVerse Band</a>
+<a href="https://velvetverseradio.com" target="_blank">VelvetVerse Radio</a>
+<a href="#">Backstage Legends</a>
+<a href="#">Inside VelvetVerse</a>
+</div>
+
+<div>
+<h4>FOLLOW US</h4>
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank">Facebook</a>
+<a href="#">Instagram</a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank">YouTube</a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank">Spotify</a>
+</div>
+
+<div>
+<h4>JOIN THE JOURNEY</h4>
+<p>Subscribe to our newsletter and stay updated.</p>
+<input placeholder="Your email address">
+<button>SUBSCRIBE</button>
+</div>
+</div>
+
+<div class="copy">© 2026 VELVETVERSE BAND. ALL RIGHTS RESERVED.</div>
+</footer>
+
+</body>
+</html>
