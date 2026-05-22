@@ -1,1 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | VelvetVerse Band</title>
+</head>
 
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+
+<nav>
+<a href="index-v2.html">HOME</a>
+<a href="discography-v2.html">DISCOGRAPHY</a>
+<a href="comments-v2.html">COMMENTS</a>
+<a href="about-v2.html">ABOUT US</a>
+<a href="contact-v2.html">CONTACT US</a>
+<a href="https://velvetverseradio.com" target="_blank">RADIO</a>
+</nav>
+
+<div class="socials">
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"></a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"></a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg"></a>
+</div>
+</header>
+
+<style>
+*{box-sizing:border-box}
+
+header{
+position:fixed;top:0;left:0;width:100%;height:78px;
+display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+padding:0 18px;background:rgba(0,0,0,.78);backdrop-filter:blur(18px);
+z-index:9999;border-bottom:1px solid rgba(0,210,255,.22)
+}
+
+.logo{height:56px}
+nav{display:flex;gap:32px;justify-content:center}
+nav a{font-size:13px;letter-spacing:2px;color:#fff;text-decoration:none}
+nav a:hover{color:#00d2ff}
+.socials{justify-self:end;display:flex;gap:16px}
+.socials img{width:18px;height:18px;filter:invert(1);opacity:.9}
+
+body{
+margin:0;color:#fff;font-family:Arial,sans-serif;
+padding:120px 40px 40px;text-align:center;overflow-x:hidden;
+background:
+radial-gradient(circle at 10% 20%, rgba(0,210,255,.20), transparent 28%),
+radial-gradient(circle at 90% 20%, rgba(0,120,255,.18), transparent 28%),
+linear-gradient(180deg,#001018 0%,#001a24 45%,#020304 100%);
+}
+
+body::before{
+content:"";position:fixed;inset:78px 0 0 0;pointer-events:none;z-index:-1;
+background:
+linear-gradient(115deg,transparent 0 8%,rgba(0,210,255,.12) 18%,transparent 34%),
+linear-gradient(245deg,transparent 0 8%,rgba(0,120,255,.12) 18%,transparent 34%);
+filter:blur(1px)
+}
+
+a{color:#00d2ff;text-decoration:none}
+
+.privacy-wrapper{
+max-width:1180px;
+margin:0 auto;
+}
+
+.privacy-hero{
+background:rgba(0,0,0,.72);
+border:1px solid rgba(0,210,255,.34);
+border-radius:24px;
+padding:48px 32px;
+box-shadow:0 0 42px rgba(0,210,255,.15);
+margin-bottom:30px;
+}
+
+.privacy-hero img{
+height:90px;
+margin-bottom:18px;
+filter:drop-shadow(0 0 18px rgba(0,210,255,.25));
+}
+
+h1{
+color:#00d2ff;
+font-size:44px;
+letter-spacing:6px;
+margin:0 0 18px;
+}
+
+.blue-line{
+width:65%;
+height:1px;
+background:linear-gradient(90deg,transparent,#00d2ff,transparent);
+margin:0 auto 24px;
+}
+
+.hero-subtitle{
+color:#eee;
+font-size:17px;
+line-height:1.7;
+margin:0 auto;
+max-width:720px;
+}
+
+.hero-manifesto{
+margin-top:22px;
+color:#00d2ff;
+font-weight:bold;
+letter-spacing:4px;
+line-height:1.7;
+font-size:14px;
+}
+
+.policy-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+text-align:left;
+}
+
+.policy-card{
+background:rgba(3,8,12,.84);
+border:1px solid rgba(0,210,255,.26);
+border-radius:22px;
+padding:32px;
+box-shadow:0 0 26px rgba(0,210,255,.10);
+}
+
+.policy-card h2{
+color:#00d2ff;
+font-size:21px;
+letter-spacing:3px;
+margin:0 0 18px;
+}
+
+.policy-card p,
+.policy-card li{
+color:#ddd;
+font-size:15px;
+line-height:1.85;
+}
+
+.policy-card ul{
+padding-left:20px;
+margin:0;
+}
+
+.full-width{
+grid-column:1 / -1;
+}
+
+.back-home{
+margin-top:35px;
+}
+
+footer{
+background:#070707;padding:45px 70px 20px;color:#ccc;margin:50px -40px -40px
+}
+
+.quote{text-align:center;color:#00d2ff;letter-spacing:2px;margin-bottom:35px}
+
+.footer-grid{
+display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;
+gap:35px;max-width:1350px;margin:auto;text-align:left
+}
+
+footer img{height:70px;margin-bottom:15px}
+footer h4{color:#fff;margin-bottom:12px;font-size:14px}
+footer a,footer p{display:block;color:#ccc;font-size:13px;line-height:1.8}
+
+.footer-grid input{
+background:#111;border:1px solid #00d2ff;padding:14px;width:100%;
+color:#fff;margin:10px 0
+}
+
+.footer-grid button{
+width:100%;padding:14px;background:#00d2ff;color:#000;border:none;font-weight:bold
+}
+
+.copy{text-align:center;margin-top:35px;font-size:12px;color:#888}
+
+@media(max-width:950px){
+header{grid-template-columns:1fr;height:auto;padding:12px;gap:12px}
+.logo{margin:auto}
+nav{flex-wrap:wrap;gap:14px}
+.socials{justify-self:center}
+body{padding:175px 18px 30px}
+h1{font-size:34px;letter-spacing:4px}
+.policy-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;text-align:center}
+footer{padding:40px 25px 20px;margin:50px -18px -30px}
+}
+</style>
+
+<main class="privacy-wrapper">
+
+<section class="privacy-hero">
+<img src="logo.png" alt="VelvetVerse Band Logo">
+<h1>PRIVACY POLICY</h1>
+<div class="blue-line"></div>
+<p class="hero-subtitle">
+This Privacy Policy explains how VelvetVerse Band handles information submitted through this website.
+We respect your privacy and aim to keep your experience simple, safe, and transparent.
+</p>
+
+<div class="hero-manifesto">
+YOUR DATA.<br>
+YOUR TRUST.<br>
+OUR RESPONSIBILITY.
+</div>
+</section>
+
+<section class="policy-grid">
+
+<div class="policy-card">
+<h2>INFORMATION WE COLLECT</h2>
+<p>
+When you use this website, we may collect basic information that you choose to provide through forms, such as your name, email address, message, or comment.
+We do not ask for sensitive personal information.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>CONTACT FORM DATA</h2>
+<p>
+If you send a message through the contact form, the information you submit is sent to VelvetVerse Band by email.
+This information is used only to read and respond to your message.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>COMMENTS & SUBMISSIONS</h2>
+<p>
+If you submit comments or messages through the website, they may be reviewed before publication.
+VelvetVerse Band reserves the right not to publish spam, offensive, abusive, misleading, or inappropriate content.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>HOW WE USE INFORMATION</h2>
+<ul>
+<li>To respond to messages or questions.</li>
+<li>To manage comments or website submissions.</li>
+<li>To improve communication with visitors.</li>
+<li>To protect the website from spam or abuse.</li>
+</ul>
+</div>
+
+<div class="policy-card">
+<h2>EMAIL COMMUNICATION</h2>
+<p>
+If you contact VelvetVerse Band by email or through a form, we may reply using the email address you provided.
+We do not sell, rent, or share your email address for marketing purposes.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>THIRD-PARTY SERVICES</h2>
+<p>
+This website may link to third-party platforms such as Spotify, YouTube, Facebook, Instagram, VelvetVerse Radio, or form/email services.
+Those platforms have their own privacy policies and are responsible for how they handle your data.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>COOKIES & ANALYTICS</h2>
+<p>
+This website may use basic technical cookies or third-party tools depending on hosting, embedded content, or external services.
+These may help websites function correctly or provide basic usage information.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>DATA SECURITY</h2>
+<p>
+VelvetVerse Band aims to handle submitted information responsibly.
+However, no website or email transmission can be guaranteed to be completely secure, so visitors should avoid sending sensitive information.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>YOUR RIGHTS</h2>
+<p>
+You may contact VelvetVerse Band to ask about information you previously submitted, request correction, or ask for deletion where reasonably possible.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>POLICY UPDATES</h2>
+<p>
+This Privacy Policy may be updated from time to time.
+Continued use of the website after updates means you accept the revised policy.
+</p>
+</div>
+
+<div class="policy-card full-width">
+<h2>CONTACT INFORMATION</h2>
+<p>
+For questions regarding this Privacy Policy, please contact VelvetVerse Band at:
+<br><br>
+<a href="mailto:bandvelvetverse@gmail.com">bandvelvetverse@gmail.com</a>
+</p>
+</div>
+
+</section>
+
+<div class="back-home">
+<a href="index-v2.html">← Back to Home</a>
+</div>
+
+</main>
+
+<footer>
+<div class="quote">"WE DON'T FOLLOW RULES. WE CREATE OUR OWN FREEDOM."<br>– VELVETVERSE BAND –</div>
+
+<div class="footer-grid">
+<div>
+<img src="logo.png">
+<p>Independent. Authentic. Timeless.<br>This is more than music.<br>This is VelvetVerse.</p>
+</div>
+
+<div>
+<h4>NAVIGATION</h4>
+<a href="index-v2.html">Home</a>
+<a href="about-v2.html">About Us</a>
+<a href="discography-v2.html">Discography</a>
+<a href="comments-v2.html">Comments</a>
+<a href="contact-v2.html">Contact</a>
+<a href="terms-v2.html">Terms & Conditions</a>
+<a href="privacy-v2.html">Privacy Policy</a>
+</div>
+
+<div>
+<h4>UNIVERSE</h4>
+<a href="index-v2.html">VelvetVerse Band</a>
+<a href="https://velvetverseradio.com" target="_blank">VelvetVerse Radio</a>
+<a href="#">Backstage Legends</a>
+<a href="#">Inside VelvetVerse</a>
+</div>
+
+<div>
+<h4>FOLLOW US</h4>
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank">Facebook</a>
+<a href="#">Instagram</a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank">YouTube</a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank">Spotify</a>
+</div>
+
+<div>
+<h4>JOIN THE JOURNEY</h4>
+<p>Subscribe to our newsletter and stay updated.</p>
+<input placeholder="Your email address">
+<button>SUBSCRIBE</button>
+</div>
+</div>
+
+<div class="copy">© 2026 VELVETVERSE BAND. ALL RIGHTS RESERVED.</div>
+</footer>
+
+</body>
+</html>
