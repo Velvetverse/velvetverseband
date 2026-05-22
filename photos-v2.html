@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery | VelvetVerse Band</title>
+</head>
 
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+
+<nav>
+<a href="index-v2.html">HOME</a>
+<a href="discography-v2.html">DISCOGRAPHY</a>
+<a href="comments-v2.html">COMMENTS</a>
+<a href="about-v2.html">ABOUT US</a>
+<a href="photos-v2.html">PHOTOS</a>
+<a href="news-v2.html">NEWS</a>
+<a href="contact-v2.html">CONTACT US</a>
+<a href="https://velvetverseradio.com" target="_blank">RADIO</a>
+</nav>
+
+<div class="socials">
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"></a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"></a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg"></a>
+</div>
+</header>
+
+<style>
+*{box-sizing:border-box}
+
+header{
+position:fixed;top:0;left:0;width:100%;height:78px;
+display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+padding:0 18px;background:rgba(0,0,0,.78);backdrop-filter:blur(18px);
+z-index:9999;border-bottom:1px solid rgba(255,110,180,.22)
+}
+
+.logo{height:56px}
+nav{display:flex;gap:24px;justify-content:center}
+nav a{font-size:12px;letter-spacing:2px;color:#fff;text-decoration:none}
+nav a:hover,nav a[href="photos-v2.html"]{color:#ff6eb4}
+.socials{justify-self:end;display:flex;gap:16px}
+.socials img{width:18px;height:18px;filter:invert(1);opacity:.9}
+
+body{
+margin:0;color:#fff;font-family:Arial,sans-serif;
+padding:120px 40px 40px;text-align:center;overflow-x:hidden;
+background:
+radial-gradient(circle at 10% 20%, rgba(255,110,180,.22), transparent 28%),
+radial-gradient(circle at 90% 20%, rgba(155,70,255,.22), transparent 28%),
+linear-gradient(180deg,#120010 0%,#180018 45%,#030103 100%);
+}
+
+body::before{
+content:"";position:fixed;inset:78px 0 0 0;pointer-events:none;z-index:-1;
+background:
+linear-gradient(115deg,transparent 0 8%,rgba(255,110,180,.13) 18%,transparent 34%),
+linear-gradient(245deg,transparent 0 8%,rgba(155,70,255,.13) 18%,transparent 34%);
+filter:blur(1px)
+}
+
+a{color:#ff6eb4;text-decoration:none}
+
+.photos-wrapper{
+max-width:1250px;
+margin:0 auto;
+}
+
+.photos-hero{
+background:rgba(0,0,0,.72);
+border:1px solid rgba(255,110,180,.34);
+border-radius:24px;
+padding:48px 32px;
+box-shadow:0 0 42px rgba(255,110,180,.14);
+margin-bottom:30px;
+}
+
+.photos-hero img{
+height:90px;
+margin-bottom:18px;
+filter:drop-shadow(0 0 18px rgba(255,110,180,.22));
+}
+
+h1{
+color:#ff6eb4;
+font-size:44px;
+letter-spacing:6px;
+margin:0 0 18px;
+}
+
+.pink-line{
+width:65%;
+height:1px;
+background:linear-gradient(90deg,transparent,#ff6eb4,transparent);
+margin:0 auto 24px;
+}
+
+.hero-subtitle{
+color:#eee;
+font-size:17px;
+line-height:1.7;
+margin:0 auto;
+max-width:760px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+text-align:left;
+}
+
+.gallery-card{
+min-height:230px;
+background:
+linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015)),
+rgba(8,5,10,.84);
+border:1px solid rgba(255,110,180,.26);
+border-radius:22px;
+padding:28px;
+box-shadow:0 0 26px rgba(255,110,180,.10);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+position:relative;
+overflow:hidden;
+}
+
+.gallery-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 50% 20%,rgba(255,110,180,.14),transparent 35%),
+linear-gradient(135deg,transparent,rgba(155,70,255,.10));
+pointer-events:none;
+}
+
+.gallery-card h2{
+position:relative;
+color:#ff6eb4;
+font-size:20px;
+letter-spacing:3px;
+margin:0 0 10px;
+}
+
+.gallery-card p{
+position:relative;
+color:#ddd;
+font-size:14px;
+line-height:1.7;
+margin:0;
+}
+
+.coming-soon{
+position:absolute;
+top:18px;
+right:18px;
+color:#fff;
+font-size:11px;
+letter-spacing:2px;
+border:1px solid rgba(255,110,180,.4);
+border-radius:999px;
+padding:7px 11px;
+background:rgba(0,0,0,.45);
+}
+
+.back-home{margin-top:35px}
+
+footer{
+background:#070707;padding:45px 70px 20px;color:#ccc;margin:50px -40px -40px
+}
+
+.quote{text-align:center;color:#ff6eb4;letter-spacing:2px;margin-bottom:35px}
+
+.footer-grid{
+display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;
+gap:35px;max-width:1350px;margin:auto;text-align:left
+}
+
+footer img{height:70px;margin-bottom:15px}
+footer h4{color:#fff;margin-bottom:12px;font-size:14px}
+footer a,footer p{display:block;color:#ccc;font-size:13px;line-height:1.8}
+
+.footer-grid input{
+background:#111;border:1px solid #ff6eb4;padding:14px;width:100%;
+color:#fff;margin:10px 0
+}
+
+.footer-grid button{
+width:100%;padding:14px;background:#ff6eb4;color:#000;border:none;font-weight:bold
+}
+
+.copy{text-align:center;margin-top:35px;font-size:12px;color:#888}
+
+@media(max-width:950px){
+header{grid-template-columns:1fr;height:auto;padding:12px;gap:12px}
+.logo{margin:auto}
+nav{flex-wrap:wrap;gap:14px}
+.socials{justify-self:center}
+body{padding:175px 18px 30px}
+h1{font-size:34px;letter-spacing:4px}
+.gallery-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr;text-align:center}
+footer{padding:40px 25px 20px;margin:50px -18px -30px}
+}
+</style>
+
+<main class="photos-wrapper">
+
+<section class="photos-hero">
+<img src="logo.png" alt="VelvetVerse Band Logo">
+<h1>PHOTO GALLERY</h1>
+<div class="pink-line"></div>
+<p class="hero-subtitle">
+This section is currently under construction. Official VelvetVerse photos,
+studio moments, behind-the-scenes content and visual stories will be available soon.
+</p>
+</section>
+
+<section class="gallery-grid">
+
+<div class="gallery-card">
+<span class="coming-soon">COMING SOON</span>
+<h2>STUDIO SESSIONS</h2>
+<p>Photos from recordings, rehearsals and creative studio moments.</p>
+</div>
+
+<div class="gallery-card">
+<span class="coming-soon">COMING SOON</span>
+<h2>BAND MOMENTS</h2>
+<p>Official VelvetVerse Band images and visual identity shots.</p>
+</div>
+
+<div class="gallery-card">
+<span class="coming-soon">COMING SOON</span>
+<h2>BEHIND THE SCENES</h2>
+<p>Images from the creative process, production and daily music life.</p>
+</div>
+
+<div class="gallery-card">
+<span class="coming-soon">COMING SOON</span>
+<h2>COVER ART</h2>
+<p>Artwork, release visuals and music project imagery.</p>
+</div>
+
+<div class="gallery-card">
+<span class="coming-soon">COMING SOON</span>
+<h2>VELVETVERSE RADIO</h2>
+<p>Visuals connected to the VelvetVerse Radio universe.</p>
+</div>
+
+<div class="gallery-card">
+<span class="coming-soon">COMING SOON</span>
+<h2>FAN GALLERY</h2>
+<p>Future space for approved fan photos and community moments.</p>
+</div>
+
+</section>
+
+<div class="back-home">
+<a href="index-v2.html">← Back to Home</a>
+</div>
+
+</main>
+
+<footer>
+<div class="quote">"WE DON'T FOLLOW RULES. WE CREATE OUR OWN FREEDOM."<br>– VELVETVERSE BAND –</div>
+
+<div class="footer-grid">
+<div>
+<img src="logo.png">
+<p>Independent. Authentic. Timeless.<br>This is more than music.<br>This is VelvetVerse.</p>
+</div>
+
+<div>
+<h4>NAVIGATION</h4>
+<a href="index-v2.html">Home</a>
+<a href="discography-v2.html">Discography</a>
+<a href="comments-v2.html">Comments</a>
+<a href="about-v2.html">About Us</a>
+<a href="photos-v2.html">Photos</a>
+<a href="news-v2.html">News</a>
+<a href="contact-v2.html">Contact</a>
+<a href="terms-v2.html">Terms & Conditions</a>
+<a href="privacy-v2.html">Privacy Policy</a>
+</div>
+
+<div>
+<h4>UNIVERSE</h4>
+<a href="index-v2.html">VelvetVerse Band</a>
+<a href="https://velvetverseradio.com" target="_blank">VelvetVerse Radio</a>
+<a href="#">Backstage Legends</a>
+<a href="#">Inside VelvetVerse</a>
+</div>
+
+<div>
+<h4>FOLLOW US</h4>
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank">Facebook</a>
+<a href="#">Instagram</a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank">YouTube</a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank">Spotify</a>
+</div>
+
+<div>
+<h4>JOIN THE JOURNEY</h4>
+<p>Subscribe to our newsletter and stay updated.</p>
+<input placeholder="Your email address">
+<button>SUBSCRIBE</button>
+</div>
+</div>
+
+<div class="copy">© 2026 VELVETVERSE BAND. ALL RIGHTS RESERVED.</div>
+</footer>
+
+</body>
+</html>
