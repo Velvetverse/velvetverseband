@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VelvetVerse Radio News</title>
 
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#050505;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at top left,rgba(255,0,120,.22),transparent 35%),
+        radial-gradient(circle at top right,rgba(255,190,0,.18),transparent 35%),
+        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.95)),
+        url("https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1800&q=80");
+      background-size:cover;
+      background-position:center;
+      z-index:-2;
+    }
+
+    .topbar{
+      width:100%;
+      padding:22px 7%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,.75);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+      letter-spacing:1px;
+      color:#ffd36b;
+      text-shadow:0 0 14px rgba(255,211,107,.5);
+    }
+
+    .back-btn{
+      color:#fff;
+      text-decoration:none;
+      padding:10px 22px;
+      border-radius:999px;
+      background:linear-gradient(90deg,#ff007a,#7b2cff);
+      font-weight:bold;
+      box-shadow:0 0 18px rgba(255,0,122,.35);
+      transition:.3s;
+    }
+
+    .back-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 28px rgba(255,0,122,.6);
+    }
+
+    .hero{
+      text-align:center;
+      padding:90px 7% 55px;
+    }
+
+    .hero .tag{
+      display:inline-block;
+      padding:8px 18px;
+      border:1px solid rgba(255,211,107,.5);
+      border-radius:999px;
+      color:#ffd36b;
+      font-size:13px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:22px;
+      background:rgba(0,0,0,.45);
+    }
+
+    .hero h1{
+      font-size:clamp(42px,7vw,82px);
+      line-height:1;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,#fff,#ffd36b,#ff007a);
+      -webkit-background-clip:text;
+      color:transparent;
+      text-shadow:0 0 30px rgba(255,255,255,.12);
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:24px auto 0;
+      font-size:18px;
+      line-height:1.7;
+      color:#ddd;
+    }
+
+    .news-wrap{
+      width:86%;
+      max-width:1450px;
+      margin:0 auto 90px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+    }
+
+    .news-panel{
+      background:rgba(10,10,14,.78);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 0 35px rgba(0,0,0,.55);
+      backdrop-filter:blur(12px);
+    }
+
+    .panel-head{
+      padding:28px;
+      min-height:150px;
+      display:flex;
+      flex-direction:column;
+      justify-content:end;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .panel-head::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));
+      z-index:1;
+    }
+
+    .panel-head.pt{
+      background:url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80") center/cover;
+    }
+
+    .panel-head.rock{
+      background:url("https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=1200&q=80") center/cover;
+    }
+
+    .panel-head h2,
+    .panel-head span{
+      position:relative;
+      z-index:2;
+    }
+
+    .panel-head span{
+      color:#ffd36b;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      margin-bottom:8px;
+      font-weight:bold;
+    }
+
+    .panel-head h2{
+      font-size:32px;
+      text-transform:uppercase;
+    }
+
+    .widget-area{
+      padding:26px;
+      min-height:520px;
+    }
+
+    .widget-placeholder{
+      border:2px dashed rgba(255,255,255,.18);
+      border-radius:22px;
+      min-height:480px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#ccc;
+      padding:30px;
+      background:rgba(255,255,255,.04);
+    }
+
+    .widget-placeholder strong{
+      display:block;
+      color:#fff;
+      font-size:22px;
+      margin-bottom:12px;
+    }
+
+    .bottom-note{
+      width:86%;
+      max-width:1100px;
+      margin:0 auto 70px;
+      text-align:center;
+      color:#bbb;
+      line-height:1.7;
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.1);
+      padding:26px;
+      border-radius:24px;
+    }
+
+    footer{
+      padding:28px 7%;
+      text-align:center;
+      color:#aaa;
+      background:rgba(0,0,0,.85);
+      border-top:1px solid rgba(255,255,255,.12);
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .topbar{
+        flex-direction:column;
+        gap:16px;
+      }
+
+      .news-wrap{
+        grid-template-columns:1fr;
+        width:92%;
+      }
+
+      .hero{
+        padding-top:65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="logo">VelvetVerse Radio</div>
+    <a href="index.html" class="back-btn">Back to Home</a>
+  </header>
+
+  <section class="hero">
+    <div class="tag">Auto Music News</div>
+    <h1>VelvetVerse News</h1>
+    <p>
+      A fresh automatic news page for VelvetVerse Radio — split between Portuguese music culture
+      and international rock updates, with a dark premium stage-style design.
+    </p>
+  </section>
+
+  <main class="news-wrap">
+
+    <section class="news-panel">
+      <div class="panel-head pt">
+        <span>Portuguese Music & Culture</span>
+        <h2>Portuguese News</h2>
+      </div>
+
+      <div class="widget-area">
+        <div class="widget-placeholder">
+          <div>
+            <strong>Portuguese RSS Widget Here</strong>
+            Paste here the RSS.app or Elfsight embed code for Portuguese news.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-panel">
+      <div class="panel-head rock">
+        <span>International Rock Scene</span>
+        <h2>Rock News</h2>
+      </div>
+
+      <div class="widget-area">
+        <div class="widget-placeholder">
+          <div>
+            <strong>International Rock RSS Widget Here</strong>
+            Paste here the RSS.app or Elfsight embed code for rock news.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="bottom-note">
+    VelvetVerse Radio keeps the music alive with automatic updates, fresh stories,
+    artist news, cultural highlights and rock energy from around the world.
+  </section>
+
+  <footer>
+    © 2026 VelvetVerse Radio — All rights reserved.
+  </footer>
+
+</body>
+</html>
