@@ -1,298 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VelvetVerse Radio News</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | VelvetVerse Band</title>
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:#030305;color:#fff}
+a{text-decoration:none;color:inherit}
 
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:#050505;
-      color:#fff;
-      min-height:100vh;
-      overflow-x:hidden;
-    }
+header{
+  height:78px;background:#050505;display:flex;align-items:center;
+  justify-content:space-between;padding:0 52px;position:sticky;top:0;z-index:50;
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.logo{font-family:Georgia,serif;font-size:28px;letter-spacing:2px}
+.logo span{display:block;font-size:10px;text-align:center;letter-spacing:7px;color:#c46cff}
+nav{display:flex;gap:34px;font-size:13px;font-weight:bold;letter-spacing:2px}
+nav a{padding:28px 0}
+nav a.active{color:#d766ff;border-bottom:3px solid #c43cff}
+.social{display:flex;gap:18px;font-size:18px}
 
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:
-        radial-gradient(circle at top left,rgba(255,0,120,.22),transparent 35%),
-        radial-gradient(circle at top right,rgba(255,190,0,.18),transparent 35%),
-        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.95)),
-        url("https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1800&q=80");
-      background-size:cover;
-      background-position:center;
-      z-index:-2;
-    }
+.hero{
+  height:245px;background:
+  linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.4)),
+  url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=80") center/cover;
+  display:flex;align-items:center;justify-content:center;text-align:center;position:relative
+}
+.hero h1{
+  font-family:Georgia,serif;font-size:74px;letter-spacing:12px;text-shadow:0 0 22px #fff
+}
+.hero p{margin-top:16px;letter-spacing:3px;font-size:15px;line-height:1.6}
+.hero-line{height:2px;background:#a629ff;width:360px;margin:8px auto 0;box-shadow:0 0 18px #d36cff}
 
-    .topbar{
-      width:100%;
-      padding:22px 7%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(0,0,0,.75);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.12);
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
+.wrapper{padding:0 28px 20px}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:0}
 
-    .logo{
-      font-size:24px;
-      font-weight:900;
-      letter-spacing:1px;
-      color:#ffd36b;
-      text-shadow:0 0 14px rgba(255,211,107,.5);
-    }
+.panel{
+  background:linear-gradient(145deg,rgba(12,15,18,.96),rgba(5,6,9,.98));
+  border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:28px;
+  box-shadow:0 0 35px rgba(0,0,0,.7)
+}
+.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.titlebox{display:flex;align-items:center;gap:16px}
+.flag,.globe{
+  width:56px;height:38px;border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-size:28px;background:#111
+}
+.globe{font-size:42px}
+.panel h2{font-size:26px;letter-spacing:1px}
+.panel small{display:block;color:#d15cff;font-weight:bold;margin-top:6px;letter-spacing:1px}
+.more{
+  border:1px solid #c653ff;border-radius:4px;padding:12px 18px;font-size:12px;
+  font-weight:bold;letter-spacing:1px;color:#fff
+}
 
-    .back-btn{
-      color:#fff;
-      text-decoration:none;
-      padding:10px 22px;
-      border-radius:999px;
-      background:linear-gradient(90deg,#ff007a,#7b2cff);
-      font-weight:bold;
-      box-shadow:0 0 18px rgba(255,0,122,.35);
-      transition:.3s;
-    }
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{
+  display:grid;grid-template-columns:150px 1fr;gap:16px;min-height:138px;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:0;overflow:hidden
+}
+.card img{width:150px;height:138px;object-fit:cover}
+.card div{padding:16px 14px 12px 0}
+.card h3{font-size:16px;line-height:1.35;margin-bottom:10px}
+.card p{font-size:14px;line-height:1.4;color:#cfcfcf;margin-bottom:10px}
+.card a{font-size:13px;color:#d46cff;font-weight:bold}
 
-    .back-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 0 28px rgba(255,0,122,.6);
-    }
+.cta{
+  margin:14px 18px 0;background:rgba(8,9,12,.92);border:1px solid rgba(255,255,255,.13);
+  border-radius:6px;display:grid;grid-template-columns:1fr 320px 1fr 280px;align-items:center;
+  gap:24px;padding:18px 34px
+}
+.cta h3{color:#ffd200;letter-spacing:2px;font-size:17px;margin-bottom:8px}
+.cta p{color:#ddd}
+.listen{
+  border:1px solid #d34cff;border-radius:5px;padding:14px 24px;text-align:center;
+  font-size:20px;font-weight:bold;letter-spacing:3px
+}
+.listen span{display:block;font-size:11px;letter-spacing:2px}
+.enter{
+  border:1px solid #ffd200;border-radius:5px;padding:17px 24px;text-align:center;
+  font-weight:bold;letter-spacing:2px
+}
+footer{text-align:center;color:#888;padding:12px;font-size:13px}
 
-    .hero{
-      text-align:center;
-      padding:90px 7% 55px;
-    }
-
-    .hero .tag{
-      display:inline-block;
-      padding:8px 18px;
-      border:1px solid rgba(255,211,107,.5);
-      border-radius:999px;
-      color:#ffd36b;
-      font-size:13px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin-bottom:22px;
-      background:rgba(0,0,0,.45);
-    }
-
-    .hero h1{
-      font-size:clamp(42px,7vw,82px);
-      line-height:1;
-      text-transform:uppercase;
-      background:linear-gradient(90deg,#fff,#ffd36b,#ff007a);
-      -webkit-background-clip:text;
-      color:transparent;
-      text-shadow:0 0 30px rgba(255,255,255,.12);
-    }
-
-    .hero p{
-      max-width:850px;
-      margin:24px auto 0;
-      font-size:18px;
-      line-height:1.7;
-      color:#ddd;
-    }
-
-    .news-wrap{
-      width:86%;
-      max-width:1450px;
-      margin:0 auto 90px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-    }
-
-    .news-panel{
-      background:rgba(10,10,14,.78);
-      border:1px solid rgba(255,255,255,.13);
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 0 35px rgba(0,0,0,.55);
-      backdrop-filter:blur(12px);
-    }
-
-    .panel-head{
-      padding:28px;
-      min-height:150px;
-      display:flex;
-      flex-direction:column;
-      justify-content:end;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .panel-head::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));
-      z-index:1;
-    }
-
-    .panel-head.pt{
-      background:url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80") center/cover;
-    }
-
-    .panel-head.rock{
-      background:url("https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=1200&q=80") center/cover;
-    }
-
-    .panel-head h2,
-    .panel-head span{
-      position:relative;
-      z-index:2;
-    }
-
-    .panel-head span{
-      color:#ffd36b;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      margin-bottom:8px;
-      font-weight:bold;
-    }
-
-    .panel-head h2{
-      font-size:32px;
-      text-transform:uppercase;
-    }
-
-    .widget-area{
-      padding:26px;
-      min-height:520px;
-    }
-
-    .widget-placeholder{
-      border:2px dashed rgba(255,255,255,.18);
-      border-radius:22px;
-      min-height:480px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#ccc;
-      padding:30px;
-      background:rgba(255,255,255,.04);
-    }
-
-    .widget-placeholder strong{
-      display:block;
-      color:#fff;
-      font-size:22px;
-      margin-bottom:12px;
-    }
-
-    .bottom-note{
-      width:86%;
-      max-width:1100px;
-      margin:0 auto 70px;
-      text-align:center;
-      color:#bbb;
-      line-height:1.7;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(255,255,255,.1);
-      padding:26px;
-      border-radius:24px;
-    }
-
-    footer{
-      padding:28px 7%;
-      text-align:center;
-      color:#aaa;
-      background:rgba(0,0,0,.85);
-      border-top:1px solid rgba(255,255,255,.12);
-      font-size:14px;
-    }
-
-    @media(max-width:900px){
-      .topbar{
-        flex-direction:column;
-        gap:16px;
-      }
-
-      .news-wrap{
-        grid-template-columns:1fr;
-        width:92%;
-      }
-
-      .hero{
-        padding-top:65px;
-      }
-    }
-  </style>
+@media(max-width:1100px){
+  header{padding:0 18px}
+  nav{gap:16px;font-size:11px}
+  .news-grid{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;text-align:center}
+}
+@media(max-width:700px){
+  .hero h1{font-size:48px}
+  .cards{grid-template-columns:1fr}
+  .card{grid-template-columns:120px 1fr}
+  .card img{width:120px}
+}
+</style>
 </head>
 
 <body>
 
-  <header class="topbar">
-    <div class="logo">VelvetVerse Radio</div>
-    <a href="index.html" class="back-btn">Back to Home</a>
-  </header>
+<header>
+  <a class="logo" href="index.html">VELVETVERSE<span>BAND</span></a>
 
-  <section class="hero">
-    <div class="tag">Auto Music News</div>
-    <h1>VelvetVerse News</h1>
-    <p>
-      A fresh automatic news page for VelvetVerse Radio — split between Portuguese music culture
-      and international rock updates, with a dark premium stage-style design.
-    </p>
-  </section>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="discography.html">DISCOGRAPHY</a>
+    <a href="photos.html">PHOTOS</a>
+    <a class="active" href="teste-v2.html">NEWS</a>
+    <a href="radio.html">RADIO</a>
+    <a href="comments.html">COMMENTS</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
 
-  <main class="news-wrap">
+  <div class="social">● ● ● ●</div>
+</header>
 
-    <section class="news-panel">
-      <div class="panel-head pt">
-        <span>Portuguese Music & Culture</span>
-        <h2>Portuguese News</h2>
-      </div>
+<section class="hero">
+  <div>
+    <h1>NEWS</h1>
+    <div class="hero-line"></div>
+    <p>ALL THE LATEST NEWS FROM THE MUSIC WORLD<br>AND EVERYTHING HAPPENING IN THE VELVETVERSE.</p>
+  </div>
+</section>
 
-      <div class="widget-area">
-        <div class="widget-placeholder">
+<div class="wrapper">
+  <main class="news-grid">
+
+    <section class="panel">
+      <div class="panel-head">
+        <div class="titlebox">
+          <div class="flag">🇵🇹</div>
           <div>
-            <strong>Portuguese RSS Widget Here</strong>
-            Paste here the RSS.app or Elfsight embed code for Portuguese news.
+            <h2>NOTÍCIAS EM PORTUGUÊS</h2>
+            <small>O MELHOR DA MÚSICA PORTUGUESA</small>
           </div>
         </div>
+        <a class="more" href="#">VER MAIS ›</a>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80">
+          <div><h3>RTP Arena anuncia novos concertos para 2025</h3><p>Novos nomes do panorama nacional e internacional já estão confirmados.</p><a>RTP Arena ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80">
+          <div><h3>The Gift lança novo single “Corvo”</h3><p>“Corvo” é o primeiro tema do próximo álbum de originais da banda.</p><a>Blitz ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1521337706264-a414f153a5ed?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Carminho atua no NOS Alive’25</h3><p>A fadista sobe ao palco no dia 12 de julho para um concerto imperdível.</p><a>Música Portuguesa ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=600&q=80">
+          <div><h3>David Fonseca com novo álbum a caminho</h3><p>“Living Room Bohemian Apocalypse” chega em setembro.</p><a>RTP Música ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Capicua lança novo EP</h3><p>O EP já está disponível em todas as plataformas digitais.</p><a>Blitz ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Festival MEO Marés Vivas anuncia confirmações</h3><p>Nomes nacionais e internacionais já estão confirmados para 2025.</p><a>Música Portuguesa ↗</a></div>
+        </article>
       </div>
     </section>
 
-    <section class="news-panel">
-      <div class="panel-head rock">
-        <span>International Rock Scene</span>
-        <h2>Rock News</h2>
-      </div>
-
-      <div class="widget-area">
-        <div class="widget-placeholder">
+    <section class="panel">
+      <div class="panel-head">
+        <div class="titlebox">
+          <div class="globe">🌐</div>
           <div>
-            <strong>International Rock RSS Widget Here</strong>
-            Paste here the RSS.app or Elfsight embed code for rock news.
+            <h2>INTERNATIONAL / ROCK NEWS</h2>
+            <small>ROCK, METAL & MUSIC WORLDWIDE</small>
           </div>
         </div>
+        <a class="more" href="#">VER MAIS ›</a>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Metallica announce 2026 world tour</h3><p>The legendary metal band reveals dates across Europe, North America and more.</p><a>Loudwire ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Ozzy Osbourne’s final show</h3><p>A historic all-star event set for July 5 in Birmingham.</p><a>Ultimate Classic Rock ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80">
+          <div><h3>AC/DC working on new music</h3><p>The band is back in the studio for the first time since 2014.</p><a>Blabbermouth ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Foo Fighters cancel festival dates</h3><p>The band cancels European festival appearances due to unforeseen circumstances.</p><a>NME ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1508973379184-7517410fb0bc?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Slash on new album and upcoming tour</h3><p>“We’re bringing back the raw energy,” says Slash in a new interview.</p><a>Classic Rock ↗</a></div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=600&q=80">
+          <div><h3>Linkin Park tease new music</h3><p>Mike Shinoda hints at new LP coming later this year.</p><a>Kerrang! ↗</a></div>
+        </article>
       </div>
     </section>
 
   </main>
 
-  <section class="bottom-note">
-    VelvetVerse Radio keeps the music alive with automatic updates, fresh stories,
-    artist news, cultural highlights and rock energy from around the world.
-  </section>
+  <section class="cta">
+    <div>
+      <h3>STAY UPDATED</h3>
+      <p>Follow VelvetVerse Band and never miss a beat.</p>
+    </div>
 
-  <footer>
-    © 2026 VelvetVerse Radio — All rights reserved.
-  </footer>
+    <a class="listen" href="radio.html">▶ LISTEN LIVE<span>VELVETVERSE RADIO</span></a>
+
+    <div>
+      <h3>JOIN THE UNIVERSE</h3>
+      <p>More than a band. A universe.</p>
+    </div>
+
+    <a class="enter" href="index.html">ENTER THE UNIVERSE</a>
+  </section>
+</div>
+
+<footer>© 2026 VelvetVerse Band. All rights reserved.</footer>
 
 </body>
 </html>
