@@ -32,10 +32,7 @@ nav a.active,nav a:hover{color:#e47bff;text-shadow:0 0 14px #d45cff}
     url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1900&q=85") center/cover;
   display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden
 }
-.hero:after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 75%,#030305 100%);
-}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 75%,#030305 100%)}
 .hero-content{position:relative;z-index:2}
 .hero h1{
   font-family:Georgia,serif;font-size:88px;letter-spacing:16px;
@@ -86,6 +83,20 @@ nav a.active,nav a:hover{color:#e47bff;text-shadow:0 0 14px #d45cff}
 .card h3{font-size:14.5px;line-height:1.32;margin-bottom:8px}
 .card p{font-size:12.7px;line-height:1.42;color:#cfcfcf;margin-bottom:8px}
 .card a{color:#e07bff;font-size:12px;font-weight:bold}
+
+.loading-card{
+  min-height:132px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#bbb;
+  border:1px dashed rgba(255,255,255,.22);
+  border-radius:10px;
+  background:rgba(255,255,255,.035);
+  grid-column:1/-1;
+  padding:20px;
+}
 
 .rss-note{
   margin-top:14px;padding:13px;border-radius:10px;border:1px dashed rgba(255,255,255,.22);
@@ -168,22 +179,17 @@ footer{text-align:center;color:#888;padding:15px;font-size:12px}
       <div class="icon">🇵🇹</div>
       <div>
         <h2>NOTÍCIAS EM PORTUGUÊS</h2>
-        <small>MÚSICA PORTUGUESA • CULTURA • FESTIVAIS</small>
+        <small>MÚSICA PORTUGUESA • ARTISTAS • ENTREVISTAS</small>
       </div>
     </div>
-    <a class="more" href="#">VER MAIS ›</a>
+    <a class="more" href="https://rss.app/feeds/_IT1sdWFcaTmN5CeA.xml" target="_blank">VER MAIS ›</a>
   </div>
 
-  <div class="cards">
-    <article class="card"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80"><div><h3>Novos concertos portugueses anunciados</h3><p>Artistas nacionais preparam novas datas e festivais para a próxima temporada.</p><a href="#">Ler notícia ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80"><div><h3>Bandas portuguesas ganham destaque</h3><p>A nova geração da música portuguesa continua a crescer dentro e fora do país.</p><a href="#">Ler notícia ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1521337706264-a414f153a5ed?auto=format&fit=crop&w=600&q=80"><div><h3>Fado, pop e rock em novos palcos</h3><p>O som português mistura tradição, emoção e energia moderna.</p><a href="#">Ler notícia ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=600&q=80"><div><h3>Festivais nacionais preparam cartazes</h3><p>Grandes eventos começam a revelar os primeiros nomes para os próximos meses.</p><a href="#">Ler notícia ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=80"><div><h3>Novas vozes da música nacional</h3><p>Artistas emergentes chegam às plataformas com novas sonoridades.</p><a href="#">Ler notícia ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=600&q=80"><div><h3>Cultura portuguesa em destaque</h3><p>Concertos, entrevistas e lançamentos continuam a movimentar a cena musical.</p><a href="#">Ler notícia ↗</a></div></article>
+  <div class="cards" id="pt-news">
+    <div class="loading-card">A carregar notícias portuguesas...</div>
   </div>
 
-  <div class="rss-note">Aqui depois colocamos o widget automático RSS.app ou Elfsight para notícias em português.</div>
+  <div class="rss-note">Fonte automática: VelvetVerse NEWS PT — Blitz / Posto Emissor.</div>
 </section>
 
 <section class="panel">
@@ -192,22 +198,17 @@ footer{text-align:center;color:#888;padding:15px;font-size:12px}
       <div class="icon">🌐</div>
       <div>
         <h2>INTERNATIONAL ROCK NEWS</h2>
-        <small>ROCK • METAL • CLASSIC ROCK • WORLDWIDE</small>
+        <small>ROCK • METAL • CLASSIC ROCK • RELEASES</small>
       </div>
     </div>
-    <a class="more" href="#">VER MAIS ›</a>
+    <a class="more" href="https://rss.app/feeds/_A5OSHO28LUMRJ1By.xml" target="_blank">VER MAIS ›</a>
   </div>
 
-  <div class="cards">
-    <article class="card"><img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=600&q=80"><div><h3>Rock legends return to the stage</h3><p>Major rock acts prepare new tours, albums and live performances worldwide.</p><a href="#">Read more ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=80"><div><h3>Classic rock remains stronger than ever</h3><p>Fans continue to celebrate guitar-driven music across generations.</p><a href="#">Read more ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80"><div><h3>New releases from international bands</h3><p>Fresh singles, albums and collaborations are arriving from the rock world.</p><a href="#">Read more ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=600&q=80"><div><h3>Festival season brings loud guitars</h3><p>Rock and metal festivals announce powerful lineups for fans around the globe.</p><a href="#">Read more ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=600&q=80"><div><h3>Metal bands tease new albums</h3><p>Heavy riffs and arena choruses return with new studio projects.</p><a href="#">Read more ↗</a></div></article>
-    <article class="card"><img src="https://images.unsplash.com/photo-1508973379184-7517410fb0bc?auto=format&fit=crop&w=600&q=80"><div><h3>Guitar heroes keep the fire alive</h3><p>Iconic players continue to inspire rock fans with raw energy and tone.</p><a href="#">Read more ↗</a></div></article>
+  <div class="cards" id="en-news">
+    <div class="loading-card">Loading international music news...</div>
   </div>
 
-  <div class="rss-note">Aqui depois colocamos o widget automático RSS.app ou Elfsight para notícias internacionais rock.</div>
+  <div class="rss-note">Automatic source: VelvetVerse NEWS EN — NME, Loudwire, LouderSound and Ultimate Classic Rock.</div>
 </section>
 
 </main>
@@ -231,6 +232,83 @@ footer{text-align:center;color:#888;padding:15px;font-size:12px}
 </div>
 
 <footer>© 2026 VelvetVerse Band — All rights reserved.</footer>
+
+<script>
+const FEEDS = {
+  pt: "https://rss.app/feeds/_IT1sdWFcaTmN5CeA.xml",
+  en: "https://rss.app/feeds/_A5OSHO28LUMRJ1By.xml"
+};
+
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=80";
+
+function stripHtml(html){
+  const temp = document.createElement("div");
+  temp.innerHTML = html || "";
+  return (temp.textContent || temp.innerText || "").trim();
+}
+
+function cutText(text, max){
+  if(!text) return "";
+  return text.length > max ? text.substring(0, max).trim() + "..." : text;
+}
+
+function getImage(item){
+  if(item.thumbnail) return item.thumbnail;
+  if(item.enclosure && item.enclosure.link) return item.enclosure.link;
+
+  const html = item.description || item.content || "";
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if(match && match[1]) return match[1];
+
+  return FALLBACK_IMAGE;
+}
+
+function createCard(item, lang){
+  const title = cutText(stripHtml(item.title), 72);
+  const description = cutText(stripHtml(item.description || item.content), 115);
+  const image = getImage(item);
+  const linkText = lang === "pt" ? "Ler notícia ↗" : "Read more ↗";
+
+  return `
+    <article class="card">
+      <img src="${image}" alt="${title}" loading="lazy" onerror="this.src='${FALLBACK_IMAGE}'">
+      <div>
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <a href="${item.link}" target="_blank" rel="noopener">${linkText}</a>
+      </div>
+    </article>
+  `;
+}
+
+async function loadFeed(feedUrl, targetId, lang){
+  const target = document.getElementById(targetId);
+  const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+
+  try{
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if(!data.items || !data.items.length){
+      throw new Error("No RSS items found");
+    }
+
+    const items = data.items.slice(0, 6);
+    target.innerHTML = items.map(item => createCard(item, lang)).join("");
+  }catch(error){
+    console.error("RSS loading error:", error);
+    target.innerHTML = `
+      <div class="loading-card">
+        Não foi possível carregar este feed agora.<br>
+        Tenta actualizar a página ou verificar o Bundle no RSS.app.
+      </div>
+    `;
+  }
+}
+
+loadFeed(FEEDS.pt, "pt-news", "pt");
+loadFeed(FEEDS.en, "en-news", "en");
+</script>
 
 </body>
 </html>
