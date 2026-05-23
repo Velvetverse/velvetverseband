@@ -7,96 +7,371 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#030305;color:#fff}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#020204;
+  color:#fff;
+}
 a{text-decoration:none;color:inherit}
 
 header{
-  height:78px;background:#050505;display:flex;align-items:center;
-  justify-content:space-between;padding:0 52px;position:sticky;top:0;z-index:50;
-  border-bottom:1px solid rgba(255,255,255,.08)
+  height:82px;
+  background:rgba(3,3,6,.96);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 46px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  border-bottom:1px solid rgba(199,74,255,.35);
+  box-shadow:0 0 30px rgba(160,42,255,.25);
 }
-.logo{font-family:Georgia,serif;font-size:28px;letter-spacing:2px}
-.logo span{display:block;font-size:10px;text-align:center;letter-spacing:7px;color:#c46cff}
-nav{display:flex;gap:34px;font-size:13px;font-weight:bold;letter-spacing:2px}
-nav a{padding:28px 0}
-nav a.active{color:#d766ff;border-bottom:3px solid #c43cff}
-.social{display:flex;gap:18px;font-size:18px}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:28px;
+  letter-spacing:2px;
+  color:#fff;
+  text-shadow:0 0 18px rgba(199,74,255,.8);
+}
+.logo span{
+  display:block;
+  font-size:10px;
+  text-align:center;
+  letter-spacing:7px;
+  color:#d869ff;
+}
+
+nav{
+  display:flex;
+  gap:26px;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+nav a{
+  padding:31px 0;
+  color:#ddd;
+}
+nav a:hover,
+nav a.active{
+  color:#e07bff;
+  text-shadow:0 0 14px #e07bff;
+}
+
+.social{
+  display:flex;
+  gap:12px;
+}
+.social span{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#d45cff;
+  box-shadow:0 0 14px #d45cff;
+}
 
 .hero{
-  height:245px;background:
-  linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.4)),
-  url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=80") center/cover;
-  display:flex;align-items:center;justify-content:center;text-align:center;position:relative
+  height:310px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.35),rgba(0,0,0,.92)),
+    url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1800&q=80") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
-.hero h1{
-  font-family:Georgia,serif;font-size:74px;letter-spacing:12px;text-shadow:0 0 22px #fff
-}
-.hero p{margin-top:16px;letter-spacing:3px;font-size:15px;line-height:1.6}
-.hero-line{height:2px;background:#a629ff;width:360px;margin:8px auto 0;box-shadow:0 0 18px #d36cff}
 
-.wrapper{padding:0 28px 20px}
-.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:0}
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(196,60,255,.35),transparent 30%),
+    radial-gradient(circle at 80% 30%,rgba(255,210,0,.18),transparent 25%);
+}
+
+.hero div{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:86px;
+  letter-spacing:15px;
+  color:#fff;
+  text-shadow:
+    0 0 18px #fff,
+    0 0 35px #b43cff,
+    0 0 65px #7c1eff;
+}
+
+.hero-line{
+  height:3px;
+  width:420px;
+  margin:14px auto;
+  background:linear-gradient(90deg,transparent,#d45cff,#ffd200,#d45cff,transparent);
+  box-shadow:0 0 24px #d45cff;
+}
+
+.hero p{
+  letter-spacing:3px;
+  font-size:14px;
+  line-height:1.7;
+  color:#eee;
+}
+
+.wrapper{
+  padding:18px 26px 28px;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
 
 .panel{
-  background:linear-gradient(145deg,rgba(12,15,18,.96),rgba(5,6,9,.98));
-  border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:28px;
-  box-shadow:0 0 35px rgba(0,0,0,.7)
-}
-.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-.titlebox{display:flex;align-items:center;gap:16px}
-.flag,.globe{
-  width:56px;height:38px;border-radius:4px;display:flex;align-items:center;justify-content:center;
-  font-size:28px;background:#111
-}
-.globe{font-size:42px}
-.panel h2{font-size:26px;letter-spacing:1px}
-.panel small{display:block;color:#d15cff;font-weight:bold;margin-top:6px;letter-spacing:1px}
-.more{
-  border:1px solid #c653ff;border-radius:4px;padding:12px 18px;font-size:12px;
-  font-weight:bold;letter-spacing:1px;color:#fff
+  background:
+    linear-gradient(145deg,rgba(18,18,26,.98),rgba(5,5,9,.98));
+  border:1px solid rgba(213,92,255,.35);
+  border-radius:14px;
+  padding:26px;
+  box-shadow:
+    0 0 25px rgba(0,0,0,.8),
+    inset 0 0 35px rgba(170,45,255,.08);
 }
 
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.card{
-  display:grid;grid-template-columns:150px 1fr;gap:16px;min-height:138px;
-  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:0;overflow:hidden
+.panel-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:24px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
-.card img{width:150px;height:138px;object-fit:cover}
-.card div{padding:16px 14px 12px 0}
-.card h3{font-size:16px;line-height:1.35;margin-bottom:10px}
-.card p{font-size:14px;line-height:1.4;color:#cfcfcf;margin-bottom:10px}
-.card a{font-size:13px;color:#d46cff;font-weight:bold}
+
+.titlebox{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.icon{
+  width:58px;
+  height:48px;
+  border-radius:10px;
+  background:rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:31px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 18px rgba(212,92,255,.25);
+}
+
+.panel h2{
+  font-size:25px;
+  letter-spacing:1px;
+}
+
+.panel small{
+  display:block;
+  color:#d869ff;
+  font-weight:bold;
+  margin-top:6px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.more{
+  border:1px solid #d45cff;
+  border-radius:999px;
+  padding:12px 20px;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1px;
+  background:rgba(212,92,255,.08);
+  box-shadow:0 0 18px rgba(212,92,255,.25);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.card{
+  display:grid;
+  grid-template-columns:145px 1fr;
+  min-height:148px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:#d45cff;
+  box-shadow:0 0 26px rgba(212,92,255,.32);
+}
+
+.card img{
+  width:145px;
+  height:148px;
+  object-fit:cover;
+  filter:saturate(1.15) contrast(1.05);
+}
+
+.card div{
+  padding:15px 14px;
+}
+
+.card h3{
+  font-size:15.5px;
+  line-height:1.35;
+  margin-bottom:9px;
+}
+
+.card p{
+  font-size:13.5px;
+  line-height:1.45;
+  color:#cfcfcf;
+  margin-bottom:10px;
+}
+
+.card a{
+  color:#e07bff;
+  font-size:12.5px;
+  font-weight:bold;
+}
+
+.rss-note{
+  margin-top:18px;
+  padding:16px;
+  border-radius:12px;
+  border:1px dashed rgba(255,255,255,.22);
+  color:#bbb;
+  font-size:13px;
+  text-align:center;
+  background:rgba(255,255,255,.035);
+}
 
 .cta{
-  margin:14px 18px 0;background:rgba(8,9,12,.92);border:1px solid rgba(255,255,255,.13);
-  border-radius:6px;display:grid;grid-template-columns:1fr 320px 1fr 280px;align-items:center;
-  gap:24px;padding:18px 34px
+  margin-top:18px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.95),rgba(22,12,30,.95),rgba(0,0,0,.95));
+  border:1px solid rgba(255,210,0,.35);
+  border-radius:14px;
+  display:grid;
+  grid-template-columns:1fr 330px 1fr 280px;
+  align-items:center;
+  gap:24px;
+  padding:24px 34px;
+  box-shadow:0 0 26px rgba(255,210,0,.13);
 }
-.cta h3{color:#ffd200;letter-spacing:2px;font-size:17px;margin-bottom:8px}
-.cta p{color:#ddd}
-.listen{
-  border:1px solid #d34cff;border-radius:5px;padding:14px 24px;text-align:center;
-  font-size:20px;font-weight:bold;letter-spacing:3px
-}
-.listen span{display:block;font-size:11px;letter-spacing:2px}
-.enter{
-  border:1px solid #ffd200;border-radius:5px;padding:17px 24px;text-align:center;
-  font-weight:bold;letter-spacing:2px
-}
-footer{text-align:center;color:#888;padding:12px;font-size:13px}
 
-@media(max-width:1100px){
+.cta h3{
+  color:#ffd200;
+  letter-spacing:2px;
+  font-size:17px;
+  margin-bottom:8px;
+}
+
+.cta p{
+  color:#ddd;
+  font-size:14px;
+}
+
+.listen{
+  border:1px solid #d45cff;
+  border-radius:9px;
+  padding:15px 24px;
+  text-align:center;
+  font-size:21px;
+  font-weight:bold;
+  letter-spacing:3px;
+  box-shadow:0 0 18px rgba(212,92,255,.25);
+}
+
+.listen span{
+  display:block;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#ccc;
+}
+
+.enter{
+  border:1px solid #ffd200;
+  border-radius:9px;
+  padding:18px 22px;
+  text-align:center;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#ffd200;
+}
+
+footer{
+  text-align:center;
+  color:#888;
+  padding:16px;
+  font-size:13px;
+}
+
+@media(max-width:1150px){
   header{padding:0 18px}
-  nav{gap:16px;font-size:11px}
+  nav{gap:14px;font-size:10px}
   .news-grid{grid-template-columns:1fr}
   .cta{grid-template-columns:1fr;text-align:center}
 }
-@media(max-width:700px){
-  .hero h1{font-size:48px}
-  .cards{grid-template-columns:1fr}
-  .card{grid-template-columns:120px 1fr}
-  .card img{width:120px}
+
+@media(max-width:720px){
+  header{
+    height:auto;
+    padding:18px;
+    flex-direction:column;
+    gap:18px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav a{
+    padding:6px 0;
+  }
+
+  .hero{
+    height:250px;
+  }
+
+  .hero h1{
+    font-size:50px;
+    letter-spacing:8px;
+  }
+
+  .hero-line{
+    width:280px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    grid-template-columns:120px 1fr;
+  }
+
+  .card img{
+    width:120px;
+  }
 }
 </style>
 </head>
@@ -117,130 +392,163 @@ footer{text-align:center;color:#888;padding:12px;font-size:13px}
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <div class="social">● ● ● ●</div>
+  <div class="social">
+    <span></span><span></span><span></span><span></span>
+  </div>
 </header>
 
 <section class="hero">
   <div>
     <h1>NEWS</h1>
     <div class="hero-line"></div>
-    <p>ALL THE LATEST NEWS FROM THE MUSIC WORLD<br>AND EVERYTHING HAPPENING IN THE VELVETVERSE.</p>
+    <p>
+      ALL THE LATEST NEWS FROM THE MUSIC WORLD<br>
+      PORTUGUESE MUSIC, INTERNATIONAL ROCK AND THE VELVETVERSE UNIVERSE.
+    </p>
   </div>
 </section>
 
 <div class="wrapper">
-  <main class="news-grid">
 
-    <section class="panel">
-      <div class="panel-head">
-        <div class="titlebox">
-          <div class="flag">🇵🇹</div>
-          <div>
-            <h2>NOTÍCIAS EM PORTUGUÊS</h2>
-            <small>O MELHOR DA MÚSICA PORTUGUESA</small>
-          </div>
-        </div>
-        <a class="more" href="#">VER MAIS ›</a>
+<main class="news-grid">
+
+<section class="panel">
+  <div class="panel-head">
+    <div class="titlebox">
+      <div class="icon">🇵🇹</div>
+      <div>
+        <h2>NOTÍCIAS EM PORTUGUÊS</h2>
+        <small>MÚSICA PORTUGUESA • CULTURA • FESTIVAIS</small>
       </div>
-
-      <div class="cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80">
-          <div><h3>RTP Arena anuncia novos concertos para 2025</h3><p>Novos nomes do panorama nacional e internacional já estão confirmados.</p><a>RTP Arena ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80">
-          <div><h3>The Gift lança novo single “Corvo”</h3><p>“Corvo” é o primeiro tema do próximo álbum de originais da banda.</p><a>Blitz ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1521337706264-a414f153a5ed?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Carminho atua no NOS Alive’25</h3><p>A fadista sobe ao palco no dia 12 de julho para um concerto imperdível.</p><a>Música Portuguesa ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=600&q=80">
-          <div><h3>David Fonseca com novo álbum a caminho</h3><p>“Living Room Bohemian Apocalypse” chega em setembro.</p><a>RTP Música ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Capicua lança novo EP</h3><p>O EP já está disponível em todas as plataformas digitais.</p><a>Blitz ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Festival MEO Marés Vivas anuncia confirmações</h3><p>Nomes nacionais e internacionais já estão confirmados para 2025.</p><a>Música Portuguesa ↗</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="panel-head">
-        <div class="titlebox">
-          <div class="globe">🌐</div>
-          <div>
-            <h2>INTERNATIONAL / ROCK NEWS</h2>
-            <small>ROCK, METAL & MUSIC WORLDWIDE</small>
-          </div>
-        </div>
-        <a class="more" href="#">VER MAIS ›</a>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Metallica announce 2026 world tour</h3><p>The legendary metal band reveals dates across Europe, North America and more.</p><a>Loudwire ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Ozzy Osbourne’s final show</h3><p>A historic all-star event set for July 5 in Birmingham.</p><a>Ultimate Classic Rock ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80">
-          <div><h3>AC/DC working on new music</h3><p>The band is back in the studio for the first time since 2014.</p><a>Blabbermouth ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Foo Fighters cancel festival dates</h3><p>The band cancels European festival appearances due to unforeseen circumstances.</p><a>NME ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1508973379184-7517410fb0bc?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Slash on new album and upcoming tour</h3><p>“We’re bringing back the raw energy,” says Slash in a new interview.</p><a>Classic Rock ↗</a></div>
-        </article>
-
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=600&q=80">
-          <div><h3>Linkin Park tease new music</h3><p>Mike Shinoda hints at new LP coming later this year.</p><a>Kerrang! ↗</a></div>
-        </article>
-      </div>
-    </section>
-
-  </main>
-
-  <section class="cta">
-    <div>
-      <h3>STAY UPDATED</h3>
-      <p>Follow VelvetVerse Band and never miss a beat.</p>
     </div>
+    <a class="more" href="#">VER MAIS ›</a>
+  </div>
 
-    <a class="listen" href="radio.html">▶ LISTEN LIVE<span>VELVETVERSE RADIO</span></a>
+  <div class="cards">
 
-    <div>
-      <h3>JOIN THE UNIVERSE</h3>
-      <p>More than a band. A universe.</p>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Novos concertos portugueses anunciados</h3>
+        <p>Artistas nacionais preparam novas datas e festivais para a próxima temporada.</p>
+        <a href="#">Ler notícia ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Bandas portuguesas ganham destaque</h3>
+        <p>A nova geração da música portuguesa continua a crescer dentro e fora do país.</p>
+        <a href="#">Ler notícia ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1521337706264-a414f153a5ed?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Fado, pop e rock em novos palcos</h3>
+        <p>O som português mistura tradição, emoção e energia moderna.</p>
+        <a href="#">Ler notícia ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Festivais nacionais preparam cartazes</h3>
+        <p>Grandes eventos começam a revelar os primeiros nomes para os próximos meses.</p>
+        <a href="#">Ler notícia ↗</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rss-note">
+    Aqui depois colocamos o widget automático RSS.app ou Elfsight para notícias em português.
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <div class="titlebox">
+      <div class="icon">🌐</div>
+      <div>
+        <h2>INTERNATIONAL ROCK NEWS</h2>
+        <small>ROCK • METAL • CLASSIC ROCK • WORLDWIDE</small>
+      </div>
     </div>
+    <a class="more" href="#">VER MAIS ›</a>
+  </div>
 
-    <a class="enter" href="index.html">ENTER THE UNIVERSE</a>
-  </section>
+  <div class="cards">
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Rock legends return to the stage</h3>
+        <p>Major rock acts prepare new tours, albums and live performances worldwide.</p>
+        <a href="#">Read more ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Classic rock remains stronger than ever</h3>
+        <p>Fans continue to celebrate guitar-driven music across generations.</p>
+        <a href="#">Read more ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>New releases from international bands</h3>
+        <p>Fresh singles, albums and collaborations are arriving from the rock world.</p>
+        <a href="#">Read more ↗</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=600&q=80">
+      <div>
+        <h3>Festival season brings loud guitars</h3>
+        <p>Rock and metal festivals announce powerful lineups for fans around the globe.</p>
+        <a href="#">Read more ↗</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rss-note">
+    Aqui depois colocamos o widget automático RSS.app ou Elfsight para notícias internacionais rock.
+  </div>
+</section>
+
+</main>
+
+<section class="cta">
+  <div>
+    <h3>STAY UPDATED</h3>
+    <p>Fresh music stories, culture and rock news updated automatically.</p>
+  </div>
+
+  <a class="listen" href="radio.html">▶ LISTEN LIVE<span>VELVETVERSE RADIO</span></a>
+
+  <div>
+    <h3>JOIN THE UNIVERSE</h3>
+    <p>More than a band. More than a radio. A universe.</p>
+  </div>
+
+  <a class="enter" href="index.html">ENTER THE UNIVERSE</a>
+</section>
+
 </div>
 
-<footer>© 2026 VelvetVerse Band. All rights reserved.</footer>
+<footer>
+© 2026 VelvetVerse Band — All rights reserved.
+</footer>
 
 </body>
 </html>
