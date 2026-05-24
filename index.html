@@ -1,993 +1,164 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VelvetVerse Band | Official Website</title>
+<title>VelvetVerse Band</title>
+
+<meta http-equiv="refresh" content="5; url=index-v2.html">
 
 <style>
-  .lang-buttons {
-  text-align: right;
-  margin-bottom: 15px;
-}
-
-.lang-buttons button {
-  background: #111;
-  border: 1px solid #d4af37;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.lang-buttons button:hover {
-  background: #d4af37;
-  color: #000;
-}
-*{box-sizing:border-box;}
-
-html,body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#090909;
-  color:#f5f0e8;
-  overflow-x:hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
+  height:100vh;
+  overflow:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
   background:
-    radial-gradient(circle at top,#2a2114 0%,#090909 42%,#000 100%);
-}
-
-/* NAV BAR */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  min-height:110px;
-  z-index:1000;
+    radial-gradient(circle at 50% 35%,rgba(160,40,255,.35),transparent 28%),
+    radial-gradient(circle at 25% 75%,rgba(255,45,45,.22),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(255,160,30,.18),transparent 28%),
+    linear-gradient(135deg,#030305,#120017,#050101);
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:30px;
-  padding:15px 30px;
-  background:rgba(0,0,0,0.92);
-  border-bottom:1px solid #d4af37;
-  box-shadow:0 0 18px rgba(212,175,55,0.35);
 }
 
-.nav-logo{
-  height:85px;
+.stage{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(110deg,transparent 0%,rgba(255,255,255,.08) 45%,transparent 55%),
+    linear-gradient(250deg,transparent 0%,rgba(180,60,255,.10) 45%,transparent 58%);
+  animation:lights 5s ease-in-out infinite alternate;
 }
 
-.nav-links{
-  display:flex;
-  gap:15px;
-  align-items:center;
-  flex-wrap:wrap;
+@keyframes lights{
+  from{opacity:.35;transform:scale(1)}
+  to{opacity:.8;transform:scale(1.08)}
 }
 
-nav button{
-  background:#111;
-  color:#f5f0e8;
-  border:1px solid #d4af37;
-  border-radius:10px;
-  padding:10px 16px;
-  cursor:pointer;
-  font-weight:bold;
-  transition:0.25s;
-}
-
-nav button:hover,
-nav button.active-btn{
-  background:#d4af37;
-  color:#000;
-  box-shadow:0 0 18px rgba(212,175,55,0.7);
-}
-
-/* SECTIONS */
-.section{
-  display:none;
-  min-height:100vh;
-  padding:140px 20px 50px;
-}
-
-.section.active{display:block;}
-
-/* HERO */
-.hero{
-  min-height:calc(100vh - 110px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.box{
+  position:relative;
+  z-index:2;
   text-align:center;
-  background:
-    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.75)),
-    url("band-home.jpg") center/cover no-repeat;
-}
-
-.hero-box{
+  padding:55px 45px;
   max-width:900px;
-  padding:35px;
+  width:90%;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:28px;
+  background:rgba(0,0,0,.45);
+  box-shadow:
+    0 0 60px rgba(170,60,255,.35),
+    inset 0 0 50px rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  animation:enter .9s ease forwards;
 }
 
-.hero h1{
-  font-size:52px;
-  margin:0;
-  color:#d4af37;
-  text-shadow:0 0 22px rgba(212,175,55,0.55);
+@keyframes enter{
+  from{opacity:0;transform:translateY(25px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
 }
 
-.hero p{
-  font-size:20px;
+.logo{
+  font-family:Georgia,serif;
+  font-size:72px;
+  letter-spacing:9px;
+  text-shadow:
+    0 0 18px #fff,
+    0 0 35px #b84cff,
+    0 0 75px #7a1cff;
 }
 
-.gold{
-  color:#d4af37;
-}
-
-/* PANELS */
-.panel{
-  max-width:1100px;
-  margin:auto;
-  background:rgba(15,15,15,0.9);
-  border:1px solid rgba(212,175,55,0.65);
-  border-radius:22px;
-  padding:34px;
-  box-shadow:0 0 24px rgba(212,175,55,0.22);
-}
-
-/* PLAYER */
-.music-player{
-  margin:25px 0;
-  padding:22px;
-  border:1px solid #d4af37;
-  border-radius:18px;
-  background:#050505;
-  box-shadow:0 0 18px rgba(212,175,55,0.35);
-}
-
-#nowPlaying{
-  color:#d4af37;
-  font-size:22px;
-  margin-bottom:15px;
-}
-
-/* DISC GRID */
-.disc-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:22px;
-}
-
-.disc-card{
-  background:#111;
-  border:1px solid rgba(212,175,55,0.7);
-  border-radius:18px;
-  padding:14px;
-  text-align:center;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.disc-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 28px rgba(212,175,55,0.65);
-}
-
-.disc-card img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:14px;
-}
-
-footer{
-  text-align:center;
-  padding:25px;
-  border-top:1px solid #d4af37;
+.sub{
+  margin-top:8px;
   font-size:13px;
-}
-  .about-image {
-  text-align: center;
-  margin-bottom: 25px;
+  letter-spacing:8px;
+  color:#d9a7ff;
 }
 
-.about-image img {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 20px;
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 30px rgba(212,175,55,0.4);
-}
-  .contact-image {
-  text-align: center;
-  margin-bottom: 20px;
+.line{
+  width:420px;
+  height:3px;
+  margin:28px auto;
+  background:linear-gradient(90deg,transparent,#b84cff,#fff,#ffb347,transparent);
+  box-shadow:0 0 25px #b84cff;
 }
 
-.contact-image img {
-  max-width: 300px;
-  width: 100%;
-  border-radius: 15px;
-  border: 2px solid #d4af37;
-  box-shadow: 0 0 20px rgba(212,175,55,0.3);
+h2{
+  font-size:26px;
+  letter-spacing:3px;
+  margin-bottom:14px;
 }
 
-#contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
-  margin: auto;
+p{
+  color:#ddd;
+  font-size:15px;
+  letter-spacing:2px;
+  line-height:1.7;
 }
 
-#contact input,
-#contact textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #d4af37;
-  background: #111;
-  color: #fff;
+.enter-btn{
+  display:inline-block;
+  margin-top:34px;
+  padding:15px 34px;
+  border:1px solid #d45cff;
+  border-radius:999px;
+  color:#fff;
+  font-weight:bold;
+  letter-spacing:3px;
+  box-shadow:0 0 25px rgba(212,92,255,.35);
+  transition:.25s;
 }
 
-#contact textarea {
-  min-height: 120px;
+.enter-btn:hover{
+  background:rgba(212,92,255,.16);
+  transform:translateY(-3px);
 }
 
-#contact button {
-  padding: 12px;
-  border: none;
-  background: #d4af37;
-  color: #000;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
+.loading{
+  margin-top:26px;
+  font-size:11px;
+  letter-spacing:4px;
+  color:#aaa;
+  animation:pulse 1.2s infinite alternate;
 }
 
-#contact button:hover {
-  background: #ffd700;
+@keyframes pulse{
+  from{opacity:.35}
+  to{opacity:1}
 }
 
-#formStatus {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 14px;
-}
-  #comments .panel {
-  max-width: 800px;
-}
-
-#commentForm {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 15px !important;
-  max-width: 600px !important;
-  margin: 25px auto 0 !important;
-}
-
-#commentForm input,
-#commentForm textarea {
-  width: 100% !important;
-  padding: 12px !important;
-  border-radius: 10px !important;
-  border: 1px solid #d4af37 !important;
-  background: #111 !important;
-  color: #fff !important;
-  font-size: 15px !important;
-}
-
-#commentForm textarea {
-  min-height: 120px !important;
-}
-
-#commentForm button {
-  width: 100% !important;
-  padding: 12px !important;
-  border: none !important;
-  background: #d4af37 !important;
-  color: #000 !important;
-  font-weight: bold !important;
-  border-radius: 10px !important;
-  cursor: pointer !important;
-}
-
-#commentForm button:hover {
-  background: #ffd700 !important;
-}
-
-#commentStatus {
-  text-align: center;
-  margin-top: 10px;
-}
-  /* APPROVED COMMENTS */
-
-.approved-comments {
-  margin-top: 40px;
-}
-
-.approved-comments h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #d4af37;
-}
-
-.comment-card {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-  background: #111;
-  border: 1px solid #d4af37;
-  border-radius: 15px;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 20px rgba(212,175,55,0.2);
-  transition: 0.3s;
-}
-
-.comment-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(212,175,55,0.5);
-}
-
-.comment-avatar {
-  width: 50px;
-  height: 50px;
-  background: #d4af37;
-  color: #000;
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.comment-content h3 {
-  margin: 0;
-  color: #d4af37;
-}
-
-.comment-content p {
-  margin: 5px 0 0;
-}
-.comment-photo {
-  width: 42px !important;
-  height: 42px !important;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #d4af37;
-  flex-shrink: 0;
-}
-  #comments .comment-card img.comment-photo {
-  width: 55px !important;
-  height: 55px !important;
-  max-width: 55px !important;
-  min-width: 55px !important;
-  max-height: 55px !important;
-  min-height: 55px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  border: 2px solid #d4af37 !important;
-  flex: 0 0 55px !important;
-}
-  .load-more-btn {
-  display: block;
-  margin: 25px auto 0;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 30px;
-  background: #00ffff;
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.load-more-btn:hover {
-  box-shadow: 0 0 20px #00ffff;
-}
-  
-.site-footer {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  gap: 20px;
-  padding: 25px 30px;
-  border-top: 1px solid #d4af37;
-  background: #000;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.footer-left {
-  text-align: left;
-}
-
-.footer-center {
-  text-align: center;
-}
-
-.footer-center p {
-  margin: 3px 0;
-}
-
-.footer-right {
-  text-align: right;
-}
-
-.site-footer a {
-  color: #d4af37;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-right a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  margin-left: 8px;
-  border: 1px solid #d4af37;
-  border-radius: 50%;
-  font-size: 18px;
-  color: #d4af37;
-  transition: 0.3s;
-}
-
-.footer-right a:hover {
-  background: #d4af37;
-  color: #000;
-  text-decoration: none;
-  box-shadow: 0 0 15px rgba(212,175,55,0.7);
-}
-
-@media (max-width: 768px) {
-  .site-footer {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .footer-left,
-  .footer-center,
-  .footer-right {
-    text-align: center;
-  }
-}
-  .radio-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #d4af37;
-  color: #000;
-  font-weight: bold;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.radio-btn:hover {
-  box-shadow: 0 0 20px rgba(212,175,55,0.7);
-}
-  .release-popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.82);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 20px;
-}
-
-.release-box {
-  position: relative;
-  max-width: 370px;
-  width: 100%;
-  background: #111;
-  border: 1px solid #d4af37;
-  border-radius: 22px;
-  padding: 25px;
-  text-align: center;
-  box-shadow: 0 0 35px rgba(212,175,55,0.55);
-  animation: popupFade 0.5s ease;
-}
-
-.release-box h2 {
-  color: #d4af37;
-  margin-top: 0;
-}
-
-.release-box img {
-  width: 100%;
-  border-radius: 15px;
-  border: 2px solid #d4af37;
-  margin: 15px 0;
-}
-
-.release-box h3 {
-  color: #fff;
-  margin: 10px 0 5px;
-  font-size: 24px;
-}
-
-.release-box p {
-  color: #d4af37;
-  margin: 6px 0;
-}
-
-.release-box a {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 12px 24px;
-  background: #d4af37;
-  color: #000;
-  border-radius: 10px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.release-box a:hover {
-  box-shadow: 0 0 18px rgba(212,175,55,0.8);
-}
-
-.release-close {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: none;
-  border: none;
-  color: #d4af37;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-@keyframes popupFade {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+@media(max-width:720px){
+  .logo{font-size:42px;letter-spacing:5px}
+  .sub{letter-spacing:5px}
+  .line{width:260px}
+  h2{font-size:20px}
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <img src="logo.png" class="nav-logo">    
+<div class="stage"></div>
 
- <div class="nav-links">
-  <button class="active-btn" onclick="show('home',this)">Home</button>
-  <button onclick="show('discography',this)">Discography</button>
-  <button onclick="show('comments',this)">Comments</button>
-  <button onclick="show('about',this)">About Us</button>
-  <button onclick="show('contact',this)">Contact Us</button>
-  <button onclick="window.open('https://velvetverseradio.com','_blank')">
-  📻 Radio
-</button>
-</div>
-</nav>
+<div class="box">
+  <div class="logo">VELVETVERSE</div>
+  <div class="sub">BAND</div>
 
-<div id="home" class="section active">       
-  <div class="hero">
-    <div class="hero-box">
-      <h1>VelvetVerse Band</h1>
-      <p><span class="gold">Studio Music Project</span><br>
-      Rock • Fado • International Sound</p>
-      <a href="https://velvetverseradio.com" target="_blank" class="radio-btn">
-  🎧 Listen Live Radio
-</a>
-    </div>
-  </div>
+  <div class="line"></div>
+
+  <h2>Welcome to VelvetVerse Band</h2>
+  <p>
+    More than music. More than a band.<br>
+    Enter the VelvetVerse Universe.
+  </p>
+
+  <a class="enter-btn" href="index-v2.html">ENTER NOW</a>
+
+  <div class="loading">ENTERING THE UNIVERSE...</div>
 </div>
 
-<div id="biografia" class="section">
-  <div class="panel">
-    <h1>Biografia</h1>
-    <p>A VelvetVerse Band é um projeto musical de estúdio criado por músicos apaixonados pela criação sonora.</p>
-  </div>
-</div>
-
-<div id="about" class="section">
-  <div class="panel">
-  <h1>About Us</h1>
-
-<div class="about-image">
-  <img src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/band.jpg" alt="VelvetVerse Band">
-</div>
-
-<div class="lang-buttons">
-  <button onclick="setLang('pt')">🇵🇹 Português</button>
-  <button onclick="setLang('en')">🇬🇧 English</button>
-</div>
-
-<!-- 🇬🇧 ENGLISH FIRST -->
-<div id="en">
-  <h2>VelvetVerse Band</h2>
-
-  <h3>Origins & Formation</h3>
-  <p>VelvetVerse was born in 2024 from friendship and a timeless passion for music. Four friends came together to reconnect with the energy of the studio and the stage, bringing with them decades of experience, stories, and musical influences. Over time, the project evolved, welcoming new voices and growing into a solid, rich, and diverse musical identity.</p>
-
-  <h3>The Band Members</h3>
-  <p><strong>Carlos Moreira</strong> – Drums & Vocals. With nearly 40 years of musical experience, Carlos has been part of several bands, toured extensively across Portugal, and performed internationally. Throughout his career, he has shared the stage with renowned Portuguese artists.</p>
-  <p><strong>Beto</strong> – Lead Guitar & Vocals. Also with a long and rich musical journey, Beto has decades of live performance experience, including major concerts and collaborations with well-known artists.</p>
-  <p><strong>Lara Ingrid</strong> – Vocals & Keyboards. With a musical background in Brazil, Lara brings sensitivity, freshness, and emotional depth to the band’s sound.</p>
-  <p><strong>Noia</strong> – Bass & Vocals. With formal music training and around 19 years of experience, Noia provides the solid rhythmic and melodic foundation of the band.</p>
-  <p><strong>Suzy Mendes</strong> – Vocals. The newest member of the group, adding a fresh vocal dimension and strengthening the band’s overall identity.</p>
-
-  <h3>Style & Influences</h3>
-  <p>VelvetVerse does not limit itself to a single genre. Their music flows across different styles — from Hard Rock to Fado — creating a unique and authentic fusion. Their main influences include iconic bands such as Scorpions, Def Leppard, Boston, AC/DC, and Queen.</p>
-
-  <h3>Themes & Creative Vision</h3>
-  <p>All songs are original and reflect the personality and emotions of the band members. The lyrics explore a wide range of themes, from love to social reflection, from introspection to the powerful energy of rock — always delivered with authenticity and passion.</p>
-
-  <h3>Journey & Highlights</h3>
-  <p>Carlos Moreira and Beto, two of the band’s core members, bring extensive international experience, having performed in countries such as France, Belgium, Luxembourg, Germany, the Netherlands, and Spain. Both have shared the stage with established artists, building a strong and respected musical background.</p>
-
-  <h3>Present & Future</h3>
-  <p>Today, VelvetVerse is a studio-based project dedicated to recording and releasing music for digital platforms. Without physical or geographical limitations, their music reaches listeners all over the world.</p>
-  <p><strong>More than a commercial project, VelvetVerse is driven by something simple yet powerful: a true passion for music.</strong></p>
-</div>
-
-<!-- 🇵🇹 PORTUGUESE HIDDEN -->
-<div id="pt" style="display:none;">
-  <h2>VelvetVerse Band</h2>
-
-  <h3>Origens e Formação</h3>
-  <p>A VelvetVerse nasceu em 2024, da amizade e de uma paixão intemporal pela música. Quatro amigos reuniram-se para reviver a energia dos estúdios e dos palcos, trazendo consigo décadas de experiência, histórias e influências marcantes. Com o tempo, o projeto evoluiu, ganhou novas vozes e transformou-se numa identidade sólida, rica e diversificada.</p>
-
-  <h3>Os Músicos</h3>
-  <p><strong>Carlos Moreira</strong> – Bateria e Voz. Com quase 40 anos de carreira, integrou várias bandas, percorreu Portugal de norte a sul e atuou internacionalmente. Ao longo do seu percurso, partilhou palco com nomes consagrados da música portuguesa.</p>
-  <p><strong>Beto</strong> – Guitarra Solo e Voz. Com uma trajetória igualmente extensa, conta com décadas de experiência em palco e participação em grandes concertos, tendo também tocado ao lado de artistas de referência.</p>
-  <p><strong>Lara Ingrid</strong> – Voz e Teclas. Com raízes musicais no Brasil, traz sensibilidade, frescura e uma forte presença emocional ao som da banda.</p>
-  <p><strong>Noia</strong> – Baixo e Voz. Com formação musical e cerca de 19 anos de experiência, é a base sólida que sustenta o groove e a identidade sonora do grupo.</p>
-  <p><strong>Suzy Mendes</strong> – Voz. A mais recente adição à banda, acrescenta uma nova dimensão vocal e reforça a identidade artística da VelvetVerse.</p>
-
-  <h3>Estilo e Influências</h3>
-  <p>A VelvetVerse não se limita a um único género. A sua música percorre várias atmosferas — do Hard Rock ao Fado — criando uma fusão única e autêntica. Entre as principais influências destacam-se bandas icónicas como Scorpions, Def Leppard, Boston, AC/DC e Queen.</p>
-
-  <h3>Temáticas e Criação</h3>
-  <p>Todas as músicas são originais e refletem a identidade e as emoções dos seus membros. As letras exploram temas que vão do amor à reflexão social, da introspeção à energia vibrante do rock, sempre com autenticidade e intensidade.</p>
-
-  <h3>Percurso e Destaques</h3>
-  <p>Carlos Moreira e Beto, pilares da banda, trazem consigo uma vasta experiência internacional, com atuações em países como França, Bélgica, Luxemburgo, Alemanha, Holanda e Espanha. Ambos já dividiram palco com artistas consagrados, consolidando uma carreira marcada pela consistência e paixão.</p>
-
-  <h3>O Presente e o Futuro</h3>
-  <p>Atualmente, a VelvetVerse é um projeto de estúdio, dedicado à criação e produção musical para plataformas digitais. Sem limites físicos ou geográficos, a sua música chega a qualquer parte do mundo.</p>
-  <p><strong>Mais do que um projeto comercial, a VelvetVerse é movida por uma força simples e poderosa: o amor pela música.</strong></p>
-</div>
-
-  </div>
-</div>
-
-<div id="discography" class="section">
-  <div class="panel">
-    <h1>Discography</h1>
-
-    <div class="spotify-wrapper">
-      <iframe 
-        src="https://open.spotify.com/embed/playlist/3wqFuUw3Hdqu01UtH0XAPg"
-        width="100%" 
-        height="600" 
-        frameborder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
-    </div>
-  </div>
-</div>
-<div id="comments" class="section">
-  <div class="panel">
-
-    <h1>Comments</h1>
-    <p class="comments-intro">
-      Leave your message for VelvetVerse Band. Comments are reviewed before being published.
-    </p>
-
-    <form id="commentForm">
-      <input type="hidden" name="_subject" value="New Comment Submission">
-
-      <input type="text" name="name" placeholder="Your Name" autocomplete="off" value="" required>
-      
-      <input type="text" name="photo" placeholder="Photo link (optional)">
-
-      <textarea name="message" placeholder="Write your comment here..." required></textarea>
-
-      <button type="submit">Submit Comment</button>
-
-      <p id="commentStatus"></p>
-    </form>
-  <div class="approved-comments">
-  <h2>Approved Comments</h2>
-
-  <div id="commentsList"></div>
-
-  <button id="loadMoreBtn" class="load-more-btn">
-    Load more comments
-  </button>
-</div>
-
-  </div>
-</div>
-
-<div id="contact" class="section">
-  <div class="panel">
-
-    <h1>Contact Us</h1>
-
-    <div class="contact-image">
-     <img src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/contact-logo.png" alt="VelvetVerse Band Logo">
-    </div>
-
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
-
-      <input type="email" name="email" placeholder="Your Email" required>
-
-      <textarea name="message" placeholder="Your Message" required></textarea>
-
-      <button type="submit">Send Message</button>
-
-      <p id="formStatus"></p>
-    </form>
-
-  </div>
-</div>
-<footer class="site-footer">
-  <div class="footer-left">
-    <a href="mailto:bandvelvetverse@gmail.com">bandvelvetverse@gmail.com</a>
-  </div>
-
-  <div class="footer-center">
-    <p>© 2026 VelvetVerse Band — All rights reserved.</p>
-    <p>
-      Use of this Website assumes acceptance of
-     <a href="terms.html" target="_blank">Terms & Conditions</a>
-      and
-     <a href="privacy.html" target="_blank">Privacy Policy</a>
-    </p>
-  </div>
-
-  <div class="footer-right">
-
-  <!-- FACEBOOK -->
-  <a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-      <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.9 0 1.9.2 1.9.2v2.1h-1.1c-1.1 0-1.4.7-1.4 1.3V12h2.4l-.4 2.9h-2V22A10 10 0 0 0 22 12z"/>
-    </svg>
-  </a>
-
-  <!-- SPOTIFY -->
-  <a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-      <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 
-      12-5.37 12-12S18.63 0 12 0zm5.5 17.3c-.2.3-.6.4-.9.2-2.5-1.5-5.7-1.8-9.5-.9-.4.1-.7-.1-.8-.5-.1-.4.1-.7.5-.8 
-      4.1-1 7.6-.6 10.4 1 .3.2.4.6.3 1zm1.3-3c-.2.3-.6.4-.9.2-2.9-1.8-7.3-2.3-10.7-1.2-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 
-      3.9-1.2 8.7-.6 12 1.4.3.2.4.6.2 1zm.1-3.2c-3.4-2-9-2.2-12.2-1.3-.5.1-1-.2-1.1-.7-.1-.5.2-1 .7-1.1 
-      3.7-1 9.8-.8 13.6 1.5.5.3.6.9.3 1.3-.3.4-.9.5-1.3.3z"/>
-    </svg>
-  </a>
-
-  <!-- YOUTUBE -->
-  <a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-      <path d="M23.5 6.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.8 2.6 12 2.6 
-      12 2.6h0s-4.8 0-8.2.3c-.5.1-1.5.1-2.4 1C.7 4.6.5 6.2.5 6.2S0 8.1 
-      0 10v2c0 1.9.5 3.8.5 3.8s.2 1.6.9 2.3c.9.9 2.1.9 2.6 1 
-      1.9.2 8 .3 8 .3s4.8 0 8.2-.3c.5-.1 1.5-.1 2.4-1 
-      .7-.7.9-2.3.9-2.3s.5-1.9.5-3.8v-2c0-1.9-.5-3.8-.5-3.8zM9.7 
-      14.6V7.8l6.2 3.4-6.2 3.4z"/>
-    </svg>
-  </a>
-
-</div>
-</footer>
-
-<script>
-function show(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active-btn'));
-  btn.classList.add('active-btn');
-}
-
-function playSong(title,url){
-  const nowPlaying = document.getElementById("nowPlaying");
-  const spotifyPlayer = document.getElementById("spotifyPlayer");
-
-  if (nowPlaying) nowPlaying.textContent = "Now Playing: " + title;
-  if (spotifyPlayer) spotifyPlayer.src = url;
-}
-  function setLang(lang){
-  document.getElementById("pt").style.display = (lang === "pt") ? "block" : "none";
-  document.getElementById("en").style.display = (lang === "en") ? "block" : "none";
-}
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const status = document.getElementById("formStatus");
-  const data = new FormData(form);
-
-  status.textContent = "Sending message...";
-
-  fetch("https://formsubmit.co/ajax/bandvelvetverse@gmail.com", {
-    method: "POST",
-    body: data
-  })
-  .then(response => response.json())
-  .then(data => {
-    status.textContent = "✅ Message sent successfully!";
-    form.reset();
-  })
-  .catch(error => {
-    status.textContent = "❌ Something went wrong. Please try again.";
-  });
-});
-  document.getElementById("commentForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const status = document.getElementById("commentStatus");
-  const data = new FormData(form);
-
-  status.textContent = "Sending comment...";
-
-  fetch("https://formsubmit.co/ajax/bandvelvetverse@gmail.com", {
-    method: "POST",
-    body: data
-  })
-  .then(response => response.json())
-  .then(data => {
-    status.textContent = "✅ Comment submitted! Waiting for approval.";
-    form.reset();
-  })
-  .catch(error => {
-    status.textContent = "❌ Something went wrong. Please try again.";
-  });
-});
-</script>
-<script>
-const comments = [
-  {
-    name: "Michael Diallo",
-    photo: "https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/michael.jpg",
-    message: "VelvetVerse Band brings a powerful and emotional sound. You can feel the passion, the experience, and the soul behind every song. Truly inspiring music!",
-    date: "2026-04-27"
-  },
-  {
-    name: "Rute Santos",
-    photo: "https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/rute.jpg",
-    message: "A VelvetVerse Band tem uma energia muito especial. As músicas transmitem emoção, força e verdade. É bonito ouvir um projeto feito com tanta paixão pela música.",
-    date: "2026-04-26"
-  },
-  {
-    name: "Patricia Reis",
-    photo: "https://raw.githubusercontent.com/Velvetverse/velvetverseband/refs/heads/main/patricia.jpg",
-    message: "Simplesmente maravilhosos os vossos temas...",
-    date: "2026-04-25"
-  },
-  {
-    name: "Joao Silva",
-    photo: "",
-    message: "Grande Banda Abraço a todos...",
-    date: "2026-04-24"
-  },
-  {
-    name: "Ana Martins",
-    photo: "",
-    message: "Um projeto musical com alma, identidade e muita qualidade. Parabéns à VelvetVerse Band pelo excelente trabalho e por manter viva a paixão pela música.",
-    date: "2026-04-23"
-  }
-];
-
-comments.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-let visibleComments = 3;
-
-function getAvatar(name, photo) {
-  if (photo && photo.trim() !== "") return photo;
-
-  return "https://ui-avatars.com/api/?name=" 
-    + encodeURIComponent(name) 
-    + "&background=00ffff&color=000000&bold=true";
-}
-
-function renderComments() {
-  const commentsList = document.getElementById("commentsList");
-  const loadMoreBtn = document.getElementById("loadMoreBtn");
-
-  commentsList.innerHTML = "";
-
-  comments.slice(0, visibleComments).forEach(comment => {
-    const card = document.createElement("div");
-    card.className = "comment-card";
-
-    card.innerHTML = `
-      <img class="comment-photo" src="${getAvatar(comment.name, comment.photo)}" alt="${comment.name}">
-      <div class="comment-content">
-        <h3>${comment.name}</h3>
-        <p>${comment.message}</p>
-      </div>
-    `;
-
-    commentsList.appendChild(card);
-  });
-
-  loadMoreBtn.style.display =
-    visibleComments >= comments.length ? "none" : "block";
-}
-
-document.getElementById("loadMoreBtn").addEventListener("click", function() {
-  visibleComments += 3;
-  renderComments();
-});
-
-renderComments();
-</script>
-  <div id="releasePopup" class="release-popup">
-  <div class="release-box">
-    <button class="release-close" onclick="closeReleasePopup()">×</button>
-
-    <h2>New Release</h2>
-
-    <img src="https://raw.githubusercontent.com/Velvetverse/velvetverseband/main/o-galo-do-vizinho.png" alt="O Galo do Vizinho">
-
-    <h3>O Galo do Vizinho</h3>
-    <p>VelvetVerse Band</p>
-    <p><strong>Vocals:</strong> Suzy Mendes</p>
-
-<a href="javascript:void(0)" onclick="goToDiscography()" class="release-btn">
-  Listen Now
-</a>
-  </div>
-</div>
-<script>
-window.addEventListener("load", function() {
-  const popup = document.getElementById("releasePopup");
-
-  if (popup && !sessionStorage.getItem("releasePopupClosed")) {
-    popup.style.display = "flex";
-  }
-});
-
-function closeReleasePopup() {
-  const popup = document.getElementById("releasePopup");
-
-  if (popup) {
-    popup.style.display = "none";
-  }
-
-  sessionStorage.setItem("releasePopupClosed", "true");
-}
-
-function goToDiscography() {
-  closeReleasePopup();
-
-  document.querySelectorAll(".section").forEach(function(section) {
-    section.classList.remove("active");
-  });
-
-  document.getElementById("discography").classList.add("active");
-
-  document.querySelectorAll("nav button").forEach(function(button) {
-    button.classList.remove("active-btn");
-  });
-
-  playSong(
-    "O Galo do Vizinho",
-    "https://open.spotify.com/embed/track/SEU_TRACK_ID_AQUI"
-  );
-}
-</script>
 </body>
 </html>
