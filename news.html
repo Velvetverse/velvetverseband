@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | VelvetVerse Band</title>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 23% 18%, rgba(170,25,25,.50), transparent 28%),
+    radial-gradient(circle at 76% 22%, rgba(195,95,20,.42), transparent 30%),
+    radial-gradient(circle at 50% 70%, rgba(65,0,0,.45), transparent 35%),
+    linear-gradient(115deg,#160202 0%,#050101 48%,#2b1302 100%);
+  min-height:100vh;
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+  height:78px;
+  background:#030305;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 46px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  border-bottom:1px solid rgba(255,70,70,.35);
+  box-shadow:0 0 25px rgba(255,50,50,.18);
+}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:27px;
+  letter-spacing:2px;
+  text-shadow:0 0 14px #ff4b4b;
+}
+
+.logo span{
+  display:block;
+  font-size:10px;
+  text-align:center;
+  letter-spacing:7px;
+  color:#ff7b5c;
+}
+
+nav{
+  display:flex;
+  gap:24px;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+nav a{
+  padding:29px 0;
+  color:#ddd;
+}
+
+nav a.active,
+nav a:hover{
+  color:#ff8a63;
+  text-shadow:0 0 14px #ff4b4b;
+}
+
+.social{display:flex;gap:12px}
+
+.social span{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ff4b4b;
+  box-shadow:0 0 14px #ff4b4b;
+}
+
+.hero{
+  height:295px;
+  background:
+    linear-gradient(90deg,rgba(20,0,0,.92),rgba(0,0,0,.55),rgba(42,18,0,.90)),
+    radial-gradient(circle at 25% 42%,rgba(255,60,60,.26),transparent 28%),
+    radial-gradient(circle at 78% 35%,rgba(255,140,30,.22),transparent 30%),
+    url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1900&q=85") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,transparent 70%,rgba(5,1,1,1) 100%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:88px;
+  letter-spacing:16px;
+  text-shadow:0 0 16px #fff,0 0 35px #ff4b4b,0 0 65px #b21b1b;
+}
+
+.hero-line{
+  width:430px;
+  height:3px;
+  margin:10px auto 14px;
+  background:linear-gradient(90deg,transparent,#ff4b4b,#fff,#ff8a2b,transparent);
+  box-shadow:0 0 24px #ff4b4b;
+}
+
+.hero p{
+  font-size:14px;
+  letter-spacing:3px;
+  line-height:1.7;
+  color:#eee;
+}
+
+.wrapper{
+  padding:34px 28px 24px;
+  max-width:1450px;
+  margin:0 auto;
+}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.panel{
+  background:linear-gradient(145deg,rgba(8,4,4,.96),rgba(18,8,5,.92));
+  border:1px solid rgba(255,80,80,.28);
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 0 32px rgba(0,0,0,.85), inset 0 0 38px rgba(255,60,60,.05);
+}
+
+.panel-head{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  padding-bottom:16px;
+  margin-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.12);
+  gap:14px;
+}
+
+.titlebox{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.icon{
+  width:52px;
+  height:42px;
+  border-radius:9px;
+  background:rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 18px rgba(255,80,80,.25);
+}
+
+.panel h2{
+  font-size:24px;
+  letter-spacing:1px;
+}
+
+.panel small{
+  display:block;
+  color:#ff8a63;
+  font-weight:bold;
+  margin-top:6px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+.card{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  min-height:138px;
+  background:rgba(10,8,8,.72);
+  border:1px solid rgba(255,80,80,.20);
+  border-radius:12px;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#ff6b4a;
+  box-shadow:0 0 24px rgba(255,70,70,.32);
+}
+
+.card img{
+  width:150px;
+  height:138px;
+  object-fit:cover;
+  filter:saturate(1.15) contrast(1.05);
+}
+
+.card div{
+  padding:13px 14px;
+}
+
+.card h3{
+  font-size:15px;
+  line-height:1.32;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:12.8px;
+  line-height:1.42;
+  color:#d4d4d4;
+  margin-bottom:8px;
+}
+
+.card a{
+  color:#ff9b73;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.loading-card{
+  min-height:132px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#bbb;
+  border:1px dashed rgba(255,255,255,.22);
+  border-radius:10px;
+  background:rgba(255,255,255,.035);
+  padding:20px;
+}
+
+.rss-note{
+  margin-top:14px;
+  padding:13px;
+  border-radius:10px;
+  border:1px dashed rgba(255,255,255,.22);
+  color:#bbb;
+  font-size:12px;
+  text-align:center;
+  background:rgba(255,255,255,.035);
+}
+
+.cta{
+  margin-top:18px;
+  background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(35,8,8,.95),rgba(0,0,0,.95));
+  border:1px solid rgba(255,210,0,.35);
+  border-radius:12px;
+  display:grid;
+  grid-template-columns:1fr 330px 1fr 280px;
+  align-items:center;
+  gap:22px;
+  padding:22px 32px;
+  box-shadow:0 0 26px rgba(255,210,0,.13);
+}
+
+.cta h3{
+  color:#ffd200;
+  letter-spacing:2px;
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.cta p{
+  color:#ddd;
+  font-size:14px;
+}
+
+.listen{
+  border:1px solid #ff6b4a;
+  border-radius:8px;
+  padding:14px 24px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+  letter-spacing:3px;
+  box-shadow:0 0 18px rgba(255,70,70,.25);
+}
+
+.listen span{
+  display:block;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#ccc;
+}
+
+.enter{
+  border:1px solid #ffd200;
+  border-radius:8px;
+  padding:17px 22px;
+  text-align:center;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#ffd200;
+}
+
+footer{
+  text-align:center;
+  color:#888;
+  padding:15px;
+  font-size:12px;
+}
+
+@media(max-width:1150px){
+  header{padding:0 18px}
+  nav{gap:14px;font-size:10px}
+  .news-grid{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;text-align:center}
+}
+
+@media(max-width:720px){
+  header{
+    height:auto;
+    padding:18px;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav a{padding:6px 0}
+
+  .hero{height:250px}
+
+  .hero h1{
+    font-size:50px;
+    letter-spacing:8px;
+  }
+
+  .hero-line{width:280px}
+
+  .panel-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .card{
+    grid-template-columns:120px 1fr;
+  }
+
+  .card img{
+    width:120px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">VELVETVERSE<span>BAND</span></a>
+  
+<nav>
+<a href="index.html">HOME</a>
+<a href="discography.html">DISCOGRAPHY</a>
+<a href="comments.html">COMMENTS</a>
+<a href="about.html">ABOUT US</a>
+<a href="photos.html">PHOTOS</a>
+<a class="active" href="news.html">NEWS</a>
+<a href="contact.html">CONTACT US</a>
+<a href="https://velvetverseradio.com" target="_blank">RADIO</a>
+</nav>
+
+  <div class="social"><span></span><span></span><span></span><span></span></div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>NEWS</h1>
+    <div class="hero-line"></div>
+    <p>ALL THE LATEST NEWS FROM THE MUSIC WORLD<br>PORTUGUESE MUSIC, INTERNATIONAL ROCK AND THE VELVETVERSE UNIVERSE.</p>
+  </div>
+</section>
+
+<div class="wrapper">
+
+<main class="news-grid">
+
+<section class="panel">
+  <div class="panel-head">
+    <div class="titlebox">
+      <div class="icon">🇵🇹</div>
+      <div>
+        <h2>NOTÍCIAS EM PORTUGUÊS</h2>
+        <small>MÚSICA PORTUGUESA • ARTISTAS • ENTREVISTAS</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards" id="pt-news">
+    <div class="loading-card">A carregar notícias portuguesas...</div>
+  </div>
+
+  <div class="rss-note">Fonte automática: VelvetVerse NEWS PT — Blitz / Posto Emissor.</div>
+</section>
+
+<section class="panel">
+  <div class="panel-head">
+    <div class="titlebox">
+      <div class="icon">🌐</div>
+      <div>
+        <h2>INTERNATIONAL ROCK NEWS</h2>
+        <small>ROCK • METAL • CLASSIC ROCK • RELEASES</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards" id="en-news">
+    <div class="loading-card">Loading international music news...</div>
+  </div>
+
+  <div class="rss-note">Automatic source: VelvetVerse NEWS EN — NME, Loudwire, LouderSound and Ultimate Classic Rock.</div>
+</section>
+
+</main>
+
+<section class="cta">
+  <div>
+    <h3>STAY UPDATED</h3>
+    <p>Fresh music stories, culture and rock news updated automatically.</p>
+  </div>
+
+  <a class="listen" href="radio.html">▶ LISTEN LIVE<span>VELVETVERSE RADIO</span></a>
+
+  <div>
+    <h3>JOIN THE UNIVERSE</h3>
+    <p>More than a band. More than a radio. A universe.</p>
+  </div>
+
+  <a class="enter" href="index.html">ENTER THE UNIVERSE</a>
+</section>
+
+</div>
+
+<footer>© 2026 VelvetVerse Band — All rights reserved.</footer>
+
+<script>
+const FEEDS = {
+  pt: "https://rss.app/feeds/_IT1sdWFcaTmN5CeA.xml",
+  en: "https://rss.app/feeds/_A5OSHO28LUMRJ1By.xml"
+};
+
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=600&q=80";
+
+function stripHtml(html){
+  const temp = document.createElement("div");
+  temp.innerHTML = html || "";
+  return (temp.textContent || temp.innerText || "").trim();
+}
+
+function cutText(text, max){
+  if(!text) return "";
+  return text.length > max ? text.substring(0, max).trim() + "..." : text;
+}
+
+function getImage(item){
+  if(item.thumbnail) return item.thumbnail;
+  if(item.enclosure && item.enclosure.link) return item.enclosure.link;
+
+  const html = item.description || item.content || "";
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if(match && match[1]) return match[1];
+
+  return FALLBACK_IMAGE;
+}
+
+function createCard(item, lang){
+  const title = cutText(stripHtml(item.title), 72);
+  const description = cutText(stripHtml(item.description || item.content), 115);
+  const image = getImage(item);
+  const linkText = lang === "pt" ? "Ler notícia ↗" : "Read more ↗";
+
+  return `
+    <article class="card">
+      <img src="${image}" alt="${title}" loading="lazy" onerror="this.src='${FALLBACK_IMAGE}'">
+      <div>
+        <h3>${title}</h3>
+        <p>${description}</p>
+        <a href="${item.link}" target="_blank" rel="noopener">${linkText}</a>
+      </div>
+    </article>
+  `;
+}
+
+async function loadFeed(feedUrl, targetId, lang){
+  const target = document.getElementById(targetId);
+  const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feedUrl);
+
+  try{
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if(!data.items || !data.items.length){
+      throw new Error("No RSS items found");
+    }
+
+    const items = data.items.slice(0, 6);
+    target.innerHTML = items.map(item => createCard(item, lang)).join("");
+  }catch(error){
+    console.error("RSS loading error:", error);
+    target.innerHTML = `
+      <div class="loading-card">
+        Não foi possível carregar este feed agora.<br>
+        Tenta actualizar a página ou verificar o Bundle no RSS.app.
+      </div>
+    `;
+  }
+}
+
+loadFeed(FEEDS.pt, "pt-news", "pt");
+loadFeed(FEEDS.en, "en-news", "en");
+</script>
+
+</body>
+</html>
