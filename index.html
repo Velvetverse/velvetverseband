@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VelvetVerse Band</title>
 
-<meta http-equiv="refresh" content="5; url=index-v2.html">
+<meta http-equiv="refresh" content="6; url=index-v2.html">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -13,152 +13,140 @@
 body{
   height:100vh;
   overflow:hidden;
+  background:#000;
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(160,40,255,.35),transparent 28%),
-    radial-gradient(circle at 25% 75%,rgba(255,45,45,.22),transparent 30%),
-    radial-gradient(circle at 80% 70%,rgba(255,160,30,.18),transparent 28%),
-    linear-gradient(135deg,#030305,#120017,#050101);
+}
+
+.intro{
+  position:relative;
+  width:100%;
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
+  overflow:hidden;
 }
 
-.stage{
+.bg{
+  position:absolute;
+  inset:-4%;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.35),rgba(0,0,0,.75)),
+    url("intro-stage.jpg") center/cover no-repeat;
+  animation:walkIn 6s ease-in-out forwards;
+}
+
+@keyframes walkIn{
+  0%{transform:scale(1.08) translateY(0)}
+  100%{transform:scale(1.18) translateY(-18px)}
+}
+
+.lights{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(110deg,transparent 0%,rgba(255,255,255,.08) 45%,transparent 55%),
-    linear-gradient(250deg,transparent 0%,rgba(180,60,255,.10) 45%,transparent 58%);
-  animation:lights 5s ease-in-out infinite alternate;
+    radial-gradient(circle at 30% 20%,rgba(255,190,90,.22),transparent 25%),
+    radial-gradient(circle at 70% 20%,rgba(255,190,90,.20),transparent 25%),
+    radial-gradient(circle at 50% 35%,rgba(255,255,255,.15),transparent 30%);
+  animation:pulse 1.6s infinite alternate;
 }
 
-@keyframes lights{
-  from{opacity:.35;transform:scale(1)}
-  to{opacity:.8;transform:scale(1.08)}
+@keyframes pulse{
+  from{opacity:.45}
+  to{opacity:1}
 }
 
-.box{
+.smoke{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 25% 55%,rgba(255,255,255,.10),transparent 24%),
+    radial-gradient(circle at 75% 52%,rgba(255,255,255,.10),transparent 24%);
+  animation:smokeMove 6s linear forwards;
+}
+
+@keyframes smokeMove{
+  from{transform:translateX(-20px);opacity:.35}
+  to{transform:translateX(35px);opacity:.75}
+}
+
+.content{
   position:relative;
-  z-index:2;
-  text-align:center;
-  padding:55px 45px;
-  max-width:900px;
-  width:90%;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:28px;
-  background:rgba(0,0,0,.45);
-  box-shadow:
-    0 0 60px rgba(170,60,255,.35),
-    inset 0 0 50px rgba(255,255,255,.05);
-  backdrop-filter:blur(10px);
-  animation:enter .9s ease forwards;
+  z-index:3;
+  margin-top:42vh;
+  animation:fadeIn 1.2s ease forwards;
 }
 
-@keyframes enter{
-  from{opacity:0;transform:translateY(25px) scale(.96)}
-  to{opacity:1;transform:translateY(0) scale(1)}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-.logo{
+h1{
   font-family:Georgia,serif;
-  font-size:72px;
+  font-size:62px;
   letter-spacing:9px;
-  text-shadow:
-    0 0 18px #fff,
-    0 0 35px #b84cff,
-    0 0 75px #7a1cff;
-}
-
-.sub{
-  margin-top:8px;
-  font-size:13px;
-  letter-spacing:8px;
-  color:#d9a7ff;
-}
-
-.line{
-  width:420px;
-  height:3px;
-  margin:28px auto;
-  background:linear-gradient(90deg,transparent,#b84cff,#fff,#ffb347,transparent);
-  box-shadow:0 0 25px #b84cff;
-}
-
-h2{
-  font-size:26px;
-  letter-spacing:3px;
-  margin-bottom:14px;
+  text-shadow:0 0 18px #fff,0 0 35px #ffb45c;
 }
 
 p{
-  color:#ddd;
-  font-size:15px;
-  letter-spacing:2px;
-  line-height:1.7;
+  margin-top:12px;
+  font-size:14px;
+  letter-spacing:5px;
+  color:#f2d8b0;
 }
 
-.enter-btn{
+.enter{
   display:inline-block;
-  margin-top:34px;
-  padding:15px 34px;
-  border:1px solid #d45cff;
+  margin-top:26px;
+  padding:14px 32px;
+  border:1px solid #ffb45c;
   border-radius:999px;
   color:#fff;
   font-weight:bold;
   letter-spacing:3px;
-  box-shadow:0 0 25px rgba(212,92,255,.35);
-  transition:.25s;
-}
-
-.enter-btn:hover{
-  background:rgba(212,92,255,.16);
-  transform:translateY(-3px);
+  text-decoration:none;
+  background:rgba(0,0,0,.35);
+  box-shadow:0 0 24px rgba(255,180,92,.35);
 }
 
 .loading{
-  margin-top:26px;
+  margin-top:18px;
   font-size:11px;
   letter-spacing:4px;
-  color:#aaa;
-  animation:pulse 1.2s infinite alternate;
+  color:#ddd;
+  animation:blink 1s infinite alternate;
 }
 
-@keyframes pulse{
+@keyframes blink{
   from{opacity:.35}
   to{opacity:1}
 }
 
 @media(max-width:720px){
-  .logo{font-size:42px;letter-spacing:5px}
-  .sub{letter-spacing:5px}
-  .line{width:260px}
-  h2{font-size:20px}
+  h1{font-size:34px;letter-spacing:5px}
+  p{font-size:11px;letter-spacing:3px}
+  .content{margin-top:46vh}
 }
 </style>
 </head>
 
 <body>
 
-<div class="stage"></div>
+<section class="intro">
+  <div class="bg"></div>
+  <div class="lights"></div>
+  <div class="smoke"></div>
 
-<div class="box">
-  <div class="logo">VELVETVERSE</div>
-  <div class="sub">BAND</div>
-
-  <div class="line"></div>
-
-  <h2>Welcome to VelvetVerse Band</h2>
-  <p>
-    More than music. More than a band.<br>
-    Enter the VelvetVerse Universe.
-  </p>
-
-  <a class="enter-btn" href="index-v2.html">ENTER NOW</a>
-
-  <div class="loading">ENTERING THE UNIVERSE...</div>
-</div>
+  <div class="content">
+    <h1>VELVETVERSE</h1>
+    <p>THE UNIVERSE IS ABOUT TO BEGIN</p>
+    <a class="enter" href="index-v2.html">ENTER NOW</a>
+    <div class="loading">ENTERING THE STAGE...</div>
+  </div>
+</section>
 
 </body>
 </html>
