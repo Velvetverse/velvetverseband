@@ -48,6 +48,7 @@ height:180px;
 object-fit:cover;
 border-radius:14px;
 cursor:pointer;
+cursor:zoom-in;
 box-shadow:0 0 18px rgba(255,79,163,0.25);
 transition:transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -397,16 +398,52 @@ style="width:100%;border-radius:12px;margin-bottom:15px;cursor:pointer;">
 
  <div class="popup-gallery-grid">
 
-  <img src="studio-sessions.png" alt="Studio Sessions">
+ <img src="studio-sessions.png"
+alt="Studio Sessions"
+onclick="openLightbox(0)">
 
-  <img src="lara-mixer.png" alt="Lara Mixer">
+<img src="lara-mixer.png"
+alt="Lara Mixer"
+onclick="openLightbox(1)">
 
-  <img src="vocal-booth.png" alt="Vocal Booth">
+<img src="vocal-booth.png"
+alt="Vocal Booth"
+onclick="openLightbox(2)">
 
 </div>
   </div>
 </div>
 
+ <!-- Image Lightbox -->
+
+<div id="imageLightbox" class="gallery-popup">
+
+<div class="gallery-popup-content">
+
+<span class="gallery-close" onclick="closeLightbox()">&times;</span>
+
+<div style="display:flex;align-items:center;justify-content:center;gap:25px;">
+
+<button onclick="prevImage()"
+style="font-size:34px;background:none;border:none;color:#ff4fa3;cursor:pointer;">
+←
+</button>
+
+<img id="lightboxImage"
+src=""
+style="max-width:80%;max-height:80vh;border-radius:16px;">
+
+<button onclick="nextImage()"
+style="font-size:34px;background:none;border:none;color:#ff4fa3;cursor:pointer;">
+→
+</button>
+
+</div>
+
+</div>
+
+</div>
+ 
   <script>
 
 function openGallery(){
@@ -416,6 +453,57 @@ document.getElementById("studioGalleryPopup").style.display="block";
 function closeGallery(){
 document.getElementById("studioGalleryPopup").style.display="none";
 }
+
+ let galleryImages = [
+"studio-sessions.png",
+"lara-mixer.png",
+"vocal-booth.png"
+];
+
+let currentImage = 0;
+
+function openLightbox(index){
+
+currentImage = index;
+
+document.getElementById("imageLightbox").style.display="block";
+
+document.getElementById("lightboxImage").src =
+galleryImages[currentImage];
+
+}
+
+function closeLightbox(){
+
+document.getElementById("imageLightbox").style.display="none";
+
+}
+
+function nextImage(){
+
+currentImage++;
+
+if(currentImage >= galleryImages.length){
+currentImage = 0;
+}
+
+document.getElementById("lightboxImage").src =
+galleryImages[currentImage];
+
+}
+
+function prevImage(){
+
+currentImage--;
+
+if(currentImage < 0){
+currentImage = galleryImages.length - 1;
+}
+
+document.getElementById("lightboxImage").src =
+galleryImages[currentImage];
+
+}  
 
 </script>
   
