@@ -293,6 +293,46 @@ nav a:hover{
   font-size:14px;
 }
 
+  .news-banner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:22px;
+padding:12px 28px;
+border:1px solid rgba(255,180,80,.35);
+border-radius:12px;
+background:linear-gradient(90deg,#090909,#111,#090909);
+box-shadow:0 0 18px rgba(255,140,0,.10);
+}
+
+.banner-text{
+flex:1;
+text-align:center;
+}
+
+.banner-text h3{
+margin:0 0 8px;
+font-size:22px;
+font-weight:300;
+letter-spacing:8px;
+color:#f3d28a;
+text-transform:uppercase;
+font-family:Georgia,serif;
+}
+
+.banner-text p{
+margin:0;
+font-size:14px;
+line-height:1.7;
+color:#ddd;
+}
+
+.banner-star{
+font-size:28px;
+color:#d9a441;
+opacity:.85;
+}
+
 .listen{
   border:1px solid #ff6b4a;
   border-radius:8px;
@@ -446,20 +486,26 @@ footer{
 </main>
 
 <section class="cta">
-  <div>
-    <h3>STAY UPDATED</h3>
-    <p>Fresh music stories, culture and rock news updated automatically.</p>
-  </div>
 
-  <a class="listen" href="radio.html">▶ LISTEN LIVE<span>VELVETVERSE RADIO</span></a>
+<div class="news-banner">
 
-  <div>
-    <h3>JOIN THE UNIVERSE</h3>
-    <p>More than a band. More than a radio. A universe.</p>
-  </div>
+<div class="banner-star">✦</div>
 
-  <a class="enter" href="index.html">ENTER THE UNIVERSE</a>
-</section>
+<div class="banner-text">
+<h3>INSIDE THE MUSIC WORLD</h3>
+
+<p>
+Discover Portuguese music, international rock,
+artists, releases and stories that shape
+the VelvetVerse universe.
+</p>
+</div>
+
+<div class="banner-star">✦</div>
+
+</div>
+
+</section>  
 
 </div>
 
