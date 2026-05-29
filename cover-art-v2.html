@@ -1,1 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Art | VelvetVerse Band</title>
 
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:
+radial-gradient(circle at top left,rgba(255,0,80,.22),transparent 35%),
+radial-gradient(circle at top right,rgba(255,170,60,.18),transparent 34%),
+linear-gradient(135deg,#030303,#130006,#2a0d00,#050505);
+color:#fff;
+font-family:Arial,sans-serif;
+}
+
+header{
+height:78px;
+background:#030305;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 46px;
+border-bottom:1px solid rgba(255,255,255,.08);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+width:150px;
+height:auto;
+display:block;
+}
+
+nav{
+display:flex;
+gap:18px;
+align-items:center;
+}
+
+nav a{
+color:#ddd;
+text-decoration:none;
+font-size:12px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+nav a:hover,
+nav a.active{
+color:#ff4b4b;
+}
+
+.socials{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.socials img{
+width:16px;
+height:16px;
+filter:invert(1);
+opacity:.85;
+transition:.25s;
+}
+
+.socials img:hover{
+opacity:1;
+transform:scale(1.12);
+}
+
+.hero{
+min-height:560px;
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:40px;
+align-items:center;
+padding:90px 8%;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.25));
+z-index:0;
+}
+
+.hero-content,
+.hero-panel{
+position:relative;
+z-index:1;
+}
+
+.eyebrow{
+color:#d9a441;
+letter-spacing:5px;
+font-size:12px;
+text-transform:uppercase;
+margin-bottom:18px;
+}
+
+.hero h1{
+font-family:Georgia,serif;
+font-size:76px;
+line-height:.95;
+letter-spacing:8px;
+margin:0;
+color:#f5d18a;
+text-shadow:0 0 28px rgba(255,120,0,.45);
+}
+
+.hero p{
+max-width:650px;
+color:#ddd;
+font-size:17px;
+line-height:1.9;
+margin-top:28px;
+}
+
+.hero-panel{
+border:1px solid rgba(255,190,90,.32);
+border-radius:26px;
+padding:28px;
+background:rgba(0,0,0,.42);
+box-shadow:0 0 45px rgba(255,90,0,.18);
+}
+
+.hero-panel h2{
+margin:0 0 18px;
+letter-spacing:4px;
+color:#f5d18a;
+font-size:20px;
+}
+
+.mini-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.mini-grid img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:15px;
+border:1px solid rgba(255,255,255,.12);
+}
+
+.section{
+padding:75px 8%;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:34px;
+}
+
+.section-title span{
+font-size:30px;
+color:#d9a441;
+}
+
+.section-title h2{
+font-family:Georgia,serif;
+font-size:34px;
+letter-spacing:5px;
+margin:0;
+color:#f5d18a;
+text-transform:uppercase;
+}
+
+.section-sub{
+color:#bbb;
+max-width:850px;
+line-height:1.8;
+margin:-18px 0 35px;
+}
+
+.cover-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:24px;
+}
+
+.cover-card{
+background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.65));
+border:1px solid rgba(255,190,90,.22);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 0 24px rgba(255,100,0,.12);
+transition:.35s;
+}
+
+.cover-card:hover{
+transform:translateY(-7px) scale(1.015);
+box-shadow:0 0 42px rgba(255,100,0,.30);
+border-color:rgba(245,209,138,.58);
+}
+
+.cover-card img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+display:block;
+cursor:pointer;
+}
+
+.cover-card h3{
+margin:0;
+padding:15px 15px 4px;
+font-size:15px;
+letter-spacing:1px;
+}
+
+.cover-card p{
+margin:0;
+padding:0 15px 16px;
+font-size:12px;
+color:#aaa;
+line-height:1.5;
+}
+
+.voices{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:24px;
+}
+
+.voice-card{
+background:rgba(0,0,0,.55);
+border:1px solid rgba(255,190,90,.25);
+border-radius:22px;
+overflow:hidden;
+text-align:center;
+box-shadow:0 0 26px rgba(255,0,70,.12);
+transition:.35s;
+}
+
+.voice-card:hover{
+transform:translateY(-7px);
+box-shadow:0 0 42px rgba(255,80,80,.25);
+}
+
+.voice-card img{
+width:100%;
+height:260px;
+object-fit:cover;
+display:block;
+}
+
+.voice-card h3{
+font-family:Georgia,serif;
+color:#f5d18a;
+font-size:22px;
+letter-spacing:2px;
+margin:18px 0 6px;
+}
+
+.voice-card p{
+color:#bbb;
+font-size:13px;
+line-height:1.6;
+padding:0 18px 22px;
+margin:0;
+}
+
+.theme-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+.theme-card{
+border:1px solid rgba(255,190,90,.22);
+border-radius:22px;
+padding:28px;
+background:rgba(0,0,0,.48);
+box-shadow:0 0 28px rgba(255,90,0,.12);
+}
+
+.theme-card h3{
+margin:0 0 12px;
+color:#f5d18a;
+font-family:Georgia,serif;
+letter-spacing:2px;
+}
+
+.theme-card p{
+color:#bbb;
+line-height:1.8;
+margin:0;
+font-size:14px;
+}
+
+.collection-wall{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+gap:18px;
+}
+
+.collection-wall img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:13px;
+border:1px solid rgba(255,190,90,.18);
+box-shadow:0 0 18px rgba(255,80,0,.10);
+cursor:pointer;
+transition:.28s;
+}
+
+.collection-wall img:hover{
+transform:scale(1.04);
+box-shadow:0 0 30px rgba(255,120,0,.28);
+}
+
+footer{
+text-align:center;
+padding:34px 20px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#999;
+font-size:13px;
+}
+
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+z-index:9999;
+align-items:center;
+justify-content:center;
+padding:25px;
+}
+
+.lightbox img{
+max-width:92vw;
+max-height:88vh;
+border-radius:16px;
+box-shadow:0 0 55px rgba(255,120,0,.35);
+}
+
+.close-lightbox{
+position:fixed;
+top:24px;
+right:34px;
+font-size:42px;
+color:#f5d18a;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+header{
+height:auto;
+padding:18px;
+flex-direction:column;
+gap:16px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+}
+
+.hero{
+grid-template-columns:1fr;
+padding:65px 6%;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.voice-card img{
+height:220px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+
+<nav>
+<a href="index-v2.html">HOME</a>
+<a href="discography-v2.html">DISCOGRAPHY</a>
+<a href="comments-v2.html">COMMENTS</a>
+<a href="about-v2.html">ABOUT US</a>
+<a href="photos-v2.html">PHOTOS</a>
+<a href="news-v2.html">NEWS</a>
+<a href="music-platforms.html">MUSIC PLATFORMS</a>
+<a class="active" href="cover-art-v2.html">COVER ART</a>
+<a href="contact-v2.html">CONTACT US</a>
+<a href="https://velvetverseradio.com" target="_blank">VELVETVERSE RADIO</a>
+</nav>
+
+<div class="socials">
+<a href="https://www.facebook.com/profile.php?id=61582322366506" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"></a>
+<a href="#" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"></a>
+<a href="https://www.youtube.com/channel/UC7P8KDw1vb1OsfIO4uPBWdA" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"></a>
+<a href="https://open.spotify.com/artist/030PPRKkOCnRO1vkxLLfbw/discography/all" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg"></a>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<div class="eyebrow">VelvetVerse Band Visual Archive</div>
+<h1>COVER<br>ART</h1>
+<p>
+Explore the visual universe behind VelvetVerse Band releases —
+every cover, every voice, every story, every emotion.
+This is where the music becomes image.
+</p>
+</div>
+
+<div class="hero-panel">
+<h2>FEATURED VISUALS</h2>
+<div class="mini-grid">
+<img src="Power & Shadows - MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Chama Ancestral cover mp3..png" onclick="openLightbox(this.src)">
+<img src="Angel Wings - capa MP3.png" onclick="openLightbox(this.src)">
+<img src="Running High - Capa.png" onclick="openLightbox(this.src)">
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><span>★</span><h2>Featured Releases</h2></div>
+<p class="section-sub">
+A selection of strong VelvetVerse visuals representing the cinematic,
+rock and emotional identity of the band.
+</p>
+
+<div class="cover-grid">
+<div class="cover-card"><img src="Power & Shadows - MP3 cover.png" onclick="openLightbox(this.src)"><h3>Power & Shadows</h3><p>VelvetVerse Band</p></div>
+<div class="cover-card"><img src="Chama Ancestral cover mp3..png" onclick="openLightbox(this.src)"><h3>Chama Ancestral</h3><p>VelvetVerse Band</p></div>
+<div class="cover-card"><img src="Angel Wings - capa MP3.png" onclick="openLightbox(this.src)"><h3>Angel Wings</h3><p>VelvetVerse Band</p></div>
+<div class="cover-card"><img src="Before I Run Out of Time MP3 Cover.png" onclick="openLightbox(this.src)"><h3>Before I Run Out Of Time</h3><p>VelvetVerse Band</p></div>
+<div class="cover-card"><img src="Tomorrow Keeps Moving On - mp3 Cover.png" onclick="openLightbox(this.src)"><h3>Tomorrow Keeps Moving On</h3><p>VelvetVerse Band</p></div>
+<div class="cover-card"><img src="Static World - Capa - Mp3.png" onclick="openLightbox(this.src)"><h3>Static World</h3><p>VelvetVerse Band</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><span>🎤</span><h2>Voices of VelvetVerse</h2></div>
+<p class="section-sub">
+Different voices, instruments and personalities — one VelvetVerse Band universe.
+</p>
+
+<div class="voices">
+<div class="voice-card"><img src="beto-guitar.png"><h3>Beto</h3><p>Lead Guitar • Vocals</p></div>
+<div class="voice-card"><img src="carlos-drums.png"><h3>Carlos Moreira</h3><p>Drums • Vocals</p></div>
+<div class="voice-card"><img src="lara-keyboard.png"><h3>Lara Ingrid</h3><p>Keyboards • Vocals</p></div>
+<div class="voice-card"><img src="suzy-vocals.png"><h3>Suzy Mendes</h3><p>Vocals • Percussion</p></div>
+<div class="voice-card"><img src="noia-bass.png"><h3>Noia</h3><p>Bass • Backing Vocals</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><span>◆</span><h2>Stories • Themes • Emotions</h2></div>
+
+<div class="theme-grid">
+<div class="theme-card">
+<h3>Portuguese Soul</h3>
+<p>Visuals inspired by Portuguese identity, memories, saudade, places and emotional storytelling.</p>
+</div>
+
+<div class="theme-card">
+<h3>Rock & Shadows</h3>
+<p>Darker artwork, powerful guitars, cinematic atmospheres and the harder side of VelvetVerse.</p>
+</div>
+
+<div class="theme-card">
+<h3>Love & Memory</h3>
+<p>Romantic stories, nostalgia, personal journeys and songs with emotional depth.</p>
+</div>
+
+<div class="theme-card">
+<h3>Special Projects</h3>
+<p>Holiday releases, tributes, experimental concepts and unique VelvetVerse moments.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><span>✦</span><h2>Special Projects</h2></div>
+
+<div class="cover-grid">
+<div class="cover-card"><img src="grinch cover.png" onclick="openLightbox(this.src)"><h3>Grinch Smiled</h3><p>Special Project</p></div>
+<div class="cover-card"><img src="Cai Neve na Cidade.png" onclick="openLightbox(this.src)"><h3>Cai Neve na Cidade</h3><p>Seasonal Release</p></div>
+<div class="cover-card"><img src="Careless Whisper - George Michael - VelvetVerse Band Cover.png" onclick="openLightbox(this.src)"><h3>Careless Whisper</h3><p>VelvetVerse Cover</p></div>
+<div class="cover-card"><img src="Tribute by VelvetVerse Band to DIRE STRAITS MP3 Cover.png" onclick="openLightbox(this.src)"><h3>Dire Straits Tribute</h3><p>Tribute Project</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title"><span>▣</span><h2>Complete Collection Wall</h2></div>
+<p class="section-sub">
+A growing visual archive of VelvetVerse Band artwork and release covers.
+</p>
+
+<div class="collection-wall">
+<img src="Amei-te demais.png" onclick="openLightbox(this.src)">
+<img src="Amor que fica MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Angel Wings - capa MP3.png" onclick="openLightbox(this.src)">
+<img src="Apaixonado por uma E.T..png" onclick="openLightbox(this.src)">
+<img src="Areia Fina.png" onclick="openLightbox(this.src)">
+<img src="Before I Run Out of Time MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Bica Bica MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Bruxas e Fadas.png" onclick="openLightbox(this.src)">
+<img src="Cai Neve na Cidade.png" onclick="openLightbox(this.src)">
+<img src="Caminho de volta MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Camionista Madrugador MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Canto Pra Curar o Mundo MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Careless Whisper - George Michael - VelvetVerse Band Cover.png" onclick="openLightbox(this.src)">
+<img src="Chama Ancestral cover mp3..png" onclick="openLightbox(this.src)">
+<img src="Contigo Vou à Lua - mp3 cover.png" onclick="openLightbox(this.src)">
+<img src="Coração de Viana MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Coração que Não Volta.png" onclick="openLightbox(this.src)">
+<img src="Dança comigo MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Deixa o Sol Entrar.png" onclick="openLightbox(this.src)">
+<img src="Deixa-me  Navegar.png" onclick="openLightbox(this.src)">
+<img src="DESPAUTÉRIO MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Diz o Povo (e Tem Razao).png" onclick="openLightbox(this.src)">
+<img src="Diz-me Porque mp3 cover.png" onclick="openLightbox(this.src)">
+<img src="Eagles in the Fire MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Ecos da Liberdade.png" onclick="openLightbox(this.src)">
+<img src="Ela ja nao esta MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Entre a neve e a saudade mp3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Entre Nos.png" onclick="openLightbox(this.src)">
+<img src="Entre o Céu e a Rua MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Fly High Jays.png" onclick="openLightbox(this.src)">
+<img src="Fugir da Chuva MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="High Voltage mp3 cover.png" onclick="openLightbox(this.src)">
+<img src="Highway 401 - MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Kira.png" onclick="openLightbox(this.src)">
+<img src="Lines We Walk mp3 cover.png" onclick="openLightbox(this.src)">
+<img src="Louça faladora MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Mar de Ferro MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Mistério da Vila MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="No Azul Do Mar.png" onclick="openLightbox(this.src)">
+<img src="No Mesmo Ritmo.png" onclick="openLightbox(this.src)">
+<img src="Noite de Luz MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Não Brinques Com Quem Te Ama MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="O Amor que Não Passou.png" onclick="openLightbox(this.src)">
+<img src="O Galo do vizinho MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="O Meu Paraíso_ MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Ohos Abertos.png" onclick="openLightbox(this.src)">
+<img src="Olhos no Ecrã.png" onclick="openLightbox(this.src)">
+<img src="Olivia my Little Light.png" onclick="openLightbox(this.src)">
+<img src="Ouve o Mar Chamar.png" onclick="openLightbox(this.src)">
+<img src="Parabens pr'a ti MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Perto de Ti.png" onclick="openLightbox(this.src)">
+<img src="Power & Shadows - MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Precisamos de Mais Pontes.png" onclick="openLightbox(this.src)">
+<img src="Quando o destino Chamou - MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Quem Roubou Meu Robot mp3 cover.png" onclick="openLightbox(this.src)">
+<img src="Quem Sabe Um Dia.png" onclick="openLightbox(this.src)">
+<img src="Queremos Paz no Mundo.png" onclick="openLightbox(this.src)">
+<img src="Retrato Antigo.png" onclick="openLightbox(this.src)">
+<img src="Retratos do Mundo.png" onclick="openLightbox(this.src)">
+<img src="Reunited in Heaven MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Rosa Maria MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Rostos na Rua.png" onclick="openLightbox(this.src)">
+<img src="Running High - Capa.png" onclick="openLightbox(this.src)">
+<img src="SELF CONTROL MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Sombras de Saudade MP3 cover.png" onclick="openLightbox(this.src)">
+<img src="Sorria p'ra Vida.png" onclick="openLightbox(this.src)">
+<img src="SOS Cafe.png" onclick="openLightbox(this.src)">
+<img src="Stars in my Hands MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Static World - Capa - Mp3.png" onclick="openLightbox(this.src)">
+<img src="Sussurros na Pele.png" onclick="openLightbox(this.src)">
+<img src="Só Tu e Eu MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Ta Tudo Chill MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Tempestade em Toronto.png" onclick="openLightbox(this.src)">
+<img src="Teu Olhar de Marfim MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Tomorrow Keeps Moving On - mp3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Torres Vedras Chama por mim MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Tribute by VelvetVerse Band to DIRE STRAITS MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Tropeco do Destino.png" onclick="openLightbox(this.src)">
+<img src="Vamos Erguer Portugal MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="VelvetVerse performing Lady in Red by (Chris de Burgh).png" onclick="openLightbox(this.src)">
+<img src="Verão Sem Fim.png" onclick="openLightbox(this.src)">
+<img src="Vida à Deriva MP3 Cover.png" onclick="openLightbox(this.src)">
+<img src="Voz Que Não Se Cala MP3 cover.png" onclick="openLightbox(this.src)">
+</div>
+</section>
+
+<footer>
+© 2026 VelvetVerse Band — All rights reserved.
+</footer>
+
+<div class="lightbox" id="lightbox">
+<span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+<img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src){
+document.getElementById("lightbox-img").src = src;
+document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
