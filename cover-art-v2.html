@@ -7,65 +7,185 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#030303;color:#fff;font-family:Arial,sans-serif;background:radial-gradient(circle at top left,#260007,transparent 35%),radial-gradient(circle at top right,#1b1200,transparent 35%),#030303}
-header{height:72px;background:#020202;display:flex;align-items:center;justify-content:space-between;padding:0 42px;border-bottom:1px solid #2a1515;position:sticky;top:0;z-index:10}
+body{
+margin:0;
+background:#050000;
+color:#fff;
+font-family:Arial,sans-serif;
+background:radial-gradient(circle at top left,#260006,transparent 35%),linear-gradient(135deg,#050000,#170006,#240b00);
+}
+header{
+height:72px;
+background:#020202;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+border-bottom:1px solid rgba(255,80,80,.25);
+position:sticky;
+top:0;
+z-index:10;
+}
 .logo{width:145px}
-nav{display:flex;gap:17px;align-items:center}
-nav a{color:#eee;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:1px}
-nav a.active,nav a:hover{color:#ff3333}
+nav{display:flex;gap:16px;align-items:center}
+nav a{
+color:#eee;
+text-decoration:none;
+font-size:12px;
+font-weight:700;
+letter-spacing:1px;
+}
+nav a:hover,nav a.active{color:#ff3838}
 .socials{display:flex;gap:12px}
-.socials img{width:17px;filter:invert(1);opacity:.9}
+.socials img{width:16px;filter:invert(1);opacity:.9}
 
-.page{padding:14px}
-.dashboard{display:grid;grid-template-columns:250px 1.45fr .95fr .95fr;gap:10px;align-items:start}
-.panel{border:1px solid rgba(255,185,60,.35);border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(0,0,0,.65));padding:10px;box-shadow:0 0 18px rgba(255,80,0,.13);align-self:start}
-.hero{border-color:rgba(255,40,40,.35);text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:310px}
-.kicker{color:#ff3b3b;font-size:12px;letter-spacing:2px;font-weight:700}
-.hero h1{font-size:52px;line-height:.9;margin:22px 0 14px;font-family:Impact,Arial Black,sans-serif;letter-spacing:3px}
-.hero h2{color:#ffd34f;font-size:17px;line-height:1.4;letter-spacing:1px}
-.hero p{font-size:14px;color:#ddd;line-height:1.6}
-.vline{color:#ff3333;font-size:36px;text-shadow:0 0 16px red}
+main{
+max-width:1500px;
+margin:auto;
+padding:20px;
+}
 
-.panel-title{font-family:Impact,Arial Black,sans-serif;color:#ffd34f;letter-spacing:2px;font-size:24px;text-align:center;margin:0 0 12px}
-.red{color:#ff4b69}.cyan{color:#34e8ff}.purple{color:#dc4cff}
+.hero{
+text-align:center;
+padding:25px 10px 18px;
+}
+.hero h1{
+font-family:Impact,Arial Black,sans-serif;
+font-size:52px;
+letter-spacing:5px;
+margin:0;
+color:#fff;
+text-shadow:0 0 18px rgba(255,255,255,.35);
+}
+.hero p{
+color:#ffd34f;
+font-weight:700;
+letter-spacing:2px;
+margin:10px 0 0;
+}
 
-.cards5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.cards3{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.section{
+border:1px solid rgba(255,190,90,.32);
+border-radius:12px;
+background:rgba(0,0,0,.55);
+padding:14px;
+margin-bottom:18px;
+box-shadow:0 0 20px rgba(255,80,0,.12);
+}
+.section h2{
+font-family:Impact,Arial Black,sans-serif;
+letter-spacing:3px;
+text-align:center;
+margin:0 0 14px;
+font-size:26px;
+color:#ffd34f;
+}
 
-.mini{position:relative;border:1px solid rgba(255,255,255,.18);border-radius:7px;overflow:hidden;background:#111;cursor:pointer}
-.mini img{width:100%;aspect-ratio:1/1.18;object-fit:cover;display:block;transition:.25s}
-#specials .mini img{aspect-ratio:1.35/1}
-.mini:hover img{transform:scale(1.05)}
-.mini b{position:absolute;left:0;right:0;bottom:0;padding:9px 5px;background:linear-gradient(transparent,rgba(0,0,0,.95));font-size:13px;letter-spacing:1px;text-align:center;text-transform:uppercase}
-#specials .mini b{font-size:11px;padding:7px 4px}
-.mini small{display:block;color:#ddd;font-size:10px;margin-top:2px}
+.featured-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:10px;
+}
+.voice-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:10px;
+}
+.wall-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(105px,1fr));
+gap:9px;
+}
 
-.wide{grid-column:1/3}
-.collection-box{grid-column:3/5;display:grid;grid-template-columns:150px 1fr;align-items:center;gap:18px}
-.collection-icon{width:110px;height:110px;border:2px solid #d9a441;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:54px;color:#ffd34f;margin:auto}
-.collection-box h2{font-family:Impact,Arial Black,sans-serif;color:#ffd34f;letter-spacing:2px;margin:0;font-size:28px}
-.collection-box p{color:#ddd;font-size:16px}
-.collection-box a{display:inline-block;margin-top:8px;border:1px solid #ffcc33;color:#ffcc33;text-decoration:none;padding:12px 26px;font-weight:700;letter-spacing:2px}
+.card{
+position:relative;
+border:1px solid rgba(255,255,255,.18);
+border-radius:8px;
+overflow:hidden;
+background:#080808;
+cursor:pointer;
+}
+.card img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+display:block;
+transition:.25s;
+}
+.card:hover img{transform:scale(1.05)}
+.card span{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+padding:8px 5px;
+background:linear-gradient(transparent,rgba(0,0,0,.95));
+font-size:12px;
+font-weight:800;
+letter-spacing:1px;
+text-align:center;
+text-transform:uppercase;
+}
 
-.wall-title{text-align:center;font-family:Impact,Arial Black,sans-serif;font-size:25px;letter-spacing:8px;margin:20px 0 12px;color:#eee}
-.wall{border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px;background:rgba(0,0,0,.55)}
-.wall img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,.20);cursor:pointer;transition:.2s}
-.wall img:hover{transform:scale(1.04);box-shadow:0 0 18px rgba(255,80,0,.35)}
+.voice-card img{
+height:190px;
+object-fit:cover;
+}
+.voice-card span{
+font-size:12px;
+}
 
-footer{text-align:center;padding:25px;color:#999;font-size:13px}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:99;align-items:center;justify-content:center;padding:25px}
-.lightbox img{max-width:92vw;max-height:88vh;border-radius:10px}
-.close{position:fixed;top:18px;right:30px;color:#ffd34f;font-size:42px;cursor:pointer}
+.wall-grid img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:7px;
+border:1px solid rgba(255,255,255,.18);
+cursor:pointer;
+transition:.22s;
+}
+.wall-grid img:hover{
+transform:scale(1.04);
+box-shadow:0 0 18px rgba(255,80,0,.35);
+}
 
-@media(max-width:1000px){
-header{height:auto;flex-direction:column;gap:13px;padding:16px}
+footer{
+text-align:center;
+padding:24px;
+color:#aaa;
+font-size:13px;
+}
+
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.94);
+z-index:100;
+align-items:center;
+justify-content:center;
+padding:25px;
+}
+.lightbox img{
+max-width:92vw;
+max-height:88vh;
+border-radius:10px;
+}
+.close{
+position:fixed;
+top:18px;
+right:30px;
+font-size:42px;
+color:#ffd34f;
+cursor:pointer;
+}
+
+@media(max-width:900px){
+header{height:auto;flex-direction:column;gap:14px;padding:16px}
 nav{flex-wrap:wrap;justify-content:center}
-.dashboard{grid-template-columns:1fr}
-.wide,.collection-box{grid-column:auto}
-.cards5{grid-template-columns:repeat(2,1fr)}
-.cards3{grid-template-columns:repeat(2,1fr)}
-.collection-box{grid-template-columns:1fr;text-align:center}
+.featured-grid{grid-template-columns:repeat(2,1fr)}
+.voice-grid{grid-template-columns:repeat(2,1fr)}
+.wall-grid{grid-template-columns:repeat(auto-fill,minmax(82px,1fr))}
 }
 </style>
 </head>
@@ -94,51 +214,40 @@ nav{flex-wrap:wrap;justify-content:center}
 </div>
 </header>
 
-<main class="page">
+<main>
 
-<section class="dashboard">
-
-<div class="panel hero">
-<div class="kicker">★ PHOTO GALLERY ★</div>
-<h1>COVER<br>ART</h1>
-<h2>THE VISUAL UNIVERSE OF<br>VELVETVERSE BAND</h2>
-<p>Explore every chapter, every voice and every emotion through the art that brings our music to life.</p>
-<div class="vline">V</div>
+<div class="hero">
+<h1>COVER ART</h1>
+<p>THE VISUAL UNIVERSE OF VELVETVERSE BAND</p>
 </div>
 
-<div class="panel">
-<h2 class="panel-title">★ FEATURED RELEASES ★</h2>
-<div class="cards5" id="featured"></div>
+<section class="section">
+<h2>★ FEATURED RELEASES ★</h2>
+<div class="featured-grid">
+<div class="card" onclick="openLightbox('Chama Ancestral cover mp3..png')"><img src="Chama Ancestral cover mp3..png"><span>Chama Ancestral</span></div>
+<div class="card" onclick="openLightbox('Power & Shadows - MP3 cover.png')"><img src="Power & Shadows - MP3 cover.png"><span>Power & Shadows</span></div>
+<div class="card" onclick="openLightbox('Angel Wings - capa MP3.png')"><img src="Angel Wings - capa MP3.png"><span>Angel Wings</span></div>
+<div class="card" onclick="openLightbox('Running High - Capa.png')"><img src="Running High - Capa.png"><span>Running High</span></div>
+<div class="card" onclick="openLightbox('Before I Run Out of Time MP3 Cover.png')"><img src="Before I Run Out of Time MP3 Cover.png"><span>Before I Run Out Of Time</span></div>
+<div class="card" onclick="openLightbox('Tomorrow Keeps Moving On - mp3 Cover.png')"><img src="Tomorrow Keeps Moving On - mp3 Cover.png"><span>Tomorrow Keeps Moving On</span></div>
 </div>
-
-<div class="panel">
-<h2 class="panel-title red">🎤 VOICES OF VELVETVERSE (5)</h2>
-<div class="cards2" id="voices"></div>
-</div>
-
-<div class="panel">
-<h2 class="panel-title cyan">✦ STORIES • THEMES ✦</h2>
-<div class="cards2" id="themes"></div>
-</div>
-
-<div class="panel wide">
-<h2 class="panel-title purple">✧ SPECIAL PROJECTS • UNIQUE RELEASES</h2>
-<div class="cards3" id="specials"></div>
-</div>
-
-<div class="panel collection-box">
-<div class="collection-icon">V</div>
-<div>
-<h2>COMPLETE VELVETVERSE COLLECTION</h2>
-<p>Browse all covers from every release. The full journey. The full story.</p>
-<a href="#wall">EXPLORE ALL COVERS →</a>
-</div>
-</div>
-
 </section>
 
-<h2 class="wall-title" id="wall">★ COMPLETE COLLECTION WALL ★</h2>
-<section class="wall" id="collection"></section>
+<section class="section">
+<h2>🎤 VOICES OF VELVETVERSE</h2>
+<div class="voice-grid">
+<div class="card voice-card"><img src="beto-guitar.png"><span>Beto<br>Lead Guitar • Vocals</span></div>
+<div class="card voice-card"><img src="carlos-drums.png"><span>Carlos Moreira<br>Drums • Vocals</span></div>
+<div class="card voice-card"><img src="lara-keys.png"><span>Lara Ingrid<br>Keyboards • Vocals</span></div>
+<div class="card voice-card"><img src="suzy-vocals.png"><span>Suzy Mendes<br>Vocals • Percussion</span></div>
+<div class="card voice-card"><img src="noia-bass.png"><span>Noia<br>Bass • Backing Vocals</span></div>
+</div>
+</section>
+
+<section class="section">
+<h2>★ COMPLETE COLLECTION WALL ★</h2>
+<div class="wall-grid" id="collection"></div>
+</section>
 
 </main>
 
@@ -150,39 +259,7 @@ nav{flex-wrap:wrap;justify-content:center}
 </div>
 
 <script>
-const featured=[
-["Chama Ancestral cover mp3..png","CHAMA ANCESTRAL","BETO"],
-["Power & Shadows - MP3 cover.png","POWER & SHADOWS","VELVETVERSE BAND"],
-["Angel Wings - capa MP3.png","ANGEL WINGS","VELVETVERSE BAND"],
-["Running High - Capa.png","RUNNING HIGH","VELVETVERSE BAND"],
-["Before I Run Out of Time MP3 Cover.png","BEFORE I RUN OUT OF TIME","BETO"]
-];
-
-const voices=[
-["beto-guitar.png","BETO","Lead Guitar • Vocals"],
-["carlos-drums.png","CARLOS","Drums • Vocals"],
-["lara-keyboard.png","LARA INGRID","Keyboards • Vocals"],
-["suzy-vocals.png","SUZY MENDES","Vocals • Percussion"],
-["noia-bass.png","NOIA","Bass • Backing Vocals"]
-];
-
-const themes=[
-["Ecos da Liberdade.png","PORTUGUESE SOUL",""],
-["Power & Shadows - MP3 cover.png","ROCK & SHADOWS",""],
-["Entre Nos.png","LOVE & MEMORY",""],
-["Noite de Luz MP3 Cover.png","SPECIAL PROJECTS",""]
-];
-
-const specials=[
-["grinch cover.png","GRINCH SMILED",""],
-["Bruxas e Fadas.png","BRUXAS & FADAS",""],
-["Cai Neve na Cidade.png","CAI NEVE NA CIDADE",""],
-["Careless Whisper - George Michael - VelvetVerse Band Cover.png","CARELESS WHISPER",""],
-["Tribute by VelvetVerse Band to DIRE STRAITS MP3 Cover.png","DIRE STRAITS TRIBUTE",""],
-["SOS Cafe.png","+ MORE PROJECTS",""]
-];
-
-const collection=[
+const covers=[
 "Amei-te demais.png","Amor que fica MP3 Cover.png","Angel Wings - capa MP3.png","Apaixonado por uma E.T..png","Areia Fina.png",
 "Before I Run Out of Time MP3 Cover.png","Bica Bica MP3 cover.png","Bruxas e Fadas.png","Cai Neve na Cidade.png","Caminho de volta MP3 cover.png",
 "Camionista Madrugador MP3 Cover.png","Canto Pra Curar o Mundo MP3 Cover.png","Careless Whisper - George Michael - VelvetVerse Band Cover.png","Chama Ancestral cover mp3..png",
@@ -203,15 +280,8 @@ const collection=[
 "Vida à Deriva MP3 Cover.png","Voz Que Não Se Cala MP3 cover.png"
 ];
 
-function miniHTML(item){
-return `<div class="mini" onclick="openLightbox('${item[0]}')"><img src="${item[0]}"><b>${item[1]}<small>${item[2]||""}</small></b></div>`;
-}
-
-document.getElementById("featured").innerHTML=featured.map(miniHTML).join("");
-document.getElementById("voices").innerHTML=voices.map(miniHTML).join("");
-document.getElementById("themes").innerHTML=themes.map(miniHTML).join("");
-document.getElementById("specials").innerHTML=specials.map(miniHTML).join("");
-document.getElementById("collection").innerHTML=collection.map(src=>`<img src="${src}" onclick="openLightbox('${src}')">`).join("");
+document.getElementById("collection").innerHTML =
+covers.map(src => `<img src="${src}" onclick="openLightbox('${src}')">`).join("");
 
 function openLightbox(src){
 document.getElementById("lightboxImg").src=src;
