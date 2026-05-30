@@ -16,9 +16,9 @@ nav a.active,nav a:hover{color:#ff3333}
 .socials{display:flex;gap:12px}
 .socials img{width:17px;filter:invert(1);opacity:.9}
 
-.page{padding:18px}
-.dashboard{display:grid;grid-template-columns:280px 1.45fr .95fr .95fr;gap:14px}
-.panel{border:1px solid rgba(255,185,60,.35);border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(0,0,0,.65));padding:14px;box-shadow:0 0 18px rgba(255,80,0,.13)}
+.page{padding:14px}
+.dashboard{display:grid;grid-template-columns:250px 1.45fr .95fr .95fr;gap:10px;align-items:start}
+.panel{border:1px solid rgba(255,185,60,.35);border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(0,0,0,.65));padding:10px;box-shadow:0 0 18px rgba(255,80,0,.13);align-self:start}
 .hero{border-color:rgba(255,40,40,.35);text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:310px}
 .kicker{color:#ff3b3b;font-size:12px;letter-spacing:2px;font-weight:700}
 .hero h1{font-size:52px;line-height:.9;margin:22px 0 14px;font-family:Impact,Arial Black,sans-serif;letter-spacing:3px}
@@ -31,11 +31,14 @@ nav a.active,nav a:hover{color:#ff3333}
 
 .cards5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cards3{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+
 .mini{position:relative;border:1px solid rgba(255,255,255,.18);border-radius:7px;overflow:hidden;background:#111;cursor:pointer}
 .mini img{width:100%;aspect-ratio:1/1.18;object-fit:cover;display:block;transition:.25s}
+#specials .mini img{aspect-ratio:1.35/1}
 .mini:hover img{transform:scale(1.05)}
 .mini b{position:absolute;left:0;right:0;bottom:0;padding:9px 5px;background:linear-gradient(transparent,rgba(0,0,0,.95));font-size:13px;letter-spacing:1px;text-align:center;text-transform:uppercase}
+#specials .mini b{font-size:11px;padding:7px 4px}
 .mini small{display:block;color:#ddd;font-size:10px;margin-top:2px}
 
 .wide{grid-column:1/3}
@@ -61,6 +64,7 @@ nav{flex-wrap:wrap;justify-content:center}
 .dashboard{grid-template-columns:1fr}
 .wide,.collection-box{grid-column:auto}
 .cards5{grid-template-columns:repeat(2,1fr)}
+.cards3{grid-template-columns:repeat(2,1fr)}
 .collection-box{grid-template-columns:1fr;text-align:center}
 }
 </style>
